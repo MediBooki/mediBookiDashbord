@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\InsuranceController;
+use App\Http\Controllers\SectionController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,15 +18,17 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath', ]
 ], function(){
-    Route::get('/', function () {
-        return view('welcome');
+    Route::middleware('auth')->group(function () {
+        Route::get('/dashboard', function () {
+            return view('dashboard.index');
+        })->name('dashboard');
+        Route::resource('sections' , SectionController::class)->except(['edit','create']);
+        Route::resource('doctors' , DoctorController::class);
+        Route::resource('services' , ServiceController::class)->except(['edit','create','show']);
+        Route::resource('insurances' , InsuranceController::class);
     });
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->middleware(['auth'])->name('dashboard');
-    
     require __DIR__.'/auth.php';
 });
 
