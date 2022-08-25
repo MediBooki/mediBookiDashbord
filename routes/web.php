@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AmbulanceController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\SectionController;
@@ -27,7 +28,8 @@ Route::group([
         Route::resource('sections' , SectionController::class)->except(['edit','create']);
         Route::resource('doctors' , DoctorController::class);
         Route::resource('services' , ServiceController::class)->except(['edit','create','show']);
-        Route::resource('insurances' , InsuranceController::class);
+        Route::resource('insurances' , InsuranceController::class)->except(['edit','create','show']);
+        Route::resource('ambulances' , AmbulanceController::class);
     });
     require __DIR__.'/auth.php';
 });

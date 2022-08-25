@@ -11,5 +11,5 @@ return array (
   'service_description_en' => 'وصف الخدمة بالانجليزية',
   'service_name_ar' => 'اسم الخدمة بالغة العربية',
   'service_name_en' => 'اسم الخدمة بالغة الانجليزية',
-  'status' => 'حالة الخدمة',
+  'status' => 'الحالة',
 );

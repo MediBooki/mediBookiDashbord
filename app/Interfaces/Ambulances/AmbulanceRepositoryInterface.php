@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Interfaces\Insurances;
+namespace App\Interfaces\Ambulances;
 
-interface InsuranceRepositoryInterface
+interface AmbulanceRepositoryInterface
 {
     public function index();
+    public function create();
+    public function edit($id);
     public function store($request);
     public function update($request);
     public function destroy($request);

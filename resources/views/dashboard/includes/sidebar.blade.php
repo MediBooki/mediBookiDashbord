@@ -36,10 +36,10 @@
                             <a class="menu-item" href="#" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.group_service')}}</a>
                         </li>
                         <li class="">
-                            <a class="menu-item" href="#" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.insurance')}}</a>
+                            <a class="menu-item" href="{{ route('insurances.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.insurance')}}</a>
                         </li>
                         <li class="">
-                            <a class="menu-item" href="#" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.ambulance')}}</a>
+                            <a class="menu-item" href="{{ route('ambulances.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.ambulance')}}</a>
                         </li>
                         <li>
                             <a class="menu-item" href="#" data-i18n="nav.dash.crypto">{{ trans('main-sidebar.ambulance_calls') }}</a>
