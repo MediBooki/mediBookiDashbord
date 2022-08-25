@@ -3,6 +3,7 @@
 use App\Http\Controllers\AmbulanceController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\InsuranceController;
+use App\Http\Controllers\PatientController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,7 @@ Route::group([
         Route::resource('services' , ServiceController::class)->except(['edit','create','show']);
         Route::resource('insurances' , InsuranceController::class)->except(['edit','create','show']);
         Route::resource('ambulances' , AmbulanceController::class);
+        Route::resource('patients' , PatientController::class);
     });
     require __DIR__.'/auth.php';
 });
