@@ -14,6 +14,7 @@ return array (
   'index' => 'Home',
   'insurances' => 'Insurances',
   'main' => 'MediaBooking System',
+  'patient' => 'Patients',
   'sections' => 'Sections',
   'services' => 'Services',
   'single_service' => 'Single Service',

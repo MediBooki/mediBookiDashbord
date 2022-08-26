@@ -3,6 +3,7 @@
 return array (
   'Add' => 'اضافة دكتور',
   'appointments' => 'مواعيد الكشف',
+  'blood_group' => 'فصيلة الدم',
   'delete_select' => 'حذف مجموعة اطباء',
   'disabled' => 'غير مفعل',
   'doctor_appointments_ar' => 'المواعيد بالعربية',

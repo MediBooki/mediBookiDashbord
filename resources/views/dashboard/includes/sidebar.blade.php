@@ -47,10 +47,10 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href=""><i class="la la-edit"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('size.Sizes') }}</span></a>
+                    <a href=""><i class="la la-edit"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.patient') }}</span></a>
                     <ul class="menu-content">
                         <li class="">
-                            <a class="menu-item" href="#" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.view All')}}</a>
+                            <a class="menu-item" href="{{ route('patients.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('patient.patient_list')}}</a>
                         </li>
                         <li>
                             <a class="menu-item" href="#" data-i18n="nav.dash.crypto">{{ trans('size.Add_Size') }}</a>

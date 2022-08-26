@@ -14,6 +14,7 @@ return array (
   'index' => 'الرئيسية',
   'insurance' => 'شركات التأمين',
   'main' => 'ادارة المستضفيات',
+  'patient' => 'المرضي',
   'sections' => 'الاقسام',
   'services' => 'الخدمات',
   'single_service' => 'الخدمات المفردة',
