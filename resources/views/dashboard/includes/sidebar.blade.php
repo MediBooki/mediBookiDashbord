@@ -60,10 +60,10 @@
             
             
                 <li class="nav-item">
-                    <a href=""><i class="la la-tags"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('tag.Tags') }}</span></a>
+                    <a href=""><i class="la la-tags"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.invoice') }}</span></a>
                     <ul class="menu-content">
                         <li class="">
-                            <a class="menu-item" href="#" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.view All')}}</a>
+                            <a class="menu-item" href="{{ route('invoices.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('invoice.invoice_list')}}</a>
                         </li>
                         <li>
                             <a class="menu-item" href="#" data-i18n="nav.dash.crypto">{{ trans('tag.Add_Tag') }}</a>

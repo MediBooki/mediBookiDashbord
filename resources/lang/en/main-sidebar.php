@@ -13,6 +13,7 @@ return array (
   'group_service' => 'Group Service',
   'index' => 'Home',
   'insurances' => 'Insurances',
+  'invoice' => 'Invoices',
   'main' => 'MediaBooking System',
   'patient' => 'Patients',
   'sections' => 'Sections',

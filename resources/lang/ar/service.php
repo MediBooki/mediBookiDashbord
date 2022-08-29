@@ -4,7 +4,7 @@ return array (
   'Add' => 'اضافة خدمة جديدة',
   'description' => 'الوصف',
   'insurance' => 'شركات التأمين',
-  'name' => 'الاسم',
+  'name' => 'اسم الخدمة',
   'photo' => 'صورة',
   'price' => 'السعر',
   'service_description_ar' => 'وصف الخدمة بالعربى',

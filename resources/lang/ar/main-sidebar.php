@@ -13,6 +13,7 @@ return array (
   'group_service' => 'مجموعة خدمات',
   'index' => 'الرئيسية',
   'insurance' => 'شركات التأمين',
+  'invoice' => 'الفواتير',
   'main' => 'ادارة المستضفيات',
   'patient' => 'المرضي',
   'sections' => 'الاقسام',

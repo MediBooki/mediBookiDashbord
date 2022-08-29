@@ -5,12 +5,14 @@ namespace App\Providers;
 use App\Interfaces\Ambulances\AmbulanceRepositoryInterface;
 use App\Interfaces\Doctors\DoctorRepositoryInterface;
 use App\Interfaces\Insurances\InsuranceRepositoryInterface;
+use App\Interfaces\Invoices\InvoiceRepositoryInterface;
 use App\Interfaces\Patients\PatientRepositoryInterface;
 use App\Interfaces\Sections\SectionRepositoryInterface;
 use App\Interfaces\Services\ServiceRepositoryInterface;
 use App\Repository\Ambulances\AmbulanceRepository;
 use App\Repository\Doctors\DoctorRepository;
 use App\Repository\Insurances\InsuranceRepository;
+use App\Repository\Invoices\InvoiceRepository;
 use App\Repository\Patients\PatientRepository;
 use App\Repository\Sections\SectionRepository;
 use App\Repository\Services\ServiceRepository;
@@ -31,6 +33,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(InsuranceRepositoryInterface::class, InsuranceRepository::class);
         $this->app->bind(AmbulanceRepositoryInterface::class, AmbulanceRepository::class);
         $this->app->bind(PatientRepositoryInterface::class, PatientRepository::class);
+        $this->app->bind(InvoiceRepositoryInterface::class, InvoiceRepository::class);
     }
 
     /**
