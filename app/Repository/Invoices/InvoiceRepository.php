@@ -26,6 +26,12 @@ class InvoiceRepository implements InvoiceRepositoryInterface
         return view('dashboard.invoices.create',compact('patients', 'doctors','services'));
     }
 
+    public function show($id)
+    {
+        $invoice = Invoice::findOrFail($id);
+        return view('dashboard.invoices.show', compact('invoice'));
+    }
+
     public function store($request)
     {
         DB::beginTransaction();

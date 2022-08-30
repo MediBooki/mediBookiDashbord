@@ -23,6 +23,12 @@ class InvoiceController extends Controller
     {
         return $this->invoice->create();
     }
+
+    public function show($id)
+    {
+        return $this->invoice->show($id);
+    }
+    
     public function store(Request $request)
     {
         return $this->invoice->store($request);

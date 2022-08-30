@@ -73,13 +73,13 @@
             
             
                 <li class="nav-item">
-                    <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('weight.Weights') }}</span></a>
+                    <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.account') }}</span></a>
                     <ul class="menu-content">
                         <li class="">
-                            <a class="menu-item" href="#" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.view All')}}</a>
+                            <a class="menu-item" href="{{ route('receipts.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.receipt')}}</a>
                         </li>
                         <li>
-                            <a class="menu-item" href="#" data-i18n="nav.dash.crypto">{{ trans('weight.Add_Weight') }}</a>
+                            <a class="menu-item" href="{{ route('payments.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.payment')}}</a>
                         </li>
                     </ul>
                 </li>

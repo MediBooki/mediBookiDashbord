@@ -101,7 +101,7 @@
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('invoice.type') }}</label>
-                                                            <select name="type" class="select2 form-control">
+                                                            <select name="type" class="select2 form-control" disabled>
                                                                 <optgroup label="{{ trans('invoice.type') }}">
                                                                 <option value="1" {{ $invoice->type == 1 ? ' selected' : '' }}>نقدي</option>
                                                                 <option value="2" {{ $invoice->type == 2 ? ' selected' : '' }}>اجل</option>

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Interfaces\Invoices;
+namespace App\Interfaces\Receipts;
 
-interface InvoiceRepositoryInterface
+interface ReceiptRepositoryInterface
 {
     public function index();
     public function create();

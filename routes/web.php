@@ -5,6 +5,8 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ReceiptController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -33,12 +35,19 @@ Route::group([
         Route::resource('insurances' , InsuranceController::class)->except(['edit','create','show']);
         Route::resource('ambulances' , AmbulanceController::class);
         Route::resource('patients' , PatientController::class);
+
+        /* crud  الفواتير 8*/
         Route::resource('invoices' , InvoiceController::class);
         Route::get('/invoices/sections/doctors/{id}', [InvoiceController::class,'getSection']);
         Route::get('/invoices/service/price/{id}', [InvoiceController::class,'getPrice']);
         // Edit
         Route::get('/invoices/{invo_id}/sections/doctors/{id}', [InvoiceController::class,'getSectionEdit']);
         Route::get('/invoices/{invo_id}/service/price/{id}', [InvoiceController::class,'getPriceEdit']);
+        /*-------------End--------------------------- */
+        /* السندات القبض والصرف */
+        Route::resource('receipts' , ReceiptController::class);
+        Route::resource('payments' , PaymentController::class);
+         /*-------------End--------------------------- */
     });
     require __DIR__.'/auth.php';
 });
