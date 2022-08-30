@@ -21,6 +21,10 @@ class PatientController extends Controller
     {
         return $this->patient->create();
     }
+    public function show($id)
+    {
+        return $this->patient->show($id);
+    }
     public function store(Request $request)
     {
         return $this->patient->store($request);

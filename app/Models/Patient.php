@@ -11,5 +11,5 @@ class Patient extends Model implements HasMedia
 {
     use HasFactory,InteractsWithMedia;
     protected $guarded = [];
-    public $timestamps = true;
+    public $timestamps = true;   
 }

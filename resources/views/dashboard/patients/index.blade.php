@@ -63,7 +63,7 @@
                                                 @foreach($patients as $patient)
                                                     <tr>
                                                         <td>{{$loop->iteration}}</td>
-                                                        <td>{{$patient->name}}</td>
+                                                        <td><a href="{{route('patients.show', $patient->id)}}">{{ $patient->name }}</a></td>
                                                         <td>{{$patient->email }}</td>
                                                         <td>{{$patient->date_of_birth}}</td>
                                                         <td>{{$patient->phone}}</td>
