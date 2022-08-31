@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\doctorDashboard\DiagnosticController;
 use App\Http\Controllers\doctorDashboard\InvoiceController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,12 +24,14 @@ Route::group([
             return view('dashboard.doctorDashboard.dashboard');
         })->name('dashboard.doctor');
 
-        Route::get('invoices',[InvoiceController::class,'index'])->name('doctor.invoices');
+        Route::get('invoice',[InvoiceController::class,'index'])->name('doctor.invoices');
+        Route::get('invoice/complete',[InvoiceController::class,'complete'])->name('doctor.invoices.complete');
+        Route::get('invoice/review',[InvoiceController::class,'review'])->name('doctor.invoices.review');
 
+        // التشخيصات
+        Route::resource('diagnostics' , DiagnosticController::class);
+        Route::post('add/review',[DiagnosticController::class,'addReview'])->name('add.review');
     });
-
-  
-
     require __DIR__.'/auth.php';
 });
 

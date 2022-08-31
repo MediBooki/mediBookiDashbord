@@ -190,6 +190,9 @@
     $('#meridians14').timeDropper({
         meridians: true,setCurrentTime: false
     });
+    $(function () {
+            $('#datetimepicker1').datetimepicker();
+        });
 </script>
 @yield('script')
 </body>

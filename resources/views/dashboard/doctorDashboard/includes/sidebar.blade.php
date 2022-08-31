@@ -65,8 +65,11 @@
                         <li class="">
                             <a class="menu-item" href="{{ route('doctor.invoices') }}" data-i18n="nav.dash.ecommerce">{{ trans('invoice.invoice_list')}}</a>
                         </li>
-                        <li>
-                            <a class="menu-item" href="#" data-i18n="nav.dash.crypto">{{ trans('tag.Add_Tag') }}</a>
+                        <li class="">
+                            <a class="menu-item" href="{{ route('doctor.invoices.complete') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.invoice_list_complete')}}</a>
+                        </li>
+                        <li class="">
+                            <a class="menu-item" href="{{ route('doctor.invoices.review') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.invoice_list_review')}}</a>
                         </li>
                     </ul>
                 </li>

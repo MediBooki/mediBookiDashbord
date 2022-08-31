@@ -5,13 +5,13 @@
     <div class="content-wrapper">
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3 class="content-header-title"> {{ trans('main-sidebar.invoice') }} </h3>
+                <h3 class="content-header-title"> {{ trans('main-sidebar.invoice_list_complete')}} </h3>
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('dashboard.doctor')}}">{{ trans('main-sidebar.index') }}</a>
                             </li>
-                            <li class="breadcrumb-item active"> {{ trans('main-sidebar.invoice') }}
+                            <li class="breadcrumb-item active"> {{ trans('main-sidebar.invoice_list_complete')}}
                             </li>
                         </ol>
                     </div>
@@ -25,7 +25,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">All {{ trans('main-sidebar.invoice') }}</h4>
+                                <h4 class="card-title">All {{ trans('main-sidebar.invoice_list_complete')}}</h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -55,7 +55,6 @@
                                                 <th>{{ trans('invoice.tax_value') }}</th>
                                                 <th>{{ trans('invoice.total_with_tax') }}</th>
                                                 <th>{{ trans('invoice.type') }}</th>
-                                                <th>{{ trans('main-sidebar.Control')}}</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -72,24 +71,9 @@
                                                         <td>{{$invoice->tax_rate}}</td>
                                                         <td>{{$invoice->tax_value}}</td>
                                                         <td>{{$invoice->total_with_tax}}</td>
-                                                        <td><span class="bg-danger text-white">تحت المراجعة</span></td>
-                                                        <td>
-                                                            <div class="btn-group">
-                                                                <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                                    {{ trans('main-sidebar.Control')}}
-                                                                </button>
-                                                                <div class="dropdown-menu" style="right: -50%;">
-                                                                    <a class="dropdown-item"  data-target="#add_diagnosis{{ $invoice->id }}" data-toggle="modal"><i class="text-primary la la-stethoscope"></i>{{ trans('diagnosis.add_diagnosis') }}</a>           
-                                                                    <a class="dropdown-item"  data-target="#add_review{{ $invoice->id }}" data-toggle="modal"><i class="text-warning la la-file"></i>اضافة مراجعة</a>                                                         
-                                                                    <a class="dropdown-item"  data-target="#ll{{ $invoice->id }}" data-toggle="modal"><i class="text-primary la la-map-pin"></i>نحويل الي الاشعة</a>                                                         
-                                                                    <a class="dropdown-item"  data-target="#ll{{ $invoice->id }}" data-toggle="modal"><i class="text-warning la la-tint"></i>تحويل الي المختبر</a>                                                         
-                                                                    <a class="dropdown-item" data-target="#delete{{ $invoice->id }}" data-toggle="modal" ><i class="text-danger la la-trash"></i>{{ trans('main-sidebar.Delete')}}</a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
+                                                        <td><span class="bg-success text-white">مكتمل</span></td>
                                                     </tr>
                                                     @include('dashboard.doctorDashboard.invoices.add_diagnosis')
-                                                    @include('dashboard.doctorDashboard.invoices.add_review')
                                                     {{-- @include('dashboard.invoices.delete') --}}
 
                                                 @endforeach

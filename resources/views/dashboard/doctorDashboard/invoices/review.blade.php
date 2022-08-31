@@ -5,13 +5,13 @@
     <div class="content-wrapper">
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3 class="content-header-title"> {{ trans('main-sidebar.invoice') }} </h3>
+                <h3 class="content-header-title"> {{ trans('main-sidebar.invoice_list_review')}} </h3>
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('dashboard.doctor')}}">{{ trans('main-sidebar.index') }}</a>
                             </li>
-                            <li class="breadcrumb-item active"> {{ trans('main-sidebar.invoice') }}
+                            <li class="breadcrumb-item active"> {{ trans('main-sidebar.invoice_list_review')}}
                             </li>
                         </ol>
                     </div>
@@ -25,7 +25,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">All {{ trans('main-sidebar.invoice') }}</h4>
+                                <h4 class="card-title">All {{ trans('main-sidebar.invoice_list_review')}}</h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -72,7 +72,7 @@
                                                         <td>{{$invoice->tax_rate}}</td>
                                                         <td>{{$invoice->tax_value}}</td>
                                                         <td>{{$invoice->total_with_tax}}</td>
-                                                        <td><span class="bg-danger text-white">تحت المراجعة</span></td>
+                                                        <td><span class="bg-warning text-white">مراجعة</span></td>
                                                         <td>
                                                             <div class="btn-group">
                                                                 <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -89,7 +89,6 @@
                                                         </td>
                                                     </tr>
                                                     @include('dashboard.doctorDashboard.invoices.add_diagnosis')
-                                                    @include('dashboard.doctorDashboard.invoices.add_review')
                                                     {{-- @include('dashboard.invoices.delete') --}}
 
                                                 @endforeach

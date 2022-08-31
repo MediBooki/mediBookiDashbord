@@ -18,6 +18,7 @@ return array (
   'invoice' => 'Invoices',
   'main' => 'MediaBooking System',
   'patient' => 'Patients',
+  'patient_history' => 'Patient History',
   'payment' => 'Exchange Bonds',
   'receipt' => 'Receipts',
   'sections' => 'Sections',

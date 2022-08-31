@@ -106,13 +106,12 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> {{ trans('ambulance.dirver_name_en') }}
-                                                                 </label>
+                                                            <label for="projectinput1"> {{ trans('ambulance.dirver_name_en') }}</label>
                                                             <input type="text" id="name"
-                                                                   class="form-control"
-                                                                   placeholder="  "
-                                                                   value="{{old('driver_name_en')}}"
-                                                                   name="driver_name_en">
+                                                                class="form-control"
+                                                                placeholder="  "
+                                                                value="{{old('driver_name_en')}}"
+                                                                name="driver_name_en">
                                                             @error("driver_name_en")
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
@@ -135,13 +134,12 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> {{ trans('ambulance.driver_phone') }}
-                                                                 </label>
+                                                            <label for="projectinput1"> {{ trans('ambulance.driver_phone') }}</label>
                                                             <input type="text" id="name"
-                                                                   class="form-control"
-                                                                   placeholder="  "
-                                                                   value="{{old('driver_phone')}}"
-                                                                   name="driver_phone">
+                                                                class="form-control"
+                                                                placeholder="  "
+                                                                value="{{old('driver_phone')}}"
+                                                                name="driver_phone">
                                                             @error("driver_phone")
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
