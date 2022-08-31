@@ -26,6 +26,8 @@ class CreateInvoicesTable extends Migration
             $table->string('tax_value');
             $table->double('total_with_tax',8,2)->default(0);
             $table->integer('type')->default(1);
+            $table->integer('status')->default(1);
+            $table->string('description_status')->nullable();
             $table->timestamps();
         });
     }

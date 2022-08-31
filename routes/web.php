@@ -26,7 +26,7 @@ Route::group([
     'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath', ]
 ], function(){
     Route::middleware('auth')->group(function () {
-        Route::get('/dashboard', function () {
+        Route::get('/dashboard/admin', function () {
             return view('dashboard.index');
         })->name('dashboard');
         Route::resource('sections' , SectionController::class)->except(['edit','create']);
@@ -49,6 +49,8 @@ Route::group([
         Route::resource('payments' , PaymentController::class);
          /*-------------End--------------------------- */
     });
+
+    
     require __DIR__.'/auth.php';
 });
 

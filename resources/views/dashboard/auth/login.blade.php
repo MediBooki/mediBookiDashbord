@@ -34,16 +34,16 @@
                                 <label for="sectionchoose">حدد طريقة الدخول</label>
                                 <select class="form-control" id="sectionchoose">
                                     <option selected disabled>تختار من القائمة</option>
-                                    <option value="user">الدخول كمريض</option>
+                                    <option value="doctor">دخول دكتور </option>
                                     <option value="admin">الدخول كأدمن</option>
                                 </select>
                             </div>
                             {{-- Form User --}}
-                            <div class="loginform" id="user">
+                            <div class="loginform" id="doctor">
                                 <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
-                                    <span>الدخول كمريض </span>
+                                    <span>دخول دكتور </span>
                                 </h6>
-                                <form class="form-horizontal form-simple" action="{{ route('login') }}" method="post"
+                                <form class="form-horizontal form-simple" action="{{ route('login.doctor') }}" method="post"
                                     novalidate>
                                     @csrf
                                     <fieldset class="form-group position-relative has-icon-left mb-0">

@@ -72,16 +72,28 @@
       data-open="click" data-menu="vertical-menu" data-col="2-columns">
 <!-- fixed-top-->
 
-<!-- begin header -->
-@include('dashboard.includes.header')
- <!-- end header -->
- <!-- begin sidebar -->
-@include('dashboard.includes.sidebar')
-  <!-- end sidebar -->
- @yield('content')
+@if(Auth::guard('web')->check())
+    <!-- begin header -->
+    @include('dashboard.includes.header')
+    <!-- end header -->
+    <!-- begin sidebar -->
+    @include('dashboard.includes.sidebar')
+    <!-- end sidebar -->
+    @yield('content')
+        <!-- begin footer html -->
+    @include('dashboard.includes.footer')
+@else
+    <!-- begin header -->
+    @include('dashboard.doctorDashboard.includes.header')
+    <!-- end header -->
+    <!-- begin sidebar -->
+    @include('dashboard.doctorDashboard.includes.sidebar')
+    <!-- end sidebar -->
+    @yield('content')
 
-<!-- begin footer html -->
-@include('dashboard.includes.footer')
+    <!-- begin footer html -->
+    @include('dashboard.doctorDashboard.includes.footer')
+@endif
 
 
 

@@ -9,7 +9,7 @@
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('dashboard')}}">{{ trans('main-sidebar.index') }}</a>
+                            <li class="breadcrumb-item"><a href="{{route('dashboard.doctor')}}">{{ trans('main-sidebar.index') }}</a>
                             </li>
                             <li class="breadcrumb-item active"> {{ trans('main-sidebar.invoice') }}
                             </li>
@@ -51,7 +51,6 @@
                                                 <th>{{ trans('service.name') }}</th>
                                                 <th>{{ trans('patient.name') }}</th>
                                                 <th>{{ trans('invoice.invoice_date') }}</th>
-                                                <th>{{ trans('doctor.name') }}</th>
                                                 <th>{{ trans('service.name') }}</th>
                                                 <th>{{ trans('service.price') }}</th>
                                                 <th>{{ trans('invoice.discount_value') }}</th>
@@ -70,16 +69,15 @@
                                                         <td>{{$invoice->service->name}}</td>
                                                         <td>{{$invoice->patient->name }}</td>
                                                         <td>{{$invoice->invoice_date}}</td>
-                                                        <td>{{$invoice->doctor->name}}</td>
                                                         <td>{{$invoice->service->name}}</td>
                                                         <td>{{$invoice->service->price}}</td>
                                                         <td>{{$invoice->discount_value}}</td>
                                                         <td>{{$invoice->tax_rate}}</td>
                                                         <td>{{$invoice->tax_value}}</td>
                                                         <td>{{$invoice->total_with_tax}}</td>
-                                                        <td>{{$invoice->type}}</td>
+                                                        <td>{{$invoice->status == 1 ?  'تحت المراجعة' : $invoice->status == 2 ? : 'مراجعة'  : 'مكتملة'}}</td>
                                                         <td>
-                                                            <div class="btn-group">
+                                                            {{-- <div class="btn-group">
                                                                 <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                                                     {{ trans('main-sidebar.Control')}}
                                                                 </button>
@@ -88,7 +86,7 @@
                                                                     <a class="dropdown-item" href="{{ route('invoices.show',$invoice->id) }}" target="_blank"><i class="text-warning la la-print"></i>{{ trans('main-sidebar.Print') }}</a>                                                         
                                                                     <a class="dropdown-item" data-target="#delete{{ $invoice->id }}"data-toggle="modal" ><i class="text-danger la la-trash"></i>{{ trans('main-sidebar.Delete')}}</a>
                                                                 </div>
-                                                              </div>
+                                                              </div> --}}
                                                         </td>
                                                     </tr>
                                                     @include('dashboard.invoices.delete')
