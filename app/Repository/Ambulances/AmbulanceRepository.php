@@ -50,8 +50,8 @@ class AmbulanceRepository implements AmbulanceRepositoryInterface
     }
     public function destroy($request)
     {  
-        $section = ambulance::findOrFail($request->id);
-        $section->delete(); 
+        $ambulance = ambulance::findOrFail($request->id);
+        $ambulance->delete(); 
         return redirect()->route('ambulances.index')->with(['success' => 'Ambulances Deleted Successfully']);
     }
 }

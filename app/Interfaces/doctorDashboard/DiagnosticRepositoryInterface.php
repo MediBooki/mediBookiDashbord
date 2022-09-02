@@ -12,4 +12,5 @@ interface DiagnosticRepositoryInterface
     public function addReview($request);
     // public function update($request);
     // public function destroy($request);
+    
 }

@@ -89,6 +89,8 @@
                                                         </td>
                                                     </tr>
                                                     @include('dashboard.doctorDashboard.invoices.add_diagnosis')
+                                                    @include('dashboard.doctorDashboard.invoices.add_review')
+                                                    @include('dashboard.doctorDashboard.rays.xray')
                                                     {{-- @include('dashboard.invoices.delete') --}}
 
                                                 @endforeach

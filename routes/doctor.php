@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\doctorDashboard\DiagnosticController;
 use App\Http\Controllers\doctorDashboard\InvoiceController;
+use App\Http\Controllers\doctorDashboard\RayController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,10 @@ Route::group([
         // التشخيصات
         Route::resource('diagnostics' , DiagnosticController::class);
         Route::post('add/review',[DiagnosticController::class,'addReview'])->name('add.review');
+
+        // الاشعة
+        Route::resource('rays' , RayController::class);
+
     });
     require __DIR__.'/auth.php';
 });
