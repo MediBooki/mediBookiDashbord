@@ -5,6 +5,7 @@ namespace App\Repository\doctorDashboard;
 use App\Interfaces\doctorDashboard\DiagnosticRepositoryInterface;
 use App\Models\Diagnostic;
 use App\Models\Invoice;
+use App\Models\laboratory;
 use App\Models\Ray;
 use Illuminate\Support\Facades\DB;
 
@@ -30,7 +31,8 @@ class DiagnosticRepository implements DiagnosticRepositoryInterface
     {
         $patient_records = Diagnostic::where('patient_id', $id)->orderBy('id','DESC')->get();
         $patient_rays = Ray::where('patient_id', $id)->orderBy('id','DESC')->get();
-        return view('dashboard.doctorDashboard.patients.show',compact('patient_records','patient_rays'));
+        $patient_laboratories = laboratory::where('patient_id', $id)->orderBy('id','DESC')->get();
+        return view('dashboard.doctorDashboard.patients.show',compact('patient_records','patient_rays','patient_laboratories'));
     }
     public function addReview($request)
     {

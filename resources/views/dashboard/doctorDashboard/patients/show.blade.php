@@ -139,29 +139,38 @@
                                         <div class="tab-pane" id="stop-limit" aria-labelledby="base-stop-limit">
                                             <div class="row">
                                                 <div class="table-responsive">
-                                                    <table class="table display nowrap table-striped table-bordered">
-                                                        <thead class="">
+                                                    <table id="example" class="table display nowrap table-striped table-bordered">
+                                                        <thead>
                                                         <tr>
                                                             <th>##</th>
-                                                            <th>{{ trans('patient.name') }}</th>
-                                                            <th>{{ trans('receipt.depit') }}</th>
-                                                            <th>{{ trans('receipt.description') }}</th>
-                                                            <th>{{ trans('receipt.date')}}</th>
+                                                            <th>{{ trans('service.name') }}</th>
+                                                            <th>{{ trans('doctor.name') }}</th>
+                                                            <th>{{ trans('main-sidebar.Control')}}</th>
                                                         </tr>
                                                         </thead>
                                                         <tbody>
-                                                        @isset($receipts)
-                                                            @foreach($receipts as $receipt)
+                                                        @isset($patient_laboratories)
+                                                            @foreach($patient_laboratories as $laboratory)
                                                                 <tr>
                                                                     <td>{{$loop->iteration}}</td>
-                                                                    <td> {{$receipt->patient->name}}</a></td>
-                                                                    <td>{{number_format($receipt->debit,2)}}</td>
-                                                                    <td>{{\Str::limit($receipt->description,60)}}</td>
-                                                                    <td>{{$receipt->date}}</td>
+                                                                    <td>{{$laboratory->description}}</td>
+                                                                    <td>{{$laboratory->doctor->name}}</td>
+                                                                    <td>
+                                                                        @if ($laboratory->doctor_id == auth()->user()->id)
+                                                                            <div class="btn-group" role="group"
+                                                                                aria-label="Basic example">
+                                                                                <button  type="button" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1" data-toggle="modal" data-target="#update{{ $laboratory->id }}">{{ trans('main-sidebar.Update')}}</button>
+                                                                                <button type="button" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1" data-toggle="modal" data-target="#destroy{{ $laboratory->id }}" >{{ trans('main-sidebar.Delete')}}</button>
+                                                                            </div>
+                                                                        @endif
+                                                                    </td>
                                                                 </tr>
+                                                                @include('dashboard.doctorDashboard.laboratories.update')
+                                                                @include('dashboard.doctorDashboard.Laboratories.delete')
                                                             @endforeach
                                                         @endisset
                                                         </tbody>
+
                                                     </table>
                                                 </div>
                                             </div>

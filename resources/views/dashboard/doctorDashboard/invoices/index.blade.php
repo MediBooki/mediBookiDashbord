@@ -82,7 +82,7 @@
                                                                     <a class="dropdown-item"  data-target="#add_diagnosis{{ $invoice->id }}" data-toggle="modal"><i class="text-primary la la-stethoscope"></i>{{ trans('diagnosis.add_diagnosis') }}</a>           
                                                                     <a class="dropdown-item"  data-target="#add_review{{ $invoice->id }}" data-toggle="modal"><i class="text-warning la la-file"></i>اضافة مراجعة</a>                                                         
                                                                     <a class="dropdown-item"  data-target="#xray{{ $invoice->id }}" data-toggle="modal"><i class="text-primary la la-map-pin"></i>نحويل الي الاشعة</a>                                                         
-                                                                    <a class="dropdown-item"  data-target="#ll{{ $invoice->id }}" data-toggle="modal"><i class="text-warning la la-tint"></i>تحويل الي المختبر</a>                                                         
+                                                                    <a class="dropdown-item"  data-target="#laboratories{{ $invoice->id }}" data-toggle="modal"><i class="text-warning la la-tint"></i>تحويل الي المختبر</a>                                                         
                                                                     <a class="dropdown-item" data-target="#delete{{ $invoice->id }}" data-toggle="modal" ><i class="text-danger la la-trash"></i>{{ trans('main-sidebar.Delete')}}</a>
                                                                 </div>
                                                             </div>
@@ -91,6 +91,7 @@
                                                     @include('dashboard.doctorDashboard.invoices.add_diagnosis')
                                                     @include('dashboard.doctorDashboard.invoices.add_review')
                                                     @include('dashboard.doctorDashboard.rays.xray')
+                                                    @include('dashboard.doctorDashboard.laboratories.create')
                                                     {{-- @include('dashboard.invoices.delete') --}}
                                                 @endforeach
                                             @endisset

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\doctorDashboard\DiagnosticController;
 use App\Http\Controllers\doctorDashboard\InvoiceController;
+use App\Http\Controllers\doctorDashboard\LaboratoryController;
 use App\Http\Controllers\doctorDashboard\RayController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,9 @@ Route::group([
 
         // الاشعة
         Route::resource('rays' , RayController::class);
+
+        // التحاليل
+        Route::resource('laboratories' , LaboratoryController::class);
 
     });
     require __DIR__.'/auth.php';
