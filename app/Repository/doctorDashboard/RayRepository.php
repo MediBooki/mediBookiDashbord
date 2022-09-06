@@ -36,4 +36,10 @@ class RayRepository implements RayRepositoryInterface
         $xray->delete(); 
         return redirect()->back()->with(['success' => 'xray Deleted Successfully']);
     }
+
+    public function show($id)
+    {
+        $xray = Ray::findOrFail($id);
+        return view('dashboard.doctorDashboard.rays.show',compact('xray'));
+    }
 }

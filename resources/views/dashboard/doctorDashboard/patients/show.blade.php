@@ -105,6 +105,8 @@
                                                             <th>##</th>
                                                             <th>{{ trans('service.name') }}</th>
                                                             <th>{{ trans('doctor.name') }}</th>
+                                                            <th>اسم موظف الاشعة</th>
+                                                            <th>حالة الكشف</th>
                                                             <th>{{ trans('main-sidebar.Control')}}</th>
                                                         </tr>
                                                         </thead>
@@ -115,13 +117,17 @@
                                                                     <td>{{$loop->iteration}}</td>
                                                                     <td>{{$patient_ray->description}}</td>
                                                                     <td>{{$patient_ray->doctor->name}}</td>
+                                                                    <td>{{$patient_ray->user->name ?? 'لم يتم عمل الاشعة'}}</td>
+                                                                    <td>{{$patient_ray->case == 0 ? 'غير مكتمل' : 'مكتمل'}}</td>
                                                                     <td>
-                                                                        @if ($patient_ray->doctor_id == auth()->user()->id)
+                                                                        @if ($patient_ray->doctor_id == auth()->user()->id && $patient_ray->case == 0)
                                                                             <div class="btn-group" role="group"
                                                                                 aria-label="Basic example">
                                                                                 <button class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1" data-toggle="modal" data-target="#edit{{ $patient_ray->id }}">{{ trans('main-sidebar.Update')}}</button>
                                                                                 <button type="button" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1" data-toggle="modal" data-target="#delete{{ $patient_ray->id }}" >{{ trans('main-sidebar.Delete')}}</button>
                                                                             </div>
+                                                                        @else
+                                                                            <a href="{{ route('rays.show',$patient_ray->id) }}" class="btn btn-sm btn-warning"><i class="la la-eye"></i></a>
                                                                         @endif
                                                                     </td>
                                                                 </tr>
@@ -165,6 +171,7 @@
                                                                         @endif
                                                                     </td>
                                                                 </tr>
+
                                                                 @include('dashboard.doctorDashboard.laboratories.update')
                                                                 @include('dashboard.doctorDashboard.Laboratories.delete')
                                                             @endforeach

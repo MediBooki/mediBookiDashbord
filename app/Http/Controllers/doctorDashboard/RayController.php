@@ -18,6 +18,10 @@ class RayController extends Controller
         return $this->ray->store($request);
     }
 
+    public function show($id)
+    {
+        return $this->ray->show($id);
+    }
     public function update(Request $request)
     {
         return $this->ray->update($request);

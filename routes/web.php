@@ -6,6 +6,7 @@ use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\RayInfoController;
 use App\Http\Controllers\ReceiptController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\ServiceController;
@@ -48,6 +49,9 @@ Route::group([
         Route::resource('receipts' , ReceiptController::class);
         Route::resource('payments' , PaymentController::class);
          /*-------------End--------------------------- */
+        
+        Route::resource('rayInfo' , RayInfoController::class);
+        Route::get('/Rays/complete', [RayInfoController::class,'full_index'])->name('rayInfo.complete');
     });
 
     

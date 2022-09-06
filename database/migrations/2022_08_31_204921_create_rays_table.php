@@ -17,8 +17,11 @@ class CreateRaysTable extends Migration
             $table->id();
             $table->longText('description');
             $table->foreignId('patient_id')->references('id')->on('patients')->onDelete('cascade');
-            $table->foreignId('invoice_id')->nullable()->references('id')->on('invoices')->onDelete('cascade');
-            $table->foreignId('doctor_id')->nullable()->references('id')->on('doctors')->onDelete('cascade');
+            $table->foreignId('invoice_id')->references('id')->on('invoices')->onDelete('cascade');
+            $table->foreignId('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->references('id')->on('users')->onDelete('cascade');
+            $table->longText('description_user')->nullable();
+            $table->tinyInteger('case')->default(0);
             $table->timestamps();
         });
     }
