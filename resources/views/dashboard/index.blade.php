@@ -4,6 +4,7 @@
 <div class="app-content content">
     <div class="content-wrapper">
         <div class="content-header row">
+          <p>لوحة تحكم الموظفين</p>
         </div>
         <div class="content-body">
             <div id="crypto-stats-3" class="row">
@@ -16,11 +17,11 @@
                                         <h1><i class="cc BTC warning font-large-2" title="BTC"></i></h1>
                                     </div>
                                     <div class="col-5 pl-2">
-                                        <h4>dd</h4>
+                                        <h4> عدد الفواتير</h4>
                                         
                                     </div>
                                     <div class="col-5 text-right">
-                                        <h4>22</h4>
+                                        <h4>{{ \App\Models\Invoice::count() }}</h4>
                                         
                                     </div>
                                 </div>
@@ -43,7 +44,6 @@
                                     </div>
                                     <div class="col-5 pl-2">
                                         <h4>dsds</h4>
-                                       
                                     </div>
                                     <div class="col-5 text-right">
                                         <h4>2</h4>
@@ -94,8 +94,8 @@
                       <div class="card-body">
                         <div class="media d-flex">
                           <div class="media-body text-left">
-                            <h3 class="info">22</h3>
-                            <h6> sd</h6>
+                            <h3 class="info">{{ \App\Models\Service::count() }}</h3>
+                            <h6>عدد الخدمات</h6>
                           </div>
                           <div>
                             <i class="icon-basket-loaded info font-large-2 float-right"></i>
@@ -115,8 +115,8 @@
                       <div class="card-body">
                         <div class="media d-flex">
                           <div class="media-body text-left">
-                            <h3 class="warning">2</h3>
-                            <h6>ww</h6>
+                            <h3 class="warning">{{ \App\Models\Section::count() }}</h3>
+                            <h6>عدد الاقسام</h6>
                           </div>
                           <div>
                             <i class="icon-pie-chart warning font-large-2 float-right"></i>
@@ -136,8 +136,8 @@
                       <div class="card-body">
                         <div class="media d-flex">
                           <div class="media-body text-left">
-                            <h3 class="success">2</h3>
-                            <h6>so</h6>
+                            <h3 class="success">{{ \App\Models\Patient::count() }}</h3>
+                            <h6>عدد المرضي</h6>
                           </div>
                           <div>
                             <i class="icon-user-follow success font-large-2 float-right"></i>
@@ -157,8 +157,8 @@
                       <div class="card-body">
                         <div class="media d-flex">
                           <div class="media-body text-left">
-                            <h3 class="danger">2</h3>
-                            <h6>mo</h6>
+                            <h3 class="danger">{{ \App\Models\Doctor::count() }}</h3>
+                            <h6>عدد الاطباء</h6>
                           </div>
                           <div>
                             <i class="icon-heart danger font-large-2 float-right"></i>

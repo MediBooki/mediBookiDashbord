@@ -162,12 +162,14 @@
                                                                     <td>{{$laboratory->description}}</td>
                                                                     <td>{{$laboratory->doctor->name}}</td>
                                                                     <td>
-                                                                        @if ($laboratory->doctor_id == auth()->user()->id)
+                                                                        @if ($laboratory->doctor_id == auth()->user()->id && $laboratory->case == 0)
                                                                             <div class="btn-group" role="group"
                                                                                 aria-label="Basic example">
                                                                                 <button  type="button" class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1" data-toggle="modal" data-target="#update{{ $laboratory->id }}">{{ trans('main-sidebar.Update')}}</button>
                                                                                 <button type="button" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1" data-toggle="modal" data-target="#destroy{{ $laboratory->id }}" >{{ trans('main-sidebar.Delete')}}</button>
                                                                             </div>
+                                                                        @else
+                                                                            <a href="{{ route('laboratories.show',$laboratory->id) }}" class="btn btn-sm btn-warning"><i class="la la-eye"></i></a>
                                                                         @endif
                                                                     </td>
                                                                 </tr>

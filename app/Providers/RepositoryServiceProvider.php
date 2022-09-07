@@ -10,6 +10,7 @@ use App\Interfaces\doctorDashboard\RayRepositoryInterface;
 use App\Interfaces\Doctors\DoctorRepositoryInterface;
 use App\Interfaces\Insurances\InsuranceRepositoryInterface;
 use App\Interfaces\Invoices\InvoiceRepositoryInterface;
+use App\Interfaces\Labs\LabInfoRepositoryInterface;
 use App\Interfaces\Patients\PatientRepositoryInterface;
 use App\Interfaces\Payments\PaymentRepositoryInterface;
 use App\Interfaces\Rays\RayInfoRepositoryInterface;
@@ -24,6 +25,7 @@ use App\Repository\doctorDashboard\RayRepository;
 use App\Repository\Doctors\DoctorRepository;
 use App\Repository\Insurances\InsuranceRepository;
 use App\Repository\Invoices\InvoiceRepository;
+use App\Repository\Labs\LabInfoRepository;
 use App\Repository\Patients\PatientRepository;
 use App\Repository\Payments\PaymentRepository;
 use App\Repository\Rays\RayInfoRepository;
@@ -61,6 +63,8 @@ class RepositoryServiceProvider extends ServiceProvider
         // الاشعة
         $this->app->bind(RayInfoRepositoryInterface::class, RayInfoRepository::class);
 
+        // التحاليل
+        $this->app->bind(LabInfoRepositoryInterface::class, LabInfoRepository::class);
         
     }
 

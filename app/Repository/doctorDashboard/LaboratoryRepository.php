@@ -33,8 +33,13 @@ class LaboratoryRepository implements LaboratoryRepositoryInterface
     public function destroy($id)
     {
         
-        $laboratory = Laboratory::findOrFail($id);
+        $laboratory = laboratory::findOrFail($id);
         $laboratory->delete(); 
         return redirect()->back()->with(['success' => 'Laboratory Deleted Successfully']);
+    }
+    public function show($id)
+    {
+        $laboratory = laboratory::findOrFail($id);
+        return view('dashboard.doctorDashboard.laboratories.show',compact('laboratory'));
     }
 }

@@ -4,89 +4,9 @@
 <div class="app-content content">
     <div class="content-wrapper">
         <div class="content-header row">
+          <p>لوحة تحكم الدكتور</p>
         </div>
         <div class="content-body">
-            <div id="crypto-stats-3" class="row">
-                <div class="col-xl-4 col-12">
-                    <div class="card crypto-card-3 pull-up">
-                        <div class="card-content">
-                            <div class="card-body pb-0">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <h1><i class="cc BTC warning font-large-2" title="BTC"></i></h1>
-                                    </div>
-                                    <div class="col-5 pl-2">
-                                        <h4>dd</h4>
-                                        
-                                    </div>
-                                    <div class="col-5 text-right">
-                                        <h4>22</h4>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <canvas id="btc-chartjs" class="height-75"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-12">
-                    <div class="card crypto-card-3 pull-up">
-                        <div class="card-content">
-                            <div class="card-body pb-0">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <h1><i class="cc ETH blue-grey lighten-1 font-large-2" title="ETH"></i></h1>
-                                    </div>
-                                    <div class="col-5 pl-2">
-                                        <h4>dsds</h4>
-                                       
-                                    </div>
-                                    <div class="col-5 text-right">
-                                        <h4>2</h4>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <canvas id="eth-chartjs" class="height-75"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-12">
-                    <div class="card crypto-card-3 pull-up">
-                        <div class="card-content">
-                            <div class="card-body pb-0">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <h1><i class="cc XRP info font-large-2" title="XRP"></i></h1>
-                                    </div>
-                                    <div class="col-5 pl-2">
-                                        <h4> sd</h4>
-                                       
-                                    </div>
-                                    <div class="col-5 text-right">
-                                        <h4>22</h4>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <canvas id="xrp-chartjs" class="height-75"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
             <div class="row">
                 <div class="col-xl-3 col-lg-6 col-12">
                   <div class="card pull-up">
@@ -94,8 +14,8 @@
                       <div class="card-body">
                         <div class="media d-flex">
                           <div class="media-body text-left">
-                            <h3 class="info">22</h3>
-                            <h6> sd</h6>
+                            <h3 class="info">{{ \App\Models\Invoice::where('doctor_id',auth()->user()->id)->count() }}</h3>
+                            <h6> عدد الفواتير</h6>
                           </div>
                           <div>
                             <i class="icon-basket-loaded info font-large-2 float-right"></i>
@@ -115,8 +35,10 @@
                       <div class="card-body">
                         <div class="media d-flex">
                           <div class="media-body text-left">
-                            <h3 class="warning">2</h3>
-                            <h6>ww</h6>
+                            <h3 class="warning">
+                                {{ \App\Models\Invoice::where('doctor_id',auth()->user()->id)->where('status',1)->count() }}
+                            </h3>
+                            <h6>عدد الفواتير تحت الاجراء</h6>
                           </div>
                           <div>
                             <i class="icon-pie-chart warning font-large-2 float-right"></i>
@@ -136,8 +58,10 @@
                       <div class="card-body">
                         <div class="media d-flex">
                           <div class="media-body text-left">
-                            <h3 class="success">2</h3>
-                            <h6>so</h6>
+                            <h3 class="success">
+                              {{ \App\Models\Invoice::where('doctor_id',auth()->user()->id)->where('status',3)->count() }}
+                            </h3>
+                            <h6>عدد الفواتير المكتملة</h6>
                           </div>
                           <div>
                             <i class="icon-user-follow success font-large-2 float-right"></i>
@@ -157,8 +81,8 @@
                       <div class="card-body">
                         <div class="media d-flex">
                           <div class="media-body text-left">
-                            <h3 class="danger">2</h3>
-                            <h6>mo</h6>
+                            <h3 class="danger">{{ \App\Models\Invoice::where('doctor_id',auth()->user()->id)->where('status',2)->count() }}</h3>
+                            <h6>عدد فواتير المراجعة</h6>
                           </div>
                           <div>
                             <i class="icon-heart danger font-large-2 float-right"></i>
