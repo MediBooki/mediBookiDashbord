@@ -75,7 +75,7 @@
                                                         <td>{{$invoice->service->price}}</td>
                                                         <td>{{$invoice->discount_value}}</td>
                                                         <td>{{$invoice->tax_rate}}</td>
-                                                        <td>{{$invoice->tax_value}}</td>
+                                                        <td>{{number_format($invoice->tax_value,2)}}</td>
                                                         <td>{{$invoice->total_with_tax}}</td>
                                                         <td>{{$invoice->type}}</td>
                                                         <td>
@@ -88,7 +88,7 @@
                                                                     <a class="dropdown-item" href="{{ route('invoices.show',$invoice->id) }}" target="_blank"><i class="text-warning la la-print"></i>{{ trans('main-sidebar.Print') }}</a>                                                         
                                                                     <a class="dropdown-item" data-target="#delete{{ $invoice->id }}"data-toggle="modal" ><i class="text-danger la la-trash"></i>{{ trans('main-sidebar.Delete')}}</a>
                                                                 </div>
-                                                              </div>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                     @include('dashboard.invoices.delete')

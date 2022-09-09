@@ -15,7 +15,7 @@
                         <div class="media d-flex">
                           <div class="media-body text-left">
                             <h3 class="info">{{ \App\Models\Invoice::where('doctor_id',auth()->user()->id)->count() }}</h3>
-                            <h6> عدد الفواتير</h6>
+                            <h6>{{ trans('dashboard.invoice_num') }}</h6>
                           </div>
                           <div>
                             <i class="icon-basket-loaded info font-large-2 float-right"></i>
@@ -38,7 +38,7 @@
                             <h3 class="warning">
                                 {{ \App\Models\Invoice::where('doctor_id',auth()->user()->id)->where('status',1)->count() }}
                             </h3>
-                            <h6>عدد الفواتير تحت الاجراء</h6>
+                            <h6>{{ trans('dashboard.invoice_num_not_complete') }}</h6>
                           </div>
                           <div>
                             <i class="icon-pie-chart warning font-large-2 float-right"></i>
@@ -61,7 +61,7 @@
                             <h3 class="success">
                               {{ \App\Models\Invoice::where('doctor_id',auth()->user()->id)->where('status',3)->count() }}
                             </h3>
-                            <h6>عدد الفواتير المكتملة</h6>
+                            <h6>{{ trans('dashboard.invoice_num_complete') }}</h6>
                           </div>
                           <div>
                             <i class="icon-user-follow success font-large-2 float-right"></i>
@@ -82,7 +82,7 @@
                         <div class="media d-flex">
                           <div class="media-body text-left">
                             <h3 class="danger">{{ \App\Models\Invoice::where('doctor_id',auth()->user()->id)->where('status',2)->count() }}</h3>
-                            <h6>عدد فواتير المراجعة</h6>
+                            <h6>{{ trans('dashboard.invoice_num_revsion') }}</h6>
                           </div>
                           <div>
                             <i class="icon-heart danger font-large-2 float-right"></i>

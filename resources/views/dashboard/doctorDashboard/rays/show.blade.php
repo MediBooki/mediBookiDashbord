@@ -5,13 +5,13 @@
     <div class="content-wrapper">
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3 class="content-header-title"> صورة الاشعة </h3>
+                <h3 class="content-header-title">{{ trans('ray.photo') }}</h3>
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('dashboard.doctor')}}">{{ trans('main-sidebar.index') }}</a>
                             </li>
-                            <li class="breadcrumb-item active">صورة الاشعة 
+                            <li class="breadcrumb-item active">{{ trans('ray.photo') }}
                             </li>
                         </ol>
                     </div>

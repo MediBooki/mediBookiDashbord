@@ -70,7 +70,7 @@
                                                         <td>{{$invoice->service->price}}</td>
                                                         <td>{{$invoice->discount_value}}</td>
                                                         <td>{{$invoice->tax_rate}}</td>
-                                                        <td>{{$invoice->tax_value}}</td>
+                                                        <td>{{number_format($invoice->tax_value,2)}}</td>
                                                         <td>{{$invoice->total_with_tax}}</td>
                                                         <td><span class="bg-danger text-white">تحت المراجعة</span></td>
                                                         <td>

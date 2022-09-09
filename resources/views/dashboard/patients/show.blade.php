@@ -118,8 +118,9 @@
                                                     <th colspan="5" scope="row" class="alert alert-success">
                                                         الاجمالي
                                                     </th>
+                                                    
                                                     <td class="alert alert-primary">
-                                                        {{ number_format($invoice->total_with_tax,2) }}
+                                                        {{$invoices->sum('total_with_tax') }}
                                                     </td>
                                                 </tr>
                                             @endisset

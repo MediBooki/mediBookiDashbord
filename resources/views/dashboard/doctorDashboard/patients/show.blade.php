@@ -26,7 +26,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">patient Informatios</h4>
+                                <h4 class="card-title">{{ trans('patient.Informatios') }}</h4>
                             </div>
                             @include('dashboard.includes.alerts.success')
                             @include('dashboard.includes.alerts.errors')
@@ -35,15 +35,15 @@
                                     <ul class="nav nav-tabs nav-underline no-hover-bg">
                                         <li class="nav-item">
                                             <a class="nav-link active" id="base-limit" data-toggle="tab" aria-controls="limit"
-                                            href="#limit" aria-expanded="true">patient profile</a>
+                                            href="#limit" aria-expanded="true">{{ trans('patient.diagnostics') }}</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" id="base-market" data-toggle="tab" aria-controls="market" href="#market"
-                                            aria-expanded="false">الاشعة</a>
+                                            aria-expanded="false">{{ trans('patient.rays') }}</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" id="base-stop-limit" data-toggle="tab" aria-controls="stop-limit"
-                                            href="#stop-limit" aria-expanded="false">المختبر</a>
+                                            href="#stop-limit" aria-expanded="false"> {{ trans('patient.المختبر') }}</a>
                                         </li>
                                     </ul>
                                     <div class="tab-content px-1 pt-1">
@@ -105,8 +105,8 @@
                                                             <th>##</th>
                                                             <th>{{ trans('service.name') }}</th>
                                                             <th>{{ trans('doctor.name') }}</th>
-                                                            <th>اسم موظف الاشعة</th>
-                                                            <th>حالة الكشف</th>
+                                                            <th>{{ trans('ray.emp') }}</th>
+                                                            <th>{{ trans('ray.case') }}</th>
                                                             <th>{{ trans('main-sidebar.Control')}}</th>
                                                         </tr>
                                                         </thead>
@@ -118,7 +118,7 @@
                                                                     <td>{{$patient_ray->description}}</td>
                                                                     <td>{{$patient_ray->doctor->name}}</td>
                                                                     <td>{{$patient_ray->user->name ?? 'لم يتم عمل الاشعة'}}</td>
-                                                                    <td>{{$patient_ray->case == 0 ? 'غير مكتمل' : 'مكتمل'}}</td>
+                                                                    <td>{{$patient_ray->case == 0 ? trans('ray.case_not_com') : trans('ray.case_com') }}</td>
                                                                     <td>
                                                                         @if ($patient_ray->doctor_id == auth()->user()->id && $patient_ray->case == 0)
                                                                             <div class="btn-group" role="group"
