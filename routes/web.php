@@ -11,6 +11,7 @@ use App\Http\Controllers\RayInfoController;
 use App\Http\Controllers\ReceiptController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TermController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,12 +32,15 @@ Route::group([
         Route::get('/dashboard/admin', function () {
             return view('dashboard.index');
         })->name('dashboard');
+        
         Route::resource('sections' , SectionController::class)->except(['edit','create']);
         Route::resource('doctors' , DoctorController::class);
         Route::resource('services' , ServiceController::class)->except(['edit','create','show']);
         Route::resource('insurances' , InsuranceController::class)->except(['edit','create','show']);
         Route::resource('ambulances' , AmbulanceController::class);
         Route::resource('patients' , PatientController::class);
+        Route::resource('terms' , TermController::class)->except(['edit','create']);
+
 
         /* crud  الفواتير 8*/
         Route::resource('invoices' , InvoiceController::class);
@@ -50,12 +54,13 @@ Route::group([
         Route::resource('receipts' , ReceiptController::class);
         Route::resource('payments' , PaymentController::class);
          /*-------------End--------------------------- */
-        
+        /** قسم الاشعة والتحاليل */
         Route::resource('rayInfo' , RayInfoController::class);
         Route::get('/Rays/complete', [RayInfoController::class,'full_index'])->name('rayInfo.complete');
 
         Route::resource('labInfo' , LabInfoController::class);
         Route::get('/lab/complete', [LabInfoController::class,'full_index'])->name('labInfo.complete');
+        /*-------------End--------------------------- */
     });
 
     
