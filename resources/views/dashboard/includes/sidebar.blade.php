@@ -30,7 +30,7 @@
                     <a href=""><i class="la la-beer"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.services') }}</span></a>
                     <ul class="menu-content">
                         <li class="">
-                            <a class="menu-item" href="{{ route('services.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.single_service')}}</a>
+                            <a class="menu-item" href="{{ route('services.doctors') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.single_service')}}</a>
                         </li>
                         <li class="">
                             <a class="menu-item" href="{{ route('insurances.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.insurance')}}</a>

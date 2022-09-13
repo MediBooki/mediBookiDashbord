@@ -39,9 +39,9 @@
                             @include('dashboard.includes.alerts.success')
                             @include('dashboard.includes.alerts.errors')
                             <div class="card-content collapse show">
-                                <div class="row m-1">
+                                {{-- <div class="row m-1">
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#heading1AddServices"  >{{ trans('service.Add') }}</a>
-                                </div>
+                                </div> --}}
                                 <div class="card-body card-dashboard">
                                     <div class="table-responsive">
                                         <table id="example" class="table display nowrap table-striped table-bordered">
@@ -49,11 +49,11 @@
                                             <tr>
                                                 <th>##</th>
                                                 <th>{{ trans('service.name') }}</th>
+                                                <th>{{ trans('doctor.name') }}</th>
                                                 <th>{{ trans('service.price') }}</th>
                                                 <th>{{ trans('service.status') }}</th>
                                                 <th>{{ trans('service.photo') }}</th>
                                                 <th>{{ trans('service.description') }}</th>
-
                                                 <th>{{ trans('main-sidebar.Control')}}</th>
                                             </tr>
                                             </thead>
@@ -63,6 +63,7 @@
                                                     <tr>
                                                         <td>{{$loop->iteration}}</td>
                                                         <td>{{$service->name}}</td>
+                                                        <td>{{$service->doctor->name}}</td>
                                                         <td>{{$service->price}}</td>
                                                         <td>
                                                             <span class="badge badge-pill badge-{{$service->status == 1 ? 'success':'danger'}}">
@@ -80,11 +81,11 @@
                                                                     <a class="dropdown-item" data-target="#edit{{ $service->id }}"data-toggle="modal" ><i class="text-success la la-edit"></i>{{ trans('main-sidebar.Update') }}</a>
                                                                     <a class="dropdown-item" data-toggle="modal" data-target="#delete{{ $service->id }}" ><i class="text-danger la la-trash"></i>{{ trans('main-sidebar.Delete')}}</a>
                                                                 </div>
-                                                              </div>
+                                                            </div>
                                                         </td>
                                                     </tr>
-                                                    @include('dashboard.services.single.edit')
-                                                    @include('dashboard.services.single.delete')
+                                                    {{-- @include('dashboard.services.single.edit')
+                                                    @include('dashboard.services.single.delete') --}}
                                                 @endforeach
                                             @endisset
                                             </tbody>
@@ -102,7 +103,7 @@
                             </div>
                         </div>
                     </div>
-                    @include('dashboard.services.single.create')
+                    {{-- @include('dashboard.services.single.create') --}}
                 </div>
             </section>
         </div>

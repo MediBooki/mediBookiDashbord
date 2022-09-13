@@ -10,7 +10,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RayInfoController;
 use App\Http\Controllers\ReceiptController;
 use App\Http\Controllers\SectionController;
-
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TermController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +39,7 @@ Route::group([
         Route::resource('ambulances' , AmbulanceController::class);
         Route::resource('patients' , PatientController::class);
         Route::resource('terms' , TermController::class)->except(['edit','create']);
+        Route::get('/doctor/services', [ServiceController::class,'index'])->name('services.doctors');
 
 
         /* crud  الفواتير 8*/

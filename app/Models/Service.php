@@ -15,4 +15,8 @@ class Service extends Model implements HasMedia
     protected $guarded = [];
     public $timestamps = true;
 
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class);
+    }
 }

@@ -14,7 +14,7 @@ class ServiceRepository implements ServiceRepositoryInterface
     public function index()
     {
         $services = Service::where('doctor_id',Auth::user()->id)->orderBy('id','DESC')->paginate(15);
-        return view('dashboard.services.single.index', compact('services'));
+        return view('dashboard.doctorDashboard.services.single.index', compact('services'));
     }
    
 
