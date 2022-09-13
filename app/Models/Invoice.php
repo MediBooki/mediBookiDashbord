@@ -19,10 +19,6 @@ class Invoice extends Model
     {
         return $this->belongsTo(Doctor::class);
     }
-    public function section()
-    {
-        return $this->belongsTo(Section::class);
-    }
     public function service()
     {
         return $this->belongsTo(Service::class);

@@ -19,20 +19,19 @@ class PatientRepository implements PatientRepositoryInterface
     }
     public function create()
     {
-
         return view('dashboard.patients.create');
     }
     public function show($id)
     {
+        
         $patient = Patient::findOrFail($id);
         $invoices = Invoice::where('patient_id', $id)->get();
         $receipts = Receipt::where('patient_id', $id)->get();
         $payments = Payment::where('patient_id', $id)->get();
-        $patient_accounts = PatientAccount::orWhereNotNull('invoice_id')
-            ->orWhereNotNull('receipt_id')
-            ->orWhereNotNull('payment_id')
-            ->where('patient_id', $id)
+        $patient_accounts = PatientAccount::
+            where('patient_id', $id)
             ->get();
+            
         return view('dashboard.patients.show',compact('patient','invoices','receipts','payments','patient_accounts'));
     }
 

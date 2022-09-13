@@ -16,7 +16,7 @@ use App\Interfaces\Payments\PaymentRepositoryInterface;
 use App\Interfaces\Rays\RayInfoRepositoryInterface;
 use App\Interfaces\Receipts\ReceiptRepositoryInterface;
 use App\Interfaces\Sections\SectionRepositoryInterface;
-use App\Interfaces\Services\ServiceRepositoryInterface;
+use App\Interfaces\doctorDashboard\Services\ServiceRepositoryInterface;
 use App\Repository\Ambulances\AmbulanceRepository;
 use App\Repository\doctorDashboard\DiagnosticRepository;
 use App\Repository\doctorDashboard\InvoiceRepository as DoctorDashboardInvoiceRepository;
@@ -31,7 +31,7 @@ use App\Repository\Payments\PaymentRepository;
 use App\Repository\Rays\RayInfoRepository;
 use App\Repository\Receipts\ReceiptRepository;
 use App\Repository\Sections\SectionRepository;
-use App\Repository\Services\ServiceRepository;
+use App\Repository\doctorDashboard\Services\ServiceRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider

@@ -58,13 +58,11 @@ class InvoiceController extends Controller
         $price = Service::where('id', $id)->select('price')->first();
         return $price;
     }
-    public function getSection($id) 
+    public function getService($id) 
     {
-        $doctor_id = Doctor::with('section')->where('id', $id)->first();
-        $section = [];
-        $section['section_name'] = $doctor_id->section->name;
-        $section['section_id'] = $doctor_id->section->id;
-        return $section;
+        $services = Service::where('doctor_id', $id)->get();
+        
+        return $services;
     }
     public function getPrice($id) 
     {

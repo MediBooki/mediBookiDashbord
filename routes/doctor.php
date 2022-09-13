@@ -4,6 +4,7 @@ use App\Http\Controllers\doctorDashboard\DiagnosticController;
 use App\Http\Controllers\doctorDashboard\InvoiceController;
 use App\Http\Controllers\doctorDashboard\LaboratoryController;
 use App\Http\Controllers\doctorDashboard\RayController;
+use App\Http\Controllers\doctorDashboard\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,10 @@ Route::group([
             return view('dashboard.doctorDashboard.dashboard');
         })->name('dashboard.doctor');
 
+        // الخدمات
+        Route::resource('services' , ServiceController::class)->except(['edit','create','show']);
+
+        // الكشوفات
         Route::get('invoice',[InvoiceController::class,'index'])->name('doctor.invoices');
         Route::get('invoice/complete',[InvoiceController::class,'complete'])->name('doctor.invoices.complete');
         Route::get('invoice/review',[InvoiceController::class,'review'])->name('doctor.invoices.review');

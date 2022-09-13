@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\doctorDashboard;
 
-use App\Interfaces\Services\ServiceRepositoryInterface;
+use App\Http\Controllers\Controller;
+use App\Interfaces\doctorDashboard\Services\ServiceRepositoryInterface;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller

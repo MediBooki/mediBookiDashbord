@@ -74,18 +74,12 @@
                                                                     <p class="card-subtitle text-muted mb-0 pt-1">
                                                                     <span class="font-small-3">{{ $patient_record->date }}</span>
                                                                     </p>
-                                                                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                                                                    <div class="heading-elements">
-                                                                    <ul class="list-inline mb-0">
-                                                                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                                                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                                                                    </ul>
-                                                                    </div>
                                                                 </div>
                                                             <div class="card-content">
                                                                 <div class="card-content">
                                                                     <div class="card-body">
                                                                         <p class="card-text">{{ $patient_record->diagnosis }}.</p>
+                                                                        <p class="card-text">{{ $patient_record->medicine }}.</p>
                                                                     </div>
                                                                 </div>
                                                             </div>

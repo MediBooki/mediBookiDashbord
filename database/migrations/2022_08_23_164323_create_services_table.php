@@ -19,6 +19,7 @@ class CreateServicesTable extends Migration
             $table->longText('description');
             $table->decimal('price','8','2');
             $table->boolean('status')->default(1);
+            $table->foreignId('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
             $table->timestamps();
         });
     }

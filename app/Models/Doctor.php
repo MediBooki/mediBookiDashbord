@@ -24,4 +24,9 @@ class Doctor extends Authenticatable implements HasMedia
     {
         return $this->belongsToMany(Appointment::class,'appointment_doctor');
     }
+
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
 }

@@ -22,8 +22,8 @@ class InvoiceRepository implements InvoiceRepositoryInterface
     {
         $patients = Patient::orderBy('id','DESC')->get();
         $doctors = Doctor::orderBy('id','DESC')->get();
-        $services = Service::orderBy('id','DESC')->get();
-        return view('dashboard.invoices.create',compact('patients', 'doctors','services'));
+        // $services = Service::orderBy('id','DESC')->get();
+        return view('dashboard.invoices.create',compact('patients', 'doctors'));
     }
 
     public function show($id)
@@ -39,7 +39,6 @@ class InvoiceRepository implements InvoiceRepositoryInterface
         $invoice = new Invoice();
         $invoice->patient_id = $request->patient_id;
         $invoice->doctor_id = $request->doctor_id;
-        $invoice->section_id = $request->section_id;
         $invoice->type =  $request->type;
         $invoice->service_id =  $request->service_id;
         $invoice->price =  $request->price;
@@ -89,7 +88,6 @@ class InvoiceRepository implements InvoiceRepositoryInterface
         $invoice = Invoice::findOrFail($request->id);
         $invoice->patient_id = $request->patient_id;
         $invoice->doctor_id = $request->doctor_id;
-        $invoice->section_id = $request->section_id;
         $invoice->type =  $request->type;
         $invoice->service_id =  $request->service_id;
         $invoice->price =  $request->price;
