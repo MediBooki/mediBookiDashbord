@@ -5,6 +5,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LabInfoController;
+use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RayInfoController;
@@ -60,6 +61,9 @@ Route::group([
 
         Route::resource('labInfo' , LabInfoController::class);
         Route::get('/lab/complete', [LabInfoController::class,'full_index'])->name('labInfo.complete');
+        /*-------------End--------------------------- */
+        /** قسم الصيدلية*/
+        Route::resource('medicines' , MedicineController::class);
         /*-------------End--------------------------- */
     });
 

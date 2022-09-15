@@ -17,6 +17,7 @@ use App\Interfaces\Rays\RayInfoRepositoryInterface;
 use App\Interfaces\Receipts\ReceiptRepositoryInterface;
 use App\Interfaces\Sections\SectionRepositoryInterface;
 use App\Interfaces\doctorDashboard\Services\ServiceRepositoryInterface;
+use App\Interfaces\Medicines\MedicineRepositoryInterface;
 use App\Repository\Ambulances\AmbulanceRepository;
 use App\Repository\doctorDashboard\DiagnosticRepository;
 use App\Repository\doctorDashboard\InvoiceRepository as DoctorDashboardInvoiceRepository;
@@ -32,6 +33,7 @@ use App\Repository\Rays\RayInfoRepository;
 use App\Repository\Receipts\ReceiptRepository;
 use App\Repository\Sections\SectionRepository;
 use App\Repository\doctorDashboard\Services\ServiceRepository;
+use App\Repository\Medicines\MedicineRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -65,7 +67,9 @@ class RepositoryServiceProvider extends ServiceProvider
 
         // التحاليل
         $this->app->bind(LabInfoRepositoryInterface::class, LabInfoRepository::class);
-        
+
+        // الصيدلية
+        $this->app->bind(MedicineRepositoryInterface::class, MedicineRepository::class);
     }
 
     /**

@@ -19,6 +19,7 @@ return array (
   'invoice_list_complete' => 'الفواتير المكتملة',
   'invoice_list_review' => 'الفواتير المراجعة',
   'main' => 'ادارة المستضفيات',
+  'medicines' => 'الادوية',
   'patient' => 'المرضي',
   'patient_history' => 'تاريخ المريض',
   'payment' => 'سندات الصرف',
