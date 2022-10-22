@@ -44,6 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'doctors',
         ],
+        'api' => [
+            'driver' => 'passport',
+            'provider' => 'patients',
+        ],
     ],
 
     /*
@@ -74,10 +78,10 @@ return [
             'model' => App\Models\Doctor::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'patients' => [
+            'driver' => 'database',
+            'model' => App\Models\Patient::class,
+        ],
     ],
 
     /*
