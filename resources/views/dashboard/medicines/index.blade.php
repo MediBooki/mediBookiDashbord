@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="card-body card-dashboard">
                                     <div class="table-responsive">
-                                        <table id="example" class="table display nowrap table-striped table-bordered">
+                                        <table id="example" class=" table display nowrap table-striped table-bordered">
                                             <thead>
                                             <tr>
                                                 <th>##</th>
@@ -73,14 +73,9 @@
                                                             </span>
                                                         </td>
                                                         <td>
-                                                            {{-- <div class="btn-group" role="group"
-                                                                aria-label="Basic example">
-                                                                <button class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1" data-toggle="modal" data-target="#edit{{ $medicine->id }}">{{ trans('main-sidebar.Update')}}</button>
-                                                                <button type="button" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1" data-toggle="modal" data-target="#delete{{ $medicine->id }}" >{{ trans('main-sidebar.Delete')}}</button>
-                                                            </div> --}}
                                                             <div class="btn-group">
                                                                 <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                                  Action
+                                                                    Action
                                                                 </button>
                                                                 <div class="dropdown-menu" style="right: -50%;">
                                                                     <a class="dropdown-item" href="{{ route('medicines.edit', $medicine->id) }}"><i class="text-success la la-edit"></i>{{ trans('main-sidebar.Update') }}</a>
@@ -97,7 +92,7 @@
                                         
                                     </div>
                                     <div class="col-sm-12 col-md-7">
-                                        <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                                        <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_1_paginate">
                                             <ul class="pagination">
                                                 {{ $medicines->links() }}
                                             </ul>
