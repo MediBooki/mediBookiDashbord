@@ -83,8 +83,8 @@
                                                               </div>
                                                         </td>
                                                     </tr>
-                                                    @include('dashboard.services.single.edit')
-                                                    @include('dashboard.services.single.delete')
+                                                    @include('dashboard.doctorDashboard.services.single.edit')
+                                                    @include('dashboard.doctorDashboard.services.single.delete')
                                                 @endforeach
                                             @endisset
                                             </tbody>
@@ -102,7 +102,7 @@
                             </div>
                         </div>
                     </div>
-                    @include('dashboard.services.single.create')
+                    @include('dashboard.doctorDashboard.services.single.create')
                 </div>
             </section>
         </div>
