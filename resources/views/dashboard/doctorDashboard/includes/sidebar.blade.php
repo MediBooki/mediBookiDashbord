@@ -21,10 +21,10 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a href=""><i class="la la-tags"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.single_service') }}</span></a>
+                <a href=""><i class="la la-tags"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.services') }}</span></a>
                 <ul class="menu-content">
                     <li class="">
-                        <a class="menu-item" href="{{ route('services.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.single_service')}}</a>
+                        <a class="menu-item" href="{{ route('services.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.services')}}</a>
                     </li>
                 </ul>
             </li>

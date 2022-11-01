@@ -26,6 +26,5 @@ return array (
   'receipt' => 'سندات القبض',
   'sections' => 'الاقسام',
   'services' => 'الخدمات',
-  'single_service' => 'الخدمات المفردة',
   'view All' => 'عرض الكل',
 );

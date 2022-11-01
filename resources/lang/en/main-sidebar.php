@@ -23,6 +23,5 @@ return array (
   'receipt' => 'Receipts',
   'sections' => 'Sections',
   'services' => 'Services',
-  'single_service' => 'Single Service',
   'view All' => 'View All',
 );
