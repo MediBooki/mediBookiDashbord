@@ -16,15 +16,12 @@ class MedicineController extends Controller
         $medicines = Medicine::orderBy('id','DESC')->get();
         return $this->sendResponse(MedicineResource::collection($medicines), 'Medicines lists send successfully');
     }
-    
-    public function store(Request $request)
-    {
-        //
-    }
 
     public function show($id)
     {
-        //
+        $medicine = Medicine::findOrFail($id);
+        
+        return $this->sendResponse(new MedicineResource($medicine), 'Medicines lists send successfully');
     }
 
 
