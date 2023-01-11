@@ -46,8 +46,13 @@ return [
         ],
         'api' => [
             'driver' => 'passport',
+            'provider' => 'users',
+        ],
+        'patient' => [
+            'driver' => 'passport',
             'provider' => 'patients',
         ],
+        
     ],
 
     /*
@@ -79,7 +84,7 @@ return [
         ],
 
         'patients' => [
-            'driver' => 'database',
+            'driver' => 'eloquent',
             'model' => App\Models\Patient::class,
         ],
     ],

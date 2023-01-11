@@ -14,5 +14,16 @@ class Patient extends Authenticatable implements HasMedia
 {
     use HasFactory,InteractsWithMedia,HasApiTokens,Notifiable;
     protected $guarded = [];
-    public $timestamps = true;   
+    protected $guard = 'patient';
+    public $timestamps = true;
+
+    public function wishlist()
+    {
+        return $this->belongsToMany(Medicine::class, 'wishlist_medicines')->withTimestamps();
+    }
+
+    public function wishlistHas($medicineId)
+    {
+        return self::wishlist()->where('medicine_id', $medicineId->id)->exists();
+    }
 }
