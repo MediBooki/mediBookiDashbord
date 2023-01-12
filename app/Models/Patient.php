@@ -26,4 +26,9 @@ class Patient extends Authenticatable implements HasMedia
     {
         return self::wishlist()->where('medicine_id', $medicineId->id)->exists();
     }
+
+    public function insurance()
+    {
+        return $this->belongsTo(Insurance::class);
+    }
 }

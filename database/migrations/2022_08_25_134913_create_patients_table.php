@@ -24,6 +24,10 @@ class CreatePatientsTable extends Migration
             $table->string('gender');
             $table->string('blood_group');
             $table->longText('address');
+            $table->foreignId('insurance_id')->nullable()->references('id')->on('insurances')->onDelete('cascade');
+            $table->string('insurance_number')->nullable();
+            $table->date('insurance_date')->nullable();
+            $table->boolean('insurance_status')->nullable();
             $table->timestamps();
         });
     }

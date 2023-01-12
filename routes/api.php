@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\Auth\PatientAuthController;
 use App\Http\Controllers\API\DoctorController;
 use App\Http\Controllers\API\MedicineController;
+use App\Http\Controllers\API\PatientController;
 use App\Http\Controllers\API\SectionController;
 use App\Http\Controllers\API\ServiceController;
 use App\Http\Controllers\API\WishlistMedicineController;
@@ -33,6 +34,7 @@ Route::group(['middleware' => ['changeLanguage']], function (){
         Route::post('register', [PatientAuthController::class,'register']);
         Route::middleware(['auth:patient'])->group(function(){
             Route::apiResource('wishlist/medicines', WishlistMedicineController::class)->only(['index','store','destroy']);
+            Route::apiResource('insurance', PatientController::class)->only(['store','index']);
         });    
     });
 });
