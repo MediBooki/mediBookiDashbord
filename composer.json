@@ -14,6 +14,7 @@
         "laravel/passport": "^10.4",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "livewire/livewire": "^2.11",
         "mcamara/laravel-localization": "^1.7",
         "nafezly/payments": "^2.4",
         "spatie/laravel-medialibrary": "9.0.0",

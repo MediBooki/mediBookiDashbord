@@ -11,6 +11,7 @@ return array (
   'account' => 'Accounts',
   'ambulance' => 'Ambulance',
   'ambulance_calls' => 'Ambulance Calls',
+  'bookLists' => 'قسم كشوفات المرضي',
   'doctors' => 'Doctors',
   'group_service' => 'Group Service',
   'index' => 'Home',

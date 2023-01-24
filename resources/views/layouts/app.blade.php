@@ -26,9 +26,9 @@
         <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css-rtl/core/menu/menu-types/vertical-menu.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css-rtl/pages/chat-application.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css-rtl/app.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css-rtl/custom.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css-rtl/core/colors/palette-gradient.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css-rtl/pages/timeline.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css-rtl/plugins/calendars/clndr.css')}}">
     @else
         <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/plugins/animate/animate.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/vendors.css')}}">
@@ -38,6 +38,7 @@
         <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/custom.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/core/colors/palette-gradient.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/pages/timeline.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/plugins/calendars/clndr.css')}}">
     @endif
     
     <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/vendors/css/tables/datatable/datatables.min.css')}}">
@@ -62,6 +63,7 @@
     <!-- BEGIN Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/admin/css/style.css')}}">
+    
     @yield('style')
     <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
     <style>
@@ -69,6 +71,7 @@
             font-family: 'Cairo', sans-serif;
         }
     </style>
+    
 </head>
 <body class="vertical-layout vertical-menu 2-columns menu-expanded fixed-navbar"
       data-open="click" data-menu="vertical-menu" data-col="2-columns">
@@ -97,7 +100,8 @@
     @include('dashboard.doctorDashboard.includes.footer')
 @endif
 
-
+{{-- @livewireScripts
+@stack('scripts') --}}
 
 <!-- BEGIN VENDOR JS-->
 <script src="{{asset('assets/admin/vendors/js/vendors.min.js')}}" type="text/javascript"></script>
@@ -134,8 +138,6 @@
 <script src="{{asset('assets/admin/js/scripts/customizer.js')}}" type="text/javascript"></script>
 <!-- END MODERN JS-->
 <!-- BEGIN PAGE LEVEL JS-->
-<script src="{{asset('assets/admin/js/scripts/pages/dashboard-crypto.js')}}" type="text/javascript"></script>
-<script src="{{asset('assets/admin/js/scripts/editors/editor-ckeditor.js')}}" type="text/javascript"></script>
 
 <script src="{{asset('assets/admin/js/scripts/tables/datatables/datatable-basic.js')}}"
         type="text/javascript"></script>

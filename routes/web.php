@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AmbulanceController;
+use App\Http\Controllers\BookListController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\InvoiceController;
@@ -13,6 +14,9 @@ use App\Http\Controllers\ReceiptController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TermController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +33,11 @@ Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath', ]
 ], function(){
+    
+    Route::get('/', function (Request $request) {
+        return view('dashboard.auth.login');
+    });
+
     Route::middleware('auth')->group(function () {
         Route::get('/dashboard/admin', function () {
             return view('dashboard.index');
@@ -64,6 +73,9 @@ Route::group([
         /*-------------End--------------------------- */
         /** قسم الصيدلية*/
         Route::resource('medicines' , MedicineController::class);
+        /*-------------End--------------------------- */
+        /** قسم الكشوفات*/
+        Route::resource('bookLists' , BookListController::class)->except(['edit','show']);
         /*-------------End--------------------------- */
     });
 

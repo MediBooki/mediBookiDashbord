@@ -7,6 +7,7 @@ use App\Http\Controllers\API\PatientController;
 use App\Http\Controllers\API\SectionController;
 use App\Http\Controllers\API\ServiceController;
 use App\Http\Controllers\API\WishlistMedicineController;
+use App\Http\Controllers\API\BookDoctorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::group(['middleware' => ['changeLanguage']], function (){
-    Route::resource('doctors', DoctorController::class)->except(['edit','create','edit']);
+    Route::resource('doctors', DoctorController::class)->except(['edit','create']);
     Route::resource('medicines', MedicineController::class)->only(['index','show']);
     Route::resource('sections', SectionController::class)->only(['index','show']);
     Route::resource('services', ServiceController::class)->only(['index','show']);
@@ -35,6 +36,7 @@ Route::group(['middleware' => ['changeLanguage']], function (){
         Route::middleware(['auth:patient'])->group(function(){
             Route::apiResource('wishlist/medicines', WishlistMedicineController::class)->only(['index','store','destroy']);
             Route::apiResource('insurance', PatientController::class)->only(['store','index']);
+            Route::apiResource('book/doctor', BookDoctorController::class)->only(['store','index']);
         });    
     });
 });

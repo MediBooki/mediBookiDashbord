@@ -77,7 +77,7 @@
                                                         <td>{{$invoice->tax_rate}}</td>
                                                         <td>{{number_format($invoice->tax_value,2)}}</td>
                                                         <td>{{$invoice->total_with_tax}}</td>
-                                                        <td>{{$invoice->type}}</td>
+                                                        <td>{{$invoice->type ==1 ? 'نفدي': 'اجل'}}</td>
                                                         <td>
                                                             <div class="btn-group">
                                                                 <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
