@@ -15,7 +15,7 @@ class DoctorController extends Controller
     use ResponseAPI;
     public function index()
     {
-        $doctors = Doctor::orderBy('id','DESC')->with('section')->get();
+        $doctors = Doctor::orderBy('id','DESC')->with(['section','appointments'])->get();
         return $this->sendResponse(DoctorResource::collection($doctors), 'Doctor lists send successfully');
     }
    
@@ -37,7 +37,8 @@ class DoctorController extends Controller
     }
     public function show($id)
     {
-        $doctor = Doctor::findOrFail($id);
+        $doctor = Doctor::with(['section','appointments'])->findOrFail($id);
+        // dd($doctor);
         return $this->sendResponse(new DoctorResource($doctor) ,'Doctor finded successfully');
     }
 
