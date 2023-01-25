@@ -23,6 +23,9 @@ class CreateDoctorsTable extends Migration
             $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');
             $table->string('phone');
             $table->boolean('status')->default(1);
+            $table->time('start');
+            $table->time('end');
+            $table->integer('patient_time_minute');
             $table->rememberToken();
             $table->timestamps();
         });

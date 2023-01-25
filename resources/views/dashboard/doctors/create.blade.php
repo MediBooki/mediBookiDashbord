@@ -134,6 +134,20 @@
                                                             @enderror
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> {{ trans('bookList.price') }}
+                                                                 </label>
+                                                            <input type="number" id="name"
+                                                                   class="form-control"
+                                                                   placeholder="  "
+                                                                   value="{{old('price')}}"
+                                                                   name="price">
+                                                            @error("price")
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -171,6 +185,49 @@
                                                             </select>
                                                             @error('appointments')
                                                             <span class="text-danger"> {{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> {{ trans('doctor.start') }}
+                                                                 </label>
+                                                            <input type="time" id="name"
+                                                                   class="form-control"
+                                                                   placeholder="  "
+                                                                   value="{{old('start')}}"
+                                                                   name="start">
+                                                            @error("start")
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> {{ trans('bookList.end') }}
+                                                                 </label>
+                                                            <input type="time" id="end"
+                                                                   class="form-control"
+                                                                   placeholder="  "
+                                                                   value="{{old('end')}}"
+                                                                   name="end">
+                                                            @error("end")
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> {{ trans('bookList.patient_time_minute') }}</label>
+                                                            <input type="number" id="end"
+                                                                   class="form-control"
+                                                                   placeholder="  "
+                                                                   value="{{old('patient_time_minute')}}"
+                                                                   name="patient_time_minute">
+                                                            @error("patient_time_minute")
+                                                            <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
