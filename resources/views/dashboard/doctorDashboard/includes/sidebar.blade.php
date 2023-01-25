@@ -28,6 +28,14 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item">
+                <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.bookLists') }}</span></span></a>
+                <ul class="menu-content">
+                    <li class="">
+                        <a class="menu-item" href="{{ route('reservations.index') }}" data-i18n="nav.dash.ecommerce">المواعيد المحجوزة</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </div>
 </div>

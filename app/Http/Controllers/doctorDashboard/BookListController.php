@@ -10,8 +10,9 @@ class BookListController extends Controller
 {
     public function index()
     {
-        $data = BookDoctor::doctorAuth()->get(['id', 'date', 'time', 'patient_id']);
-        return response()->json($data);
+        $bookLists = BookDoctor::doctorAuth()->acceptStatus()->paginate(15);
+        return view('dashboard.doctorDashboard.bookList.index', compact('bookLists'));
     }
+
     
 }
