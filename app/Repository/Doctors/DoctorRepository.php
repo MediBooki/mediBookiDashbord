@@ -6,6 +6,7 @@ use App\Interfaces\Doctors\DoctorRepositoryInterface;
 use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Section;
+use App\Models\Service;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -25,19 +26,36 @@ class DoctorRepository implements DoctorRepositoryInterface
 
     public function store($request)
     {
-        $doctor = new Doctor();
-        $doctor->name = ['en' => $request->name_en, 'ar' => $request->name];
-        $doctor->phone = $request->phone;
-        $doctor->email = $request->email;
-        $doctor->password = Hash::make($request->password);
-        $doctor->section_id =  $request->section_id;
-        // $doctor->appointments =  implode(',', $request->appointments);
-        $doctor->save();
-        $doctor->appointments()->attach($request->appointments);
-        if($request->hasFile('photo') && $request->file('photo')->isValid()){
-            $doctor->addMediaFromRequest('photo')->toMediaCollection('photo');
+        try {
+            DB::beginTransaction();
+            $doctor = new Doctor();
+            $doctor->name = ['en' => $request->name_en, 'ar' => $request->name];
+            $doctor->phone = $request->phone;
+            $doctor->email = $request->email;
+            $doctor->password = Hash::make($request->password);
+            $doctor->section_id =  $request->section_id;
+            $doctor->start = $request->start;
+            $doctor->end = $request->end;
+            $doctor->patient_time_minute = $request->patient_time_minute;
+            $doctor->save();
+            $doctor->appointments()->attach($request->appointments);
+            if($request->hasFile('photo') && $request->file('photo')->isValid()){
+                $doctor->addMediaFromRequest('photo')->toMediaCollection('photo');
+            }
+            $service = new Service();
+            $service->name = ['en' => 'Reservation', 'ar' => 'كشف عادي '];
+            $service->description = ['en' => 'Reservation', 'ar' => 'كشف عادي '];
+            $service->price = $request->price;
+            $service->doctor_id = $doctor->id;
+            $service->status = 1;
+            $service->save();
+            DB::commit();
+            return redirect()->route('doctors.index')->with(['success' => 'Doctor Added Successfully']);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
-        return redirect()->route('doctors.index')->with(['success' => 'Doctor Added Successfully']);
+
     }
     public function update($request)
     {
