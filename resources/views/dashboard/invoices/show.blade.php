@@ -48,7 +48,7 @@
                 <br>
                 <p>{{ $invoice->doctor->name }}</p>
                 <br>
-                <p>{{ $invoice->section->name }}</p>
+                {{-- <p>{{ $invoice->section->name }}</p> --}}
               </div>
             </div>
             <!--/ Invoice Customer Details -->

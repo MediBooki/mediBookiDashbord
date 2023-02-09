@@ -15,8 +15,6 @@ use App\Http\Controllers\SectionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TermController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
