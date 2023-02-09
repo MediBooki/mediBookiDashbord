@@ -15,10 +15,7 @@ class OrderController extends Controller
     use ResponseAPI;
     public function index()
     {
-        $cart = Order::where([
-            ['patient_id', '=', auth()->user()->id],
-            ['check', '=', 0]
-        ])->with('medicines')->first();
+        $cart = Order::patientCheck()->with('medicines')->first();
         $total = 0;
         if ($cart) {
             foreach ($cart->medicines as $product) {
@@ -30,10 +27,7 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        $order = Order::where([
-            ['patient_id', '=', auth()->user()->id],
-            ['check', '=' , 0]
-        ])->select('id')->first();
+        $order = Order::patientCheck()->select('id')->first();
         if($order)
         {
             $cart = Order::findorFail($order->id);
@@ -56,10 +50,7 @@ class OrderController extends Controller
     }
     public function show($id)
     {
-        $order = Order::where([
-            ['patient_id', '=', auth()->user()->id],
-            ['check', '=', 0]
-        ])->select('id')->first();
+        $order = Order::patientCheck()->select('id')->first();
         $pr_id = Medicine::where([
             ['id', '=', $id]
         ])->select('id')->first();
@@ -97,10 +88,7 @@ class OrderController extends Controller
 
     public function update($id)
     {
-        $order = Order::where([
-            ['patient_id', '=', auth()->user()->id],
-            ['check', '=', 0]
-        ])->select('id')->first();
+        $order = Order::patientCheck()->select('id')->first();
         $cart = Order::findorFail($order->id);
         $hasMedicine = $cart->medicines()->where('medicines.id', $id)->exists();
         if ($hasMedicine) {
@@ -121,10 +109,7 @@ class OrderController extends Controller
 
     public function destroy($id)
     {
-        $order = Order::where([
-            ['patient_id', '=', auth()->user()->id],
-            ['check', '=' , 0]
-        ])->select('id')->first();
+        $order = Order::patientCheck()->select('id')->first();
         $cart = Order::findorFail($order->id);
         $hasMedicine = $cart->medicines()->where('medicines.id', $id)->exists();
         if($hasMedicine){

@@ -15,10 +15,7 @@ class PaymentController extends Controller
     public function store()
     {
         
-        $order = Order::where([
-            ['patient_id', '=', auth()->user()->id],
-            ['check', '=', 0]
-        ])->first();
+        $order = Order::patientCheck()->first();
         //pay function
         $payment = new PaymobPayment();
         $response = $payment->pay(

@@ -18,4 +18,11 @@ class Order extends Model
     {
         return $this -> belongsToMany(Medicine::class,'order_medicine')->withPivot('qty');
     }
+    public function scopePatientCheck($query)
+    {
+        return $query->where([
+            ['patient_id', '=', auth()->user()->id],
+            ['check', '=', 0]
+        ]);
+    }
 }
