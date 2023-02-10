@@ -30,4 +30,22 @@ class Doctor extends Authenticatable implements HasMedia
     {
         return $this->hasMany(Service::class);
     }
+
+
+    public function scopeFilter($query)
+    {
+        return  $query->where( function($query ){
+            $query->when(!empty(request()->titles) ,function($subquery){
+                $subquery->whereIn('doctors.title',request()->titles);
+            })->when(!empty(request()->genders) ,function($subquery){
+                $subquery->whereIn('doctors.gender',request()->genders);
+            })->when(!empty(request()->name) ,function($subquery){
+                $subquery->where('name', 'LIKE', "%" . request()->name . "%");
+            })->when(!empty(request()->specialization) ,function($subquery){
+                $subquery->where('specialization', 'LIKE', "%" . request()->specialization . "%");
+            })->when(!empty(request()->sections) ,function($subquery){
+                $subquery->whereIn('doctors.section_id',request()->sections);
+            });
+        });
+    }
 }

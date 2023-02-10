@@ -32,6 +32,7 @@ Route::group(['middleware' => ['changeLanguage']], function (){
     Route::resource('medicines', MedicineController::class)->only(['index','show']);
     Route::apiResource('categories', SectionController::class)->only(['index','show']);
     Route::resource('services', ServiceController::class)->only(['index','show']);
+    Route::get('/filter/doctors',[DoctorController::class,'filter']);
     Route::group(['prefix' => 'patient'], function () {
         Route::post('login', [PatientAuthController::class,'login']);
         Route::post('register', [PatientAuthController::class,'register']);

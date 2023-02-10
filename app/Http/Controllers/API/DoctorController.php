@@ -41,6 +41,11 @@ class DoctorController extends Controller
         // dd($doctor);
         return $this->sendResponse(new DoctorResource($doctor) ,'Doctor finded successfully');
     }
+    public function filter(Request $request)
+    {
+        $doctors = Doctor::Filter()->paginate(10);
+        return $this->sendResponse(DoctorResource::collection($doctors), 'Doctor lists send successfully');
+    }
 
 
 }
