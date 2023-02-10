@@ -37,6 +37,9 @@ class DoctorRepository implements DoctorRepositoryInterface
             $doctor->start = $request->start;
             $doctor->end = $request->end;
             $doctor->patient_time_minute = $request->patient_time_minute;
+            $doctor->gender = $request->gender;
+            $doctor->title = $request->title;
+            $doctor->specialization = $request->specialization;
             $doctor->save();
             $doctor->appointments()->attach($request->appointments);
             if($request->hasFile('photo') && $request->file('photo')->isValid()){

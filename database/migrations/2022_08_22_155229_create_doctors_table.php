@@ -26,6 +26,9 @@ class CreateDoctorsTable extends Migration
             $table->time('start');
             $table->time('end');
             $table->integer('patient_time_minute');
+            $table->boolean('gender');
+            $table->integer('title');
+            $table->string('specialization');
             $table->rememberToken();
             $table->timestamps();
         });

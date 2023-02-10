@@ -192,7 +192,51 @@
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> {{ trans('doctor.start') }}
+                                                            <label for="projectinput1"> {{ trans('doctor.gender') }}</label>
+                                                            <select name="gender" class="select2 form-control">
+                                                                <optgroup label="{{ trans('doctor.gender') }}">
+                                                                    <option value="0">{{ trans('doctor.male') }}</option>
+                                                                    <option value="1">{{ trans('doctor.female') }}</option>
+                                                                </optgroup>
+                                                            </select>
+                                                            @error('gender')
+                                                            <span class="text-danger"> {{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> {{ trans('doctor.title') }}</label>
+                                                            <select name="title" class="select2 form-control">
+                                                                <optgroup label="{{ trans('doctor.title') }}">
+                                                                    <option value="0">{{ trans('doctor.professor') }}</option>
+                                                                    <option value="1">{{ trans('doctor.consultant') }}</option>
+                                                                    <option value="2">{{ trans('doctor.specialist') }}</option>
+                                                                </optgroup>
+                                                            </select>
+                                                            @error('title')
+                                                            <span class="text-danger"> {{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> {{ trans('doctor.specialization') }}</label>
+                                                            <input type="text" id="name"
+                                                                   class="form-control"
+                                                                   placeholder="  "
+                                                                   value="{{old('specialization')}}"
+                                                                   name="specialization">
+                                                            @error("specialization")
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> {{ trans('bookList.start') }}
                                                                  </label>
                                                             <input type="time" id="name"
                                                                    class="form-control"
