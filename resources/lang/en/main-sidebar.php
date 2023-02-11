@@ -22,7 +22,9 @@ return array (
   'patient_history' => 'Patient History',
   'payment' => 'Exchange Bonds',
   'receipt' => 'Receipts',
+  'roles' => 'roles',
   'sections' => 'Sections',
   'services' => 'Services',
+  'users' => 'users',
   'view All' => 'View All',
 );

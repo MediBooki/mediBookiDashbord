@@ -24,7 +24,9 @@ return array (
   'patient_history' => 'تاريخ المريض',
   'payment' => 'سندات الصرف',
   'receipt' => 'سندات القبض',
+  'roles' => 'صلاحيات المستخدمين',
   'sections' => 'الاقسام',
   'services' => 'الخدمات',
+  'users' => 'قائمة المستخدمين',
   'view All' => 'عرض الكل',
 );

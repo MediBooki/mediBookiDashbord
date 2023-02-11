@@ -11,9 +11,11 @@ use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RayInfoController;
 use App\Http\Controllers\ReceiptController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TermController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -41,17 +43,21 @@ Route::group([
             return view('dashboard.index');
         })->name('dashboard');
         
-        Route::resource('sections' , SectionController::class)->except(['edit','create']);
-        Route::resource('doctors' , DoctorController::class);
-        Route::resource('insurances' , InsuranceController::class)->except(['edit','create','show']);
+        // الصلاحيات للمستخدمين
+        Route::resource('roles', RoleController::class)->except(['show'])->middleware('can:users');
+        Route::resource('users', UserController::class)->except(['show'])->middleware('can:users');
+
+        Route::resource('sections' , SectionController::class)->except(['edit','create'])->middleware('can:sections');
+        Route::resource('doctors' , DoctorController::class)->middleware('can:doctors');
+        Route::resource('insurances' , InsuranceController::class)->except(['edit','create','show'])->middleware('can:insurances');
         Route::resource('ambulances' , AmbulanceController::class);
-        Route::resource('patients' , PatientController::class);
-        Route::resource('terms' , TermController::class)->except(['edit','create']);
-        Route::get('/doctor/services', [ServiceController::class,'index'])->name('services.doctors');
+        Route::resource('patients' , PatientController::class)->middleware('can:patients');
+        Route::resource('terms' , TermController::class)->except(['edit','create'])->middleware('can:terms');
+        Route::get('/doctor/services', [ServiceController::class,'index'])->name('services.doctors')->middleware('can:services');
 
 
         /* crud  الفواتير 8*/
-        Route::resource('invoices' , InvoiceController::class);
+        Route::resource('invoices' , InvoiceController::class)->middleware('can:invoices');
         Route::get('/invoices/services/doctors/{id}', [InvoiceController::class,'getService']);
         Route::get('/invoices/service/price/{id}', [InvoiceController::class,'getPrice']);
         // Edit
@@ -59,21 +65,21 @@ Route::group([
         Route::get('/invoices/{invo_id}/service/price/{id}', [InvoiceController::class,'getPriceEdit']);
         /*-------------End--------------------------- */
         /* السندات القبض والصرف */
-        Route::resource('receipts' , ReceiptController::class);
-        Route::resource('payments' , PaymentController::class);
+        Route::resource('receipts' , ReceiptController::class)->middleware('can:accounts');
+        Route::resource('payments' , PaymentController::class)->middleware('can:accounts');
          /*-------------End--------------------------- */
         /** قسم الاشعة والتحاليل */
-        Route::resource('rayInfo' , RayInfoController::class);
-        Route::get('/Rays/complete', [RayInfoController::class,'full_index'])->name('rayInfo.complete');
+        Route::resource('rayInfo' , RayInfoController::class)->middleware('can:x-ray');
+        Route::get('/Rays/complete', [RayInfoController::class,'full_index'])->name('rayInfo.complete')->middleware('can:x-ray');
 
-        Route::resource('labInfo' , LabInfoController::class);
-        Route::get('/lab/complete', [LabInfoController::class,'full_index'])->name('labInfo.complete');
+        Route::resource('labInfo' , LabInfoController::class)->middleware('can:laboratory');
+        Route::get('/lab/complete', [LabInfoController::class,'full_index'])->name('labInfo.complete')->middleware('can:laboratory');
         /*-------------End--------------------------- */
         /** قسم الصيدلية*/
-        Route::resource('medicines' , MedicineController::class);
+        Route::resource('medicines' , MedicineController::class)->middleware('can:medicine');
         /*-------------End--------------------------- */
         /** قسم الكشوفات*/
-        Route::resource('bookLists' , BookListController::class)->except(['edit','show']);
+        Route::resource('bookLists' , BookListController::class)->except(['edit','show'])->middleware('can:bookLists');
         /*-------------End--------------------------- */
     });
 

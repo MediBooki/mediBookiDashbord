@@ -5,7 +5,7 @@
                 <a href="{{ route('dashboard') }}" class="la la-mouse-pointer"></i><span class="menu-title" data-i18n="nav.add_on_drag_drop.main">{{ trans('main-sidebar.index') }}</span></a>
             </li>
             
-            
+            @can('sections')
                 <li class="nav-item">
                     <a href=""><i class="la la-cube"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.sections') }}</span></a>
                     <ul class="menu-content">
@@ -14,8 +14,8 @@
                         </li>
                     </ul>
                 </li>
-            
-            
+            @endcan
+            @can('doctors')
             <li class="nav-item">
                 <a href=""><i class="la la-bookmark-o"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.doctors') }}</span></a>
                 <ul class="menu-content">
@@ -24,13 +24,13 @@
                     </li>
                 </ul>
             </li>
-            
-            
+            @endcan
+                @can('services')
                 <li class="nav-item">
                     <a href=""><i class="la la-beer"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.services') }}</span></a>
                     <ul class="menu-content">
                         <li class="">
-                            <a class="menu-item" href="{{ route('services.doctors') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.single_service')}}</a>
+                            <a class="menu-item" href="{{ route('services.doctors') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.services')}}</a>
                         </li>
                         <li class="">
                             <a class="menu-item" href="{{ route('insurances.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.insurance')}}</a>
@@ -43,6 +43,8 @@
                         </li>
                     </ul>
                 </li>
+                @endcan
+                @can('patients')
                 <li class="nav-item">
                     <a href=""><i class="la la-edit"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.patient') }}</span></a>
                     <ul class="menu-content">
@@ -51,6 +53,8 @@
                         </li>
                     </ul>
                 </li>
+                @endcan
+                @can('invoices')
                 <li class="nav-item">
                     <a href=""><i class="la la-tags"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.invoice') }}</span></a>
                     <ul class="menu-content">
@@ -62,6 +66,8 @@
                         </li>
                     </ul>
                 </li>
+                @endcan
+                @can('accounts')
                 <li class="nav-item">
                     <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.account') }}</span></a>
                     <ul class="menu-content">
@@ -73,6 +79,8 @@
                         </li>
                     </ul>
                 </li>
+                @endcan
+                @can('x-ray')
                 <li class="nav-item">
                     <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">قسم الاشعة</span></a>
                     <ul class="menu-content">
@@ -84,6 +92,8 @@
                         </li>
                     </ul>
                 </li>
+                @endcan
+                @can('laboratory')
                 <li class="nav-item">
                     <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">قسم التحاليل</span></a>
                     <ul class="menu-content">
@@ -95,6 +105,8 @@
                         </li>
                     </ul>
                 </li>
+                @endcan
+                @can('medicine')
                 <li class="nav-item">
                     <a href=""><i class="la la-edit"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.medicines') }}</span></a>
                     <ul class="menu-content">
@@ -103,6 +115,8 @@
                         </li>
                     </ul>
                 </li>
+                @endcan
+                @can('bookLists')
                 <li class="nav-item">
                     <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.bookLists') }}</span></span></a>
                     <ul class="menu-content">
@@ -114,6 +128,20 @@
                         </li>
                     </ul>
                 </li>
+                @endcan
+                @can('users')
+                <li class="nav-item">
+                    <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.users') }}</span></span></a>
+                    <ul class="menu-content">
+                        <li class="">
+                            <a class="menu-item" href="{{ route('users.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.users') }}</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="{{ route('roles.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.roles') }}</a>
+                        </li>
+                    </ul>
+                </li>
+                @endcan
         </ul>
     </div>
 </div>
