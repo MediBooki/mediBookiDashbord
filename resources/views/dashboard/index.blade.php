@@ -250,18 +250,15 @@
                     </div>
                 </div>
             </div>
-            <!--/ Sell Orders & Buy Order -->
+        
+           
             <div class="row">
               <div class="col-xl-6 col-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4 class="card-title"> sd</h4>
+                    <h4 class="card-title">Invocice Status</h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                    <div class="heading-elements">
-                      <ul class="list-inline mb-0">
-                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                      </ul>
-                    </div>
+                    {!! $chartjs->render() !!}
                   </div>
                   <div class="card-content collapse show">
                     <div class="card-body pt-0">
@@ -274,6 +271,7 @@
                   <div class="card-header">
                     <h4 class="card-title"> sd</h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    {!! $chartjs1->render() !!}
                     <div class="heading-elements">
                       <ul class="list-inline mb-0">
                         <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
@@ -287,6 +285,7 @@
                 </div>
               </div>
             </div>
+
         </div>
     </div>
 </div>

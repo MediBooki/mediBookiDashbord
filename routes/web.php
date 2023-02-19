@@ -3,6 +3,7 @@
 use App\Http\Controllers\AmbulanceController;
 use App\Http\Controllers\BookListController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LabInfoController;
@@ -39,9 +40,7 @@ Route::group([
     });
 
     Route::middleware('auth')->group(function () {
-        Route::get('/dashboard/admin', function () {
-            return view('dashboard.index');
-        })->name('dashboard');
+        Route::get('/dashboard/admin',[HomeController::class,'index'])->name('dashboard');
         
         // الصلاحيات للمستخدمين
         Route::resource('roles', RoleController::class)->except(['show'])->middleware('can:users');
