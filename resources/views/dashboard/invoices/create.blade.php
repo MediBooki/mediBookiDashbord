@@ -106,7 +106,7 @@
                                                     <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('service.price') }}</label>
-                                                            <input type="text" id="price"
+                                                            <input type="number" id="price"
                                                                 class="form-control"
                                                                 placeholder="  "
                                                                 value="{{old('price')}}"
@@ -135,7 +135,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('invoice.discount_value') }}</label>
-                                                            <input type="text" id="discount_value"
+                                                            <input type="number" id="discount_value"
                                                                 class="form-control"
                                                                 placeholder="  "
                                                                 value="{{old('discount_value')}}"
@@ -150,7 +150,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('invoice.tax_rate') }}</label>
-                                                            <input type="text" id="tax_rate"
+                                                            <input type="number" id="tax_rate"
                                                                 class="form-control"
                                                                 placeholder="  "
                                                                 value="{{old('tax_rate')}}"
@@ -163,7 +163,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('invoice.tax_value') }}</label>
-                                                            <input type="text" id="tax_value"
+                                                            <input type="number" id="tax_value"
                                                                 class="form-control"
                                                                 placeholder="  "
                                                                 value="{{old('tax_value')}}"
@@ -176,7 +176,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('invoice.total_with_tax') }}</label>
-                                                            <input type="text" id="total_with_tax"
+                                                            <input type="number" id="total_with_tax"
                                                                 class="form-control"
                                                                 placeholder="  "
                                                                 value="{{old('total_with_tax')}}"
@@ -223,7 +223,6 @@
             if (doctor_id) {
                 $.get('services/doctors/' + doctor_id, function (data) {
                     $.each(data, function(index, value) {
-                        console.log(value.id);
                         $('select[name="service_id"]').append('<option value="' + value.id + '">' + value.name.ar + '</option>');
                     });
                   

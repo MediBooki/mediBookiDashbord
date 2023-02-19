@@ -89,50 +89,16 @@
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> {{ trans('main-sidebar.sections') }}</label>
-                                                            <select name="section_id" class="select2 form-control">
-
-                                                            </select>
-                                                            @error("section_id")
-                                                            <span class="text-danger">{{$message}}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> {{ trans('invoice.type') }}</label>
-                                                            <select name="type" class="select2 form-control" disabled>
-                                                                <optgroup label="{{ trans('invoice.type') }}">
-                                                                <option value="1" {{ $invoice->type == 1 ? ' selected' : '' }}>نقدي</option>
-                                                                <option value="2" {{ $invoice->type == 2 ? ' selected' : '' }}>اجل</option>
-                                                                </optgroup>
-                                                            </select>
-                                                            @error("type")
-                                                            <span class="text-danger">{{$message}}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('main-sidebar.services') }}</label>
                                                             <select name="service_id" class="select2 form-control">
-                                                                <optgroup label="{{ trans('main-sidebar.services') }}">
-                                                                    @if($services && $services -> count() > 0)
-                                                                        @foreach($services as $service)
-                                                                            <option
-                                                                                value="{{$service->id }}" {{ $service->id == $invoice->service_id ? ' selected' : '' }}>{{$service->name}}</option>
-                                                                        @endforeach
-                                                                    @endif
-                                                                </optgroup>
+                                                                
                                                             </select>
                                                             @error("service_id")
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('service.price') }}</label>
                                                             <input type="text" id="price"
@@ -145,7 +111,24 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> {{ trans('invoice.type') }}</label>
+                                                            <select name="type" class="select2 form-control">
+                                                                <optgroup label="{{ trans('invoice.type') }}">
+                                                                <option value="1" {{ $invoice->type == 1 ? ' selected' : '' }}>نقدي</option>
+                                                                <option value="2" {{ $invoice->type == 2 ? ' selected' : '' }}>اجل</option>
+                                                                </optgroup>
+                                                            </select>
+                                                            @error("type")
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                   
+                                                    <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('invoice.discount_value') }}</label>
                                                             <input type="text" id="discount_value"
@@ -234,8 +217,10 @@
         $('select[name="doctor_id"]').on('change', function () {
             var doctor_id = $(this).val();
             if (doctor_id) {
-                $.get('sections/doctors/' + doctor_id, function (data) {
-                    $('select[name="section_id"]').append('<option value="' + data.section_id + '">' + data.section_name + '</option>');
+                $.get('services/doctors/' + doctor_id, function (data) {
+                    $.each(data, function(index, value) {
+                        $('select[name="service_id"]').append('<option value="' + value.id + '">' + value.name.ar + '</option>');
+                    });
                 })
             } else {
                 console.log('AJAX load did not work');

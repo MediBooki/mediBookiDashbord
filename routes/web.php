@@ -53,6 +53,7 @@ Route::group([
         Route::resource('ambulances' , AmbulanceController::class);
         Route::resource('patients' , PatientController::class)->middleware('can:patients');
         Route::resource('terms' , TermController::class)->except(['edit','create'])->middleware('can:terms');
+
         Route::get('/doctor/services', [ServiceController::class,'index'])->name('services.doctors')->middleware('can:services');
 
 
@@ -61,8 +62,9 @@ Route::group([
         Route::get('/invoices/services/doctors/{id}', [InvoiceController::class,'getService']);
         Route::get('/invoices/service/price/{id}', [InvoiceController::class,'getPrice']);
         // Edit
-        Route::get('/invoices/{invo_id}/sections/doctors/{id}', [InvoiceController::class,'getSectionEdit']);
+        Route::get('/invoices/{invo_id}/services/doctors/{id}', [InvoiceController::class,'getServiceEdit']);
         Route::get('/invoices/{invo_id}/service/price/{id}', [InvoiceController::class,'getPriceEdit']);
+
         /*-------------End--------------------------- */
         /* السندات القبض والصرف */
         Route::resource('receipts' , ReceiptController::class)->middleware('can:accounts');
