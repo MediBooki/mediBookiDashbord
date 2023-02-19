@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SectionRequest;
 use App\Interfaces\Sections\SectionRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -21,11 +22,11 @@ class SectionController extends Controller
     {
         return $this->section->show($id);
     }
-    public function store(Request $request)
+    public function store(SectionRequest $request)
     {
         return $this->section->store($request);
     }
-    public function update(Request $request)
+    public function update(SectionRequest $request)
     {
         return $this->section->update($request);
     }

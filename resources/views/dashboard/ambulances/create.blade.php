@@ -122,7 +122,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('ambulance.driver_license_number') }}</label>
-                                                            <input type="text" id="name"
+                                                            <input type="number" id="name"
                                                                 class="form-control"
                                                                 placeholder="  "
                                                                 value="{{old('driver_license_number')}}"
@@ -135,7 +135,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('ambulance.driver_phone') }}</label>
-                                                            <input type="text" id="name"
+                                                            <input type="number" id="name"
                                                                 class="form-control"
                                                                 placeholder="  "
                                                                 value="{{old('driver_phone')}}"
@@ -169,14 +169,3 @@
         </div>
     </div>
 @stop
-@section('script')
-    <script>
-        var loadFile = function(event){
-            var output = document.getElementById('output');
-            output.src = URL.createObjectURL(event.target.files[0]);
-            output.load = function() {
-                URL.revokeObjectURL(output.src)
-            }
-        };
-    </script>
-@endsection

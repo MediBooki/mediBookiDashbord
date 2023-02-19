@@ -57,7 +57,7 @@
                                                 @foreach($roles as $role)
                                                     <tr>
                                                         <td>{{$loop->iteration}}</td>
-                                                        <td><a href="{{route('roles.show', $role->id)}}">{{ $role->name }}</a></td>
+                                                        <td><a href="#">{{ $role->name }}</a></td>
                                                         <td>                                                          
                                                             <div class="btn-group">
                                                                 <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">

@@ -91,7 +91,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('medicine.price') }}</label>
-                                                            <input type="text" id="name"
+                                                            <input type="number" id="name"
                                                                 class="form-control"
                                                                 placeholder="  "
                                                                 value="{{old('price')}}"

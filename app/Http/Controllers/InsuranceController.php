@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\InsuranceRequest;
 use App\Interfaces\Insurances\InsuranceRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -17,11 +18,11 @@ class InsuranceController extends Controller
     {
         return $this->insurance->index();
     }
-    public function store(Request $request)
+    public function store(InsuranceRequest $request)
     {
         return $this->insurance->store($request);
     }
-    public function update(Request $request)
+    public function update(InsuranceRequest $request)
     {
         return $this->insurance->update($request);
     }

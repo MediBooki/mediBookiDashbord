@@ -90,7 +90,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('user.role_name') }}</label>
-                                                            {!! Form::select('roles[]', $roles,$userRole, array('class' => 'form-control','multiple'))
+                                                            {!! Form::select('roles_name[]', $roles,$userRole, array('class' => 'form-control','multiple'))
                                                             !!}
                                                         </div>
                                                     </div>

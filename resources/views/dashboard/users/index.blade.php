@@ -60,7 +60,7 @@
                                                 @foreach($users as $user)
                                                     <tr>
                                                         <td>{{$loop->iteration}}</td>
-                                                        <td><a href="{{route('users.show', $user->id)}}">{{ $user->name }}</a></td>
+                                                        <td><a href="#">{{ $user->name }}</a></td>
                                                         <td>{{$user->email }}</td>
                                                         <td>
                                                             <span class="badge badge-pill badge-{{$user->status == 1 ? 'success':'danger'}}">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\doctorDashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Doctor\RayRequest;
 use App\Interfaces\doctorDashboard\RayRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class RayController extends Controller
     {
         $this->ray = $ray;
     }
-    public function store(Request $request)
+    public function store(RayRequest $request)
     {
         return $this->ray->store($request);
     }
@@ -22,7 +23,7 @@ class RayController extends Controller
     {
         return $this->ray->show($id);
     }
-    public function update(Request $request)
+    public function update(RayRequest $request)
     {
         return $this->ray->update($request);
     }

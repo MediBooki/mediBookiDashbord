@@ -72,7 +72,7 @@
                                                             </div>
                                                         @endforeach
                                                     </div>
-                                                    @error('permission.0')
+                                                    @error('permission')
                                                     <span class="text-danger"> {{$message}}</span>
                                                     @enderror
                                                 </div>

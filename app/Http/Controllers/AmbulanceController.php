@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AmbulanceRequest;
 use App\Interfaces\Ambulances\AmbulanceRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class AmbulanceController extends Controller
     {
         return $this->ambulance->create();
     }
-    public function store(Request $request)
+    public function store(AmbulanceRequest $request)
     {
         return $this->ambulance->store($request);
     }
@@ -29,7 +30,7 @@ class AmbulanceController extends Controller
     {
         return $this->ambulance->edit($id);
     }
-    public function update(Request $request)
+    public function update(AmbulanceRequest $request)
     {
         return $this->ambulance->update($request);
     }

@@ -28,7 +28,7 @@ class Doctor extends Authenticatable implements HasMedia
 
     public function services()
     {
-        return $this->hasMany(Service::class);
+        return $this->belongsToMany(Service::class);
     }
 
 

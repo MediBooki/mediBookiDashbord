@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\doctorDashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Doctor\ServiceRequest;
 use App\Interfaces\doctorDashboard\Services\ServiceRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -18,11 +19,11 @@ class ServiceController extends Controller
     {
         return $this->service->index();
     }
-    public function store(Request $request)
+    public function store(ServiceRequest $request)
     {
         return $this->service->store($request);
     }
-    public function update(Request $request)
+    public function update(ServiceRequest $request)
     {
         return $this->service->update($request);
     }

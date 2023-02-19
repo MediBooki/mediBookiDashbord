@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -39,23 +40,15 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'roles_name' => 'required',
-            'status'    => 'required|min:0|max:1',
-        ]);
-    
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
     
         $user = User::create($input);
         $user->assignRole($request->input('roles_name'));
     
-        return redirect()->route('users.index')
-                        ->with('success','User created successfully');
+        return redirect()->route('users.index')->with('success','User created successfully');
     }
     
     public function edit($id)
@@ -67,15 +60,8 @@ class UserController extends Controller
     }
     
 
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        $this->validate($request, [
-            'name'      => 'required',
-            'email'     => 'required|email|unique:users,email,'.$request->id,
-            'roles'     => 'required',
-            'status'    => 'required|min:0|max:1',
-        ]);
-    
         $input = $request->all();
         if(!empty($input['password'])){ 
             $input['password'] = Hash::make($input['password']);

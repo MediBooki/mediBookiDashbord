@@ -46,7 +46,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="projectinput1"> {{ trans('patient.phone') }}</label>
-                                <input type="text" id="name"
+                                <input type="number" id="name"
                                     class="form-control"
                                     placeholder="  "
                                     value="{{$patient->phone}}"

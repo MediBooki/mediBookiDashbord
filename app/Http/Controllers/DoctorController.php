@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DoctorRequest;
 use App\Interfaces\Doctors\DoctorRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -21,11 +22,11 @@ class DoctorController extends Controller
     {
         return $this->doctor->create();
     }
-    public function store(Request $request)
+    public function store(DoctorRequest $request)
     {
         return $this->doctor->store($request);
     }
-    public function update(Request $request)
+    public function update(DoctorRequest $request)
     {
         $this->validate($request,[
             'status' => 'required|in:0,1',

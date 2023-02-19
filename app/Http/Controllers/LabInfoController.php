@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LabInfoRequest;
 use App\Interfaces\Labs\LabInfoRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,7 @@ class LabInfoController extends Controller
         return $this->lab->full_index();
     }
 
-    public function update(Request $request)
+    public function update(LabInfoRequest $request)
     {
         return $this->lab->update($request);
     }

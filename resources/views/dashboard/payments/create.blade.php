@@ -70,7 +70,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('payment.credit') }}</label>
-                                                            <input type="text" id="credit"
+                                                            <input type="number" id="credit"
                                                                 class="form-control"
                                                                 placeholder="  "
                                                                 value="{{old('credit')}}"

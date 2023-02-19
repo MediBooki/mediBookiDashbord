@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RoleRequest;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use DB;
@@ -27,13 +28,8 @@ class RoleController extends Controller
     }
     
    
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required|unique:roles,name',
-            'permission' => 'required',
-        ]);
-    
         $role = Role::create(['name' => $request->input('name')]);
         $role->syncPermissions($request->input('permission'));
     
@@ -52,21 +48,9 @@ class RoleController extends Controller
         return view('dashboard.roles.edit',compact('role','permission','rolePermissions'));
     }
     
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+  
+    public function update(RoleRequest $request, $id)
     {
-
-        $this->validate($request, [
-            'name' => 'required',
-            'permission' => 'required',
-        ]);
-    
         $role = Role::findOrFail($id);
         $role->name = $request->input('name');
         $role->save();
@@ -76,12 +60,7 @@ class RoleController extends Controller
         return redirect()->route('roles.index')
                         ->with('success','Role updated successfully');
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Request $request)
     {
         DB::table("roles")->where('id',$request->id)->delete();

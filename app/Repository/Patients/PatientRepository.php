@@ -37,6 +37,7 @@ class PatientRepository implements PatientRepositoryInterface
 
     public function store($request)
     {
+        
         $patient = new Patient();
         $patient->name = $request->name;
         $patient->email = $request->email;

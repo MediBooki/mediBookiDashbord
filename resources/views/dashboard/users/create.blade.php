@@ -78,7 +78,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('user.password') }}</label>
-                                                            <input type="text" id="name"
+                                                            <input type="password" id="name"
                                                                 class="form-control"
                                                                 placeholder="  "
                                                                 value="{{old('password')}}"

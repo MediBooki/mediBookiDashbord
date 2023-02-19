@@ -39,7 +39,8 @@ class AmbulanceRepository implements AmbulanceRepositoryInterface
     public function update($request)
     {
         $ambulance = Ambulance::findOrFail($request->id);
-        $ambulance->driver_name = ['en' => $request->driver_name_en, 'ar' => $request->driver_name];        $ambulance->car_number = $request->car_number;
+        $ambulance->driver_name = ['en' => $request->driver_name_en, 'ar' => $request->driver_name];
+        $ambulance->car_number = $request->car_number;
         $ambulance->car_model = $request->car_model;
         $ambulance->car_year_made =  $request->car_year_made;
         $ambulance->driver_license_number =  $request->driver_license_number;

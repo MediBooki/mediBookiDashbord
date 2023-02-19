@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PatientRequest;
 use App\Interfaces\Patients\PatientRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class PatientController extends Controller
     {
         return $this->patient->show($id);
     }
-    public function store(Request $request)
+    public function store(PatientRequest $request)
     {
         return $this->patient->store($request);
     }
@@ -33,7 +34,7 @@ class PatientController extends Controller
     {
         return $this->patient->edit($id);
     }
-    public function update(Request $request)
+    public function update(PatientRequest $request)
     {
         return $this->patient->update($request);
     }

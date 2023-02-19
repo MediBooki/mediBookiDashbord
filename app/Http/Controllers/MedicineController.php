@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MedicineRequest;
 use App\Interfaces\Medicines\MedicineRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class MedicineController extends Controller
     {
         return $this->medicine->create();
     }
-    public function store(Request $request)
+    public function store(MedicineRequest $request)
     {
         return $this->medicine->store($request);
     }
@@ -29,7 +30,7 @@ class MedicineController extends Controller
     {
         return $this->medicine->edit($id);
     }
-    public function update(Request $request)
+    public function update(MedicineRequest $request)
     {
         return $this->medicine->update($request);
     }

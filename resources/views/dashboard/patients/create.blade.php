@@ -78,7 +78,7 @@
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('patient.password') }}</label>
-                                                            <input type="text" id="name"
+                                                            <input type="password" id="name"
                                                                 class="form-control"
                                                                 placeholder="  "
                                                                 value="{{old('password')}}"
@@ -106,7 +106,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('patient.phone') }}</label>
-                                                            <input type="text" id="name"
+                                                            <input type="number" id="name"
                                                                 class="form-control"
                                                                 placeholder="  "
                                                                 value="{{old('phone')}}"
@@ -124,8 +124,8 @@
                                                         </label>
                                                         <select name="gender" class="select2 form-control">
                                                             <optgroup label="{{ trans('patient.gender') }}">
-                                                                <option value="ذكر">ذكر</option>
-                                                                <option value="انثي">انثي</option>
+                                                                <option value="male">ذكر</option>
+                                                                <option value="female">انثي</option>
                                                             </optgroup>
                                                         </select>
                                                             @error("gender")

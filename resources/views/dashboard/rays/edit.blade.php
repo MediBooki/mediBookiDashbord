@@ -28,6 +28,10 @@
                             <div class="form-group">
                                 <label for="projectinput1"> ارفاق الاشعة</label>
                                 <input type="file" name="photo" accept="image/*">
+                                <br>
+                                @error("photo")
+                                <span class="text-danger">{{$message}}</span>
+                                @enderror
                             </div>
                         </div>
                     </div>

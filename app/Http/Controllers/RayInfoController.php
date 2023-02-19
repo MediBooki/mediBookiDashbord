@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RayInfoRequest;
 use App\Interfaces\Rays\RayInfoRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -23,7 +24,7 @@ class RayInfoController extends Controller
         return $this->ray->full_index();
     }
 
-    public function update(Request $request)
+    public function update(RayInfoRequest $request)
     {
         return $this->ray->update($request);
     }

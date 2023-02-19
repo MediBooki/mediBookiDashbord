@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\InvoiceRequest;
 use App\Interfaces\Invoices\InvoiceRepositoryInterface;
 use App\Models\Doctor;
 use App\Models\Service;
@@ -29,7 +30,7 @@ class InvoiceController extends Controller
         return $this->invoice->show($id);
     }
     
-    public function store(Request $request)
+    public function store(InvoiceRequest $request)
     {
         return $this->invoice->store($request);
     }
@@ -37,7 +38,7 @@ class InvoiceController extends Controller
     {
         return $this->invoice->edit($id);
     }
-    public function update(Request $request)
+    public function update(InvoiceRequest $request)
     {
         return $this->invoice->update($request);
     }
@@ -45,13 +46,10 @@ class InvoiceController extends Controller
     {
         return $this->invoice->destroy($request);
     }
-    public function getSectionEdit($invo_id =null,$id) 
+    public function getServiceEdit($invo_id =null,$id) 
     {
-        $doctor_id = Doctor::with('section')->where('id', $id)->first();
-        $section = [];
-        $section['section_name'] = $doctor_id->section->name;
-        $section['section_id'] = $doctor_id->section->id;
-        return $section;
+        $services = Service::where('doctor_id', $id)->get();
+        return $services;
     }
     public function getPriceEdit($invo_id =null,$id) 
     {
