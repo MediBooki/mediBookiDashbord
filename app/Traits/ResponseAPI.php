@@ -5,12 +5,13 @@ namespace App\Traits;
 trait ResponseAPI
 {
    
-    public function sendResponse($result , $message)
+    public function sendResponse($result , $message,$count=0)
     {
         $response = [
             'success' => true,
             'data' => $result,
-            'message' => $message
+            'message' => $message,
+            'count' => $count,
         ];
         return response()->json($response , 200);
     }

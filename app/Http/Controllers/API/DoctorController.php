@@ -15,8 +15,8 @@ class DoctorController extends Controller
     use ResponseAPI;
     public function index()
     {
-        $doctors = Doctor::orderBy('id','DESC')->with(['section','appointments'])->get();
-        return $this->sendResponse(DoctorResource::collection($doctors), 'Doctor lists send successfully');
+        $doctors = Doctor::orderBy('id','DESC')->with(['section','appointments'])->paginate(10);
+        return $this->sendResponse(DoctorResource::collection($doctors), 'Doctor lists send successfully',$doctors->total());
     }
    
     public function store(Request $request)

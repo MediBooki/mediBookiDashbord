@@ -61,9 +61,6 @@
                         <li class="">
                             <a class="menu-item" href="{{ route('invoices.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('invoice.invoice_list')}}</a>
                         </li>
-                        <li>
-                            <a class="menu-item" href="#" data-i18n="nav.dash.crypto">{{ trans('tag.Add_Tag') }}</a>
-                        </li>
                     </ul>
                 </li>
                 @endcan
@@ -142,6 +139,17 @@
                     </ul>
                 </li>
                 @endcan
+                <li class="nav-item">
+                    <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.orders') }}</span></span></a>
+                    <ul class="menu-content">
+                        <li class="">
+                            <a class="menu-item" href="{{ route('Dash_orders.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.orders') }}</a>
+                        </li>
+                        {{-- <li>
+                            <a class="menu-item" href="{{ route('roles.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.roles') }}</a>
+                        </li> --}}
+                    </ul>
+                </li>
         </ul>
     </div>
 </div>
