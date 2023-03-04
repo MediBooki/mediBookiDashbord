@@ -31,9 +31,8 @@ class PatientAuthController extends Controller
             return $this->sendError('Please check your Auth' ,['error'=> 'Unauthorised'] );
         }
     }
-    public function register(PatientRequest $request)
+    public function register(Request $request)
     {
-        dd($request);
         $patient = new Patient();
         $patient->name = $request->name;
         $patient->email = $request->email;
