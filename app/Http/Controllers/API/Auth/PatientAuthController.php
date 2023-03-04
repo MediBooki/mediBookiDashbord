@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PatientRequest;
 use App\Http\Resources\PatientResource;
 use App\Models\Patient;
 use App\Traits\ResponseAPI;
@@ -30,8 +31,9 @@ class PatientAuthController extends Controller
             return $this->sendError('Please check your Auth' ,['error'=> 'Unauthorised'] );
         }
     }
-    public function register(Request $request)
+    public function register(PatientRequest $request)
     {
+        dd($request);
         $patient = new Patient();
         $patient->name = $request->name;
         $patient->email = $request->email;
