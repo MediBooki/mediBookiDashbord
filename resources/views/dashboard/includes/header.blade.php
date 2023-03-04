@@ -32,13 +32,13 @@
                 </ul>
                 <ul class="nav navbar-nav float-right">
                     <li class="dropdown dropdown-user nav-item">
-                        <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-                        <span class="mr-1">{{ trans('message.Welcome') }}
-                            <span class="user-name text-bold-700">{{auth() -> user() -> name}}</span>
-                        </span>
+                        <a class="dropdown-toggle nav-link dropdown-user-link" href="{{route('profile.edit',auth()->user()->id)}}" data-toggle="dropdown">
+                            <span class="mr-1">{{ trans('main-sidebar.welcome') }}
+                                <span class="user-name text-bold-700">{{auth()->user()->name}}</span>
+                            </span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i
-                                    class="ft-user"></i> {{ trans('profileAdmin.update_profile') }}</a>
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{route('profile.edit',auth()->user()->id)}}"><i
+                                    class="ft-user"></i> {{ trans('main-sidebar.update_profile') }}</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{route('logout')}}"><i class="ft-power"></i> {{ trans('message.Logout') }}</a>
                         </div>

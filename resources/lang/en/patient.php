@@ -7,6 +7,7 @@ return array (
   'date_of_birth' => 'Date of Birth',
   'email' => 'E-mail',
   'gender' => 'Gender',
+  'name' => 'patient name',
   'password' => 'Password',
   'patient' => 
   array (

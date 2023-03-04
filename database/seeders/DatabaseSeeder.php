@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             AppointmentTableSeeder::class,
             PermissionTableSeeder::class,
             CreateAdminUserSeeder::class,
+            SettingTableSeeder::class,
         ]);
     }
 }

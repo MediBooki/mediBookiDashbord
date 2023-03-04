@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Service;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class DoctorResource extends JsonResource
@@ -10,10 +11,12 @@ class DoctorResource extends JsonResource
     public function toArray($request)
     {
         //return parent::toArray($request);
-    
+        $price = Service::where('doctor_id',$this->id)->select('price')->first();
         return [
             'id'=> $this->id,
-            'name'=> $this->getTranslation('name',app()->getLocale($request->lang)),        
+            'name'=> $this->getTranslation('name',app()->getLocale($request->lang)),
+            'specialization'=> $this->specialization,
+            'price'=>$price->price,     
             'photo' => $this->getFirstMediaUrl('photo'),
             'start'=> $this->start,
             'end'=> $this->end,

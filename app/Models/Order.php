@@ -16,7 +16,7 @@ class Order extends Model
     }
     public function medicines()
     {
-        return $this -> belongsToMany(Medicine::class,'order_medicine')->withPivot('qty');
+        return $this->belongsToMany(Medicine::class,'order_medicine')->withPivot('qty');
     }
     public function scopePatientCheck($query)
     {

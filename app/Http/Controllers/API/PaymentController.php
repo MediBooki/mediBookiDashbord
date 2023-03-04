@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PaymentResource;
 use App\Models\Order;
+use Carbon\Carbon;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
 use Nafezly\Payments\Classes\PaymobPayment;
@@ -16,6 +17,10 @@ class PaymentController extends Controller
     {
         
         $order = Order::patientCheck()->first();
+        $order->check=1;
+        $order->status =1;
+        $order->Payment_Date =Carbon::now();
+        $order->save();
         //pay function
         $payment = new PaymobPayment();
         $response = $payment->pay(
@@ -42,6 +47,12 @@ class PaymentController extends Controller
     // راجع عليها مع الفرونت
     public function callback(Request $request)
     {
+        /**
+         * if request->success == true 
+         * $order = Order::patientCheck()->first();
+         * $order->check=1;
+         * $order->save();
+         */
         return response()->json([
             'success' => $request->success,
             'order' => $request->order,

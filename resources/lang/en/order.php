@@ -1,0 +1,25 @@
+<?php
+
+return array (
+  'address1' => 'Main Address',
+  'address2' => 'Other Address',
+  'city' => 'city',
+  'delivered' => 'delivered',
+  'facebook' => 'facebook',
+  'first_name' => 'first name',
+  'invoice' => 'Invoice',
+  'invoice_date' => 'Invoice Date',
+  'last_name' => 'last name',
+  'medicine_name' => 'medicine name',
+  'phone' => 'phone',
+  'phone1' => 'Main phone',
+  'phone2' => 'Other Phone',
+  'preparation' => 'preparation',
+  'price' => 'price',
+  'qty' => 'Quantity',
+  'shipping' => 'shipping status',
+  'state' => 'state',
+  'total' => 'total',
+  'undelivered' => 'undelivered',
+  'zip_code' => 'zip code',
+);

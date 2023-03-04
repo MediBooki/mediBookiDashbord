@@ -145,9 +145,26 @@
                         <li class="">
                             <a class="menu-item" href="{{ route('Dash_orders.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.orders') }}</a>
                         </li>
-                        {{-- <li>
-                            <a class="menu-item" href="{{ route('roles.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.roles') }}</a>
-                        </li> --}}
+                        <li>
+                            <a class="menu-item" href="{{ route('preparation') }}" data-i18n="nav.dash.ecommerce">{{ trans('order.preparation') }}</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="{{ route('delivered') }}" data-i18n="nav.dash.ecommerce">{{ trans('order.delivered') }}</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="{{ route('undelivered') }}" data-i18n="nav.dash.ecommerce">{{ trans('order.undelivered') }}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.settings') }}</span></span></a>
+                    <ul class="menu-content">
+                        <li class="">
+                            <a class="menu-item" href="{{ route('settings.edit',1) }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.settings') }}</a>
+                        </li>
+                        <li class="">
+                            <a class="menu-item" href="{{ route('sliders.create') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.sliders') }}</a>
+                        </li>
                     </ul>
                 </li>
         </ul>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AmbulanceController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\BookListController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\HomeController;
@@ -10,11 +11,14 @@ use App\Http\Controllers\LabInfoController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RayInfoController;
 use App\Http\Controllers\ReceiptController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TermController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -82,6 +86,20 @@ Route::group([
         /** قسم الكشوفات*/
         Route::resource('bookLists' , BookListController::class)->except(['edit','show'])->middleware('can:bookLists');
         /*-------------End--------------------------- */
+        Route::resource('Dash_orders' , OrderController::class);
+        Route::get('order_preparation',[OrderController::class, 'order_preparation'])->name('preparation');
+        Route::get('order_undelivered',[OrderController::class, 'order_undelivered'])->name('undelivered');
+        Route::get('order_delivered',[OrderController::class, 'order_delivered'])->name('delivered');
+
+
+        Route::resource('settings' , SettingController::class)->only(['edit','update']);
+        Route::resource('sliders' , SliderController::class);
+        Route::post('sliders/images', [SliderController::class, 'saveSliderImage'])->name('saveSliderImage');
+
+        Route::resource('profile' , ProfileController::class)->only(['edit','update']);
+
+
+
     });
 
     
