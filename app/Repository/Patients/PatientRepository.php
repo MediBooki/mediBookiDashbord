@@ -48,6 +48,9 @@ class PatientRepository implements PatientRepositoryInterface
         $patient->blood_group = $request->blood_group;
         $patient->address = $request->address;
         $patient->save();
+        if($request->hasFile('photo') && $request->file('photo')->isValid()){
+            $patient->addMediaFromRequest('photo')->toMediaCollection('photo');
+        }
         return redirect()->route('patients.index')->with(['success' => 'patient Added Successfully']);
     }
     public function edit($id) 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\doctorDashboard\BookListController;
 use App\Http\Controllers\doctorDashboard\DiagnosticController;
+use App\Http\Controllers\doctorDashboard\DoctorReviewController;
 use App\Http\Controllers\doctorDashboard\InvoiceController;
 use App\Http\Controllers\doctorDashboard\LaboratoryController;
 use App\Http\Controllers\doctorDashboard\RayController;
@@ -47,6 +48,9 @@ Route::group([
         Route::resource('laboratories' , LaboratoryController::class);
         // الحجوزات
         Route::resource('reservations' , BookListController::class)->only(['index']);
+
+        Route::resource('reviews' , DoctorReviewController::class)->only(['index']);
+
 
     });
     require __DIR__.'/auth.php';

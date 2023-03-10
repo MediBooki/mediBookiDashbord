@@ -46,6 +46,16 @@
                                                 action="{{ route('patients.store') }}"
                                                 method="POST">
                                             @csrf
+                                            <div class="form-group">
+                                                <label> {{ trans('doctor.photo') }} </label>
+                                                <label id="projectinput7" class="file center-block">
+                                                    <input type="file" accept="image/*" name="photo" onchange="loadFile(event)">
+                                                    <img style="..." width="150px" height="150px" id="output" />
+                                                </label>
+                                                @error('photo')
+                                                <span class="text-danger">{{$message}}</span>
+                                                @enderror
+                                            </div>
                                             <div class="form-body">
                                                 <h4 class="form-section"><i class="ft-home"></i> {{ trans('patient.Add') }} </h4>
                                                 <div class="row">

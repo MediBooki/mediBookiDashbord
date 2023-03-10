@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctor;
+use App\Models\DoctorReview;
 use App\Models\Invoice;
 use App\Models\laboratory;
 use App\Models\Ray;
@@ -13,6 +14,8 @@ class HomeController extends Controller
     public function index()
     {
         // $doctors = Doctor::withCount('summaries')->orderBy('id', 'desc')->limit(10)->get();
+
+        $rating = DoctorReview::orderBy('id','DESC')->with(['doctor'])->limit(10)->get();
         $count_invoices1 = Invoice::where('status', 1)->count();
         $count_invoices2 = Invoice::where('status', 2)->count();
         $count_invoices3 = Invoice::where('status', 3)->count();
@@ -56,6 +59,6 @@ class HomeController extends Controller
            
         ])
         ->options([]);
-        return view('dashboard.index',compact('chartjs','chartjs1'));
+        return view('dashboard.index',compact('chartjs','chartjs1','rating'));
     }
 }

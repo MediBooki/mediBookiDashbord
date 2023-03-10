@@ -8,6 +8,7 @@ use App\Http\Controllers\API\SectionController;
 use App\Http\Controllers\API\ServiceController;
 use App\Http\Controllers\API\WishlistMedicineController;
 use App\Http\Controllers\API\BookDoctorController;
+use App\Http\Controllers\API\DoctorReviewController;
 use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\PaymentController;
 use Illuminate\Http\Request;
@@ -42,9 +43,13 @@ Route::group(['middleware' => ['changeLanguage']], function (){
             Route::apiResource('book/doctor', BookDoctorController::class)->only(['store','index']);
             // Route::get('cart/{id}', [OrderController::class, 'addToCart']);
             Route::apiResource('orders', OrderController::class);
+
             Route::apiResource('payments', PaymentController::class);
             Route::get('/payments/verify/{payment?}',[PaymentController::class,'payment_verify']);
             Route::get('/callback',[PaymentController::class,'callback']);
+
+            Route::apiResource('DoctorReview', DoctorReviewController::class)->only(['index','store']);
+
 
         });    
     });

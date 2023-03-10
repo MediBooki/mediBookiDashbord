@@ -36,6 +36,14 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item">
+                <a href=""><i class="la la-tags"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.reviews') }}</span></a>
+                <ul class="menu-content">
+                    <li class="">
+                        <a class="menu-item" href="{{ route('reviews.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.reviews')}}</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </div>
 </div>

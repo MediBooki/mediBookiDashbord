@@ -2,7 +2,9 @@
 
 return array (
   'Add' => 'Add new Doctor',
+  'Doctor_Reviews' => 'Doctor Reviews',
   'appointments' => 'Appointments',
+  'comment' => 'Comment',
   'consultant' => 'consultant',
   'delete_select' => 'Delete Select',
   'disabled' => 'Disabled',
@@ -21,6 +23,7 @@ return array (
   'photo' => 'Doctor Photo',
   'price' => 'Price',
   'professor' => 'professor',
+  'rating' => 'Rating',
   'specialist' => 'specialist',
   'specialization' => 'specialization',
   'status' => 'status',

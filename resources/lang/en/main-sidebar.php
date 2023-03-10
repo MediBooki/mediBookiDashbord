@@ -24,6 +24,7 @@ return array (
   'patient_history' => 'Patient History',
   'payment' => 'Exchange Bonds',
   'receipt' => 'Receipts',
+  'reviews' => 'Reviews',
   'roles' => 'roles',
   'sections' => 'Sections',
   'services' => 'Services',

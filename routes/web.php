@@ -98,8 +98,6 @@ Route::group([
 
         Route::resource('profile' , ProfileController::class)->only(['edit','update']);
 
-
-
     });
 
     
