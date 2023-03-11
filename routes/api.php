@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AppointmentController;
 use App\Http\Controllers\API\Auth\PatientAuthController;
 use App\Http\Controllers\API\DoctorController;
 use App\Http\Controllers\API\MedicineController;
@@ -29,10 +30,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::group(['middleware' => ['changeLanguage']], function (){
-    Route::resource('doctors', DoctorController::class)->except(['edit','create']);
-    Route::resource('medicines', MedicineController::class)->only(['index','show']);
+    Route::apiResource('doctors', DoctorController::class)->except(['edit','create']);
+    Route::apiResource('medicines', MedicineController::class)->only(['index','show']);
     Route::apiResource('categories', SectionController::class)->only(['index','show']);
-    Route::resource('services', ServiceController::class)->only(['index','show']);
+    Route::apiResource('services', ServiceController::class)->only(['index','show']);
+    Route::apiResource('sections' , SectionController::class)->only(['index']);
+    Route::apiResource('appointments' , AppointmentController::class)->only(['index']);
     Route::get('/filter/doctors',[DoctorController::class,'filter']);
     Route::group(['prefix' => 'patient'], function () {
         Route::post('login', [PatientAuthController::class,'login']);
