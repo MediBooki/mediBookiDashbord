@@ -33,20 +33,28 @@
                 <ul class="nav navbar-nav float-right">
                     <li class="dropdown dropdown-user nav-item">
                         <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-                        <span class="mr-1">{{ trans('message.Welcome') }}
-                            <span class="user-name text-bold-700">{{auth() -> user() -> name}}</span>
+                        <span class="mr-1">{{ trans('main-sidebar.welcome') }}
+                            <span class="user-name text-bold-700">{{auth()->user()->name}}</span>
                         </span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i
-                                    class="ft-user"></i> {{ trans('profileAdmin.update_profile') }}</a>
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{route('doctor-profile.edit',auth()->user()->id)}}"><i
+                                    class="ft-user"></i> {{ trans('main-sidebar.update_profile') }}</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('logout.doctor')}}"><i class="ft-power"></i> {{ trans('message.Logout') }}</a>
+                            <a class="dropdown-item" href="{{route('logout.doctor')}}"><i class="ft-power"></i> {{ trans('main-sidebar.Logout') }}</a>
                         </div>
                     </li>
                     <li class="dropdown dropdown-user nav-item">
                         <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                             <span class="mr-1">
-                                <span class="user-name text-bold-700">  {{App::getLocale()}}</span>
+                                <span class="user-name text-bold-700">
+                                    @if (App::getLocale() == 'ar')
+                                        {{ LaravelLocalization::getCurrentLocaleName() }}
+                                        <img src="{{ URL::asset('assets/images/flags/EG.png') }}" alt="">
+                                    @else
+                                        {{ LaravelLocalization::getCurrentLocaleName() }}
+                                        <img src="{{ URL::asset('assets/images/flags/US.png') }}" alt="">
+                                    @endif
+                                </span>
                             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -55,7 +63,6 @@
                                     href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                                     {{ $properties['native'] }}
                                 </a>
-                                <div class="dropdown-divider"></div>
                             @endforeach
                         </div>
                     </li>
