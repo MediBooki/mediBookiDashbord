@@ -40,7 +40,7 @@
                         <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{route('doctor-profile.edit',auth()->user()->id)}}"><i
                                     class="ft-user"></i> {{ trans('main-sidebar.update_profile') }}</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('logout.doctor')}}"><i class="ft-power"></i> {{ trans('main-sidebar.Logout') }}</a>
+                            <a class="dropdown-item" href="{{route('logout.doctor')}}"><i class="ft-power"></i> {{ trans('main-sidebar.logout') }}</a>
                         </div>
                     </li>
                     <li class="dropdown dropdown-user nav-item">

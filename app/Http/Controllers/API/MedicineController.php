@@ -13,8 +13,8 @@ class MedicineController extends Controller
     use ResponseAPI;
     public function index()
     {
-        $medicines = Medicine::orderBy('id','DESC')->get();
-        return $this->sendResponse(MedicineResource::collection($medicines), 'Medicines lists send successfully');
+        $medicines = Medicine::orderBy('id','DESC')->with(['section'])->paginate(15);
+        return $this->sendResponse(MedicineResource::collection($medicines), 'Medicines lists send successfully',$medicines->total());
     }
 
     public function show($id)
