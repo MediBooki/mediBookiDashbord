@@ -19,7 +19,7 @@ class MedicineController extends Controller
 
     public function show($id)
     {
-        $medicine = Medicine::findOrFail($id);
+        $medicine = Medicine::with(['section'])->findOrFail($id);
         
         return $this->sendResponse(new MedicineResource($medicine), 'Medicines lists send successfully');
     }
