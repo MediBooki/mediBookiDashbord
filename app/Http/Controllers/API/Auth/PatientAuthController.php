@@ -15,10 +15,10 @@ class PatientAuthController extends Controller
     use ResponseAPI;
     public function login(Request $request)
     {
-        
+
         $admin = Patient::where('email', $request->input("email"))
         ->first();
-        
+
 
         if($admin && Hash::check($request->input('password'), $admin->password))
         {
@@ -31,9 +31,9 @@ class PatientAuthController extends Controller
             return $this->sendError('Please check your Auth' ,['error'=> 'Unauthorised'] );
         }
     }
-    public function register(PatientRequest $request)
+    public function register(Request $request)
     {
-        dd($request);
+        // dd($request);
         $patient = new Patient();
         $patient->name = $request->name;
         $patient->email = $request->email;
