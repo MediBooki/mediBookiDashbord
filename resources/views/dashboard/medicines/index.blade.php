@@ -65,7 +65,7 @@
                                                         <td>{{$medicine->name}}</td>
                                                         <td><img style="width: 150px; height: 100px;" src="{{$medicine->getFirstMediaUrl('photo')}}"></td>
                                                         <td>{{$medicine->price}}</td>
-                                                        <td>{{$medicine->section->name}}</td>
+                                                        <td>{{$medicine->category->name}}</td>
                                                         <td>{{$medicine->description}}</td>
                                                         <td>
                                                             <span class="badge badge-pill badge-{{$medicine->status == 1 ? 'success':'danger'}}">

@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\doctorDashboard\BookListController;
 use App\Http\Controllers\doctorDashboard\DiagnosticController;
+use App\Http\Controllers\doctorDashboard\DoctorReviewController;
 use App\Http\Controllers\doctorDashboard\InvoiceController;
 use App\Http\Controllers\doctorDashboard\LaboratoryController;
+use App\Http\Controllers\doctorDashboard\ProfileController;
 use App\Http\Controllers\doctorDashboard\RayController;
 use App\Http\Controllers\doctorDashboard\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -47,6 +49,12 @@ Route::group([
         Route::resource('laboratories' , LaboratoryController::class);
         // الحجوزات
         Route::resource('reservations' , BookListController::class)->only(['index']);
+
+        Route::resource('reviews' , DoctorReviewController::class)->only(['index']);
+
+        Route::resource('doctor-profile' , ProfileController::class)->only(['edit','update']);
+
+
 
     });
     require __DIR__.'/auth.php';

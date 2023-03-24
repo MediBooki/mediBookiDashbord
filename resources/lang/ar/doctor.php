@@ -2,8 +2,10 @@
 
 return array (
   'Add' => 'اضافة دكتور',
+  'Doctor_Reviews' => 'تقيمات الاطباء',
   'appointments' => 'مواعيد الكشف',
   'blood_group' => 'فصيلة الدم',
+  'comment' => 'التعليق',
   'consultant' => 'استشاري',
   'delete_select' => 'حذف مجموعة اطباء',
   'disabled' => 'غير مفعل',
@@ -22,6 +24,7 @@ return array (
   'photo' => 'صورة الشخصية',
   'price' => 'سعر الكشف',
   'professor' => 'أستاذ',
+  'rating' => 'التقيم',
   'specialist' => 'متخصص',
   'specialization' => 'التخصص',
   'status' => 'الحالة',

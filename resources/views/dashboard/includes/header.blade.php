@@ -40,13 +40,19 @@
                         <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{route('profile.edit',auth()->user()->id)}}"><i
                                     class="ft-user"></i> {{ trans('main-sidebar.update_profile') }}</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('logout')}}"><i class="ft-power"></i> {{ trans('message.Logout') }}</a>
+                            <a class="dropdown-item" href="{{route('logout')}}"><i class="ft-power"></i> {{ trans('main-sidebar.logout') }}</a>
                         </div>
                     </li>
                     <li class="dropdown dropdown-user nav-item">
                         <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                             <span class="mr-1">
-                                <span class="user-name text-bold-700">  {{App::getLocale()}}</span>
+                                <span class="user-name text-bold-700"> 
+                                    @if (App::getLocale() == 'ar')
+                                        {{ LaravelLocalization::getCurrentLocaleName() }}
+                                    @else
+                                        {{ LaravelLocalization::getCurrentLocaleName() }}
+                                    @endif    
+                                </span>
                             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -55,7 +61,7 @@
                                     href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
                                     {{ $properties['native'] }}
                                 </a>
-                                <div class="dropdown-divider"></div>
+                                
                             @endforeach
                         </div>
                     </li>

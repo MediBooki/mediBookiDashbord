@@ -31,19 +31,23 @@ class PatientAuthController extends Controller
             return $this->sendError('Please check your Auth' ,['error'=> 'Unauthorised'] );
         }
     }
-    public function register(Request $request)
+
+    public function register(PatientRequest $request)
     {
-        // dd($request);
-        $patient = new Patient();
-        $patient->name = $request->name;
-        $patient->email = $request->email;
-        $patient->password = Hash::make($request->password);
-        $patient->date_of_birth =  $request->date_of_birth;
-        $patient->phone =  $request->phone;
-        $patient->gender =  $request->gender;
-        $patient->blood_group = $request->blood_group;
-        $patient->address = $request->address;
-        $patient->save();
-        return $this->sendResponse(new PatientResource($patient) ,'patient Added Successfully' );
+        try{
+            $patient = new Patient();
+            $patient->name = $request->name;
+            $patient->email = $request->email;
+            $patient->password = Hash::make($request->password);
+            $patient->date_of_birth =  $request->date_of_birth;
+            $patient->phone =  $request->phone;
+            $patient->gender =  $request->gender;
+            $patient->blood_group = $request->blood_group;
+            $patient->address = $request->address;
+            $patient->save();
+            return $this->sendResponse(new PatientResource($patient) ,'patient Added Successfully' );
+        } catch(\Expectation $e) {
+            return $this->sendError('Please validate error' ,$e->getMessage());
+        }
     }
 }

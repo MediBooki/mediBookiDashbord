@@ -15,8 +15,8 @@ class Medicine extends Model implements HasMedia
     protected $guarded = [];
     public $timestamps = true;
 
-    public function section()
+    public function category()
     {
-        return $this->belongsTo(Section::class);
+        return $this->belongsTo(Category::class);
     }
 }

@@ -79,26 +79,26 @@
                 @endcan
                 @can('x-ray')
                 <li class="nav-item">
-                    <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">قسم الاشعة</span></a>
+                    <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.x-ray') }}</span></a>
                     <ul class="menu-content">
                         <li class="">
-                            <a class="menu-item" href="{{ route('rayInfo.index') }}" data-i18n="nav.dash.ecommerce">كشوفات الاشعة</a>
+                            <a class="menu-item" href="{{ route('rayInfo.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.dignosis_x-ray') }}</a>
                         </li>
                         <li>
-                            <a class="menu-item" href="{{ route('rayInfo.complete') }}" data-i18n="nav.dash.ecommerce">كشوفات الاشعة المكتملة</a>
+                            <a class="menu-item" href="{{ route('rayInfo.complete') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.dignosis_complate_x-ray') }}</a>
                         </li>
                     </ul>
                 </li>
                 @endcan
                 @can('laboratory')
                 <li class="nav-item">
-                    <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">قسم التحاليل</span></a>
+                    <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.laboratory') }}</span></a>
                     <ul class="menu-content">
                         <li class="">
-                            <a class="menu-item" href="{{ route('labInfo.index') }}" data-i18n="nav.dash.ecommerce">كشوفات التحاليل</a>
+                            <a class="menu-item" href="{{ route('labInfo.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.diagnosis_laboratory') }}</a>
                         </li>
                         <li>
-                            <a class="menu-item" href="{{ route('labInfo.complete') }}" data-i18n="nav.dash.ecommerce">كشوفات التحاليل المكتملة</a>
+                            <a class="menu-item" href="{{ route('labInfo.complete') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.diagnosis_complete_laboratory') }}</a>
                         </li>
                     </ul>
                 </li>
@@ -110,6 +110,9 @@
                         <li class="">
                             <a class="menu-item" href="{{ route('medicines.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.view All')}}</a>
                         </li>
+                        <li class="">
+                            <a class="menu-item" href="{{ route('categories.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.categories')}}</a>
+                        </li>
                     </ul>
                 </li>
                 @endcan
@@ -118,10 +121,10 @@
                     <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.bookLists') }}</span></span></a>
                     <ul class="menu-content">
                         <li class="">
-                            <a class="menu-item" href="{{ route('bookLists.index') }}" data-i18n="nav.dash.ecommerce">قائمة الانتظار</a>
+                            <a class="menu-item" href="{{ route('bookLists.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.wait_bookLists') }}</a>
                         </li>
                         <li>
-                            <a class="menu-item" href="{{ route('bookLists.create') }}" data-i18n="nav.dash.ecommerce">كشوفات مكتملة</a>
+                            <a class="menu-item" href="{{ route('bookLists.create') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.complete_bookLists') }}</a>
                         </li>
                     </ul>
                 </li>

@@ -14,8 +14,6 @@ class MedicineResource extends JsonResource
      */
     public function toArray($request)
     {
-       //return parent::toArray($request);
-    
         return [
                 'id'=> $this->id,
                 'name'=> $this->getTranslation('name', app()->getLocale($request->lang)),
@@ -23,6 +21,7 @@ class MedicineResource extends JsonResource
                 'price'=> $this->price,
                 'manufactured_by'=> $this->manufactured_by,
                 'photo' => $this->getFirstMediaUrl('photo'),
+                'section'=> SectionResource::make($this->whenLoaded('section')),
             ];
     }
 }

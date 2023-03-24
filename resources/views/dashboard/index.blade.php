@@ -217,7 +217,7 @@
                 <div class="col-12 col-xl-4">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">ee</h4>
+                            <h4 class="card-title">{{ trans('doctor.Doctor_Reviews') }}</h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 
@@ -228,21 +228,21 @@
                                 <table class="table table-de mb-0">
                                     <thead>
                                     <tr>
-                                        <th> sd</th>
-                                        <th> sd</th>
-                                        <th> sd</th>
+                                        <th>{{ trans('doctor.name') }}</th>
+                                        <th>{{ trans('doctor.comment') }}</th>
+                                        <th>{{ trans('doctor.rating') }}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                      {{-- @isset($rates)
-                                        @foreach($rates as $rate)
+                                      @isset($rating)
+                                        @foreach($rating as $rate)
                                           <tr class="bg-danger bg-lighten-5">
-                                              <td>{{ $rate->user->name }}</td>
-                                              <td>{{ $product->name }}</td>
+                                              <td>{{ $rate->doctor->name }}</td>
+                                              <td>{{ $rate->comment }}</td>
                                               <td>{{ $rate->rating }}</td>
                                           </tr>
                                           @endforeach
-                                        @endisset --}}
+                                        @endisset
                                     </tbody>
                                 </table>
                             </div>

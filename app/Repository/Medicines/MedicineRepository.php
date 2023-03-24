@@ -4,8 +4,8 @@ namespace App\Repository\Medicines;
 
 
 use App\Interfaces\Medicines\MedicineRepositoryInterface;
+use App\Models\Category;
 use App\Models\Medicine;
-use App\Models\Section;
 
 class MedicineRepository implements MedicineRepositoryInterface
 {
@@ -16,8 +16,8 @@ class MedicineRepository implements MedicineRepositoryInterface
     }
     public function create()
     {
-        $sections = Section::orderBy('id','DESC')->get();
-        return view('dashboard.medicines.create', compact('sections'));
+        $categories = Category::orderBy('id','DESC')->get();
+        return view('dashboard.medicines.create', compact('categories'));
     }
 
     public function store($request)
@@ -27,7 +27,7 @@ class MedicineRepository implements MedicineRepositoryInterface
         $medicine->description = ['en' => $request->description_en, 'ar' => $request->description];
         $medicine->price = $request->price;
         $medicine->manufactured_by = $request->manufactured_by;
-        $medicine->section_id =  $request->section_id;
+        $medicine->category_id =  $request->category_id;
         $medicine->save();
         if($request->hasFile('photo') && $request->file('photo')->isValid()){
             $medicine->addMediaFromRequest('photo')->toMediaCollection('photo');
@@ -37,8 +37,8 @@ class MedicineRepository implements MedicineRepositoryInterface
     public function edit($id)
     {
         $medicine = Medicine::findOrFail($id);
-        $sections = Section::orderBy('id','DESC')->get();
-        return view('dashboard.medicines.edit', compact('sections','medicine'));
+        $categories = Category::orderBy('id','DESC')->get();
+        return view('dashboard.medicines.edit', compact('categories','medicine'));
     }
     public function update($request)
     {
@@ -47,7 +47,7 @@ class MedicineRepository implements MedicineRepositoryInterface
         $medicine->description = ['en' => $request->description_en, 'ar' => $request->description];
         $medicine->price = $request->price;
         $medicine->manufactured_by = $request->manufactured_by;
-        $medicine->section_id =  $request->section_id;
+        $medicine->category_id =  $request->category_id;
         $medicine->save();
         if($request->hasFile('photo') && $request->file('photo')->isValid()){
             $medicine->clearMediaCollection('photo');

@@ -25,12 +25,12 @@ class PatientRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255|unique:patients,name,'.$this->id,
-            'email' => 'required_without:id|email|max:255|unique:patients,email,'.$this->id,
-            'password' => 'required_without:id|string|min:8|max:100',
+            'email' => 'required|email|max:255|unique:patients,email,'.$this->id,
+            'password' => 'required|string|min:8|max:100',
             'date_of_birth' => 'required|date',
-            'phone' => 'required|integer|min:5',
-            'gender' => 'required_without:id|in:male,female',
-            'blood_group' => 'required|min:2|max:3',
+            'phone' => 'required|numeric|unique:patients,phone,'.$this->id,
+            'gender' => 'required|in:male,female',
+            'blood_group' => 'required',
             'address' => 'required|string|min:8|max:255',
         ];
     }

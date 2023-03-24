@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AppointmentController;
 use App\Http\Controllers\API\Auth\PatientAuthController;
 use App\Http\Controllers\API\DoctorController;
 use App\Http\Controllers\API\MedicineController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\API\SectionController;
 use App\Http\Controllers\API\ServiceController;
 use App\Http\Controllers\API\WishlistMedicineController;
 use App\Http\Controllers\API\BookDoctorController;
+use App\Http\Controllers\API\DoctorReviewController;
 use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\PaymentController;
 use Illuminate\Http\Request;
@@ -28,10 +30,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::group(['middleware' => ['changeLanguage']], function (){
-    Route::resource('doctors', DoctorController::class)->except(['edit','create']);
-    Route::resource('medicines', MedicineController::class)->only(['index','show']);
+    Route::apiResource('doctors', DoctorController::class)->except(['edit','create']);
+    Route::apiResource('medicines', MedicineController::class)->only(['index','show']);
     Route::apiResource('categories', SectionController::class)->only(['index','show']);
-    Route::resource('services', ServiceController::class)->only(['index','show']);
+    Route::apiResource('services', ServiceController::class)->only(['index','show']);
+    Route::apiResource('sections' , SectionController::class)->only(['index']);
+    Route::apiResource('appointments' , AppointmentController::class)->only(['index']);
     Route::get('/filter/doctors',[DoctorController::class,'filter']);
     Route::group(['prefix' => 'patient'], function () {
         Route::post('login', [PatientAuthController::class,'login']);
@@ -42,9 +46,13 @@ Route::group(['middleware' => ['changeLanguage']], function (){
             Route::apiResource('book/doctor', BookDoctorController::class)->only(['store','index']);
             // Route::get('cart/{id}', [OrderController::class, 'addToCart']);
             Route::apiResource('orders', OrderController::class);
+
             Route::apiResource('payments', PaymentController::class);
             Route::get('/payments/verify/{payment?}',[PaymentController::class,'payment_verify']);
             Route::get('/callback',[PaymentController::class,'callback']);
+
+            Route::apiResource('DoctorReview', DoctorReviewController::class)->only(['index','store']);
+
 
         });    
     });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DoctorResource;
 use App\Models\Doctor;
+use App\Models\Service;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -27,12 +28,26 @@ class DoctorController extends Controller
         $doctor->email = $request->email;
         $doctor->password = Hash::make($request->password);
         $doctor->section_id =  $request->section_id;
+        $doctor->start = $request->start;
+        $doctor->end = $request->end;
+        $doctor->patient_time_minute = $request->patient_time_minute;
+        $doctor->gender = $request->gender;
+        $doctor->title = $request->title;
+        $doctor->status = 0;
+        $doctor->specialization = $request->specialization;
         $doctor->save();
-        // $doctor->appointments()->attach($request->appointments);
-        if ($request->hasFile('photo') && $request->file('photo')->isValid())
-        {
+        $doctor->appointments()->attach($request->appointments);
+         
+        if($request->hasFile('photo') && $request->file('photo')->isValid()){
             $doctor->addMediaFromRequest('photo')->toMediaCollection('photo');
         }
+        $service = new Service();
+        $service->name = ['en' => 'Reservation', 'ar' => 'كشف عادي '];
+        $service->description = ['en' => 'Reservation', 'ar' => 'كشف عادي '];
+        $service->price = $request->price;
+        $service->doctor_id = $doctor->id;
+        $service->status = 1;
+        $service->save();
         return $this->sendResponse(new DoctorResource($doctor) ,'Doctor Saved successfully');
     }
     public function show($id)

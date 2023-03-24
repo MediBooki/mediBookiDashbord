@@ -20,7 +20,7 @@ class CreateMedicinesTable extends Migration
             $table->decimal('price','8','2');
             $table->boolean('status')->default(1);
             $table->string('manufactured_by');
-            $table->foreignId('section_id')->references('id')->on('sections')->onDelete('cascade');
+            $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
