@@ -4,19 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Translatable\HasTranslations;
 
-class Medicine extends Model implements HasMedia
+class Category extends Model
 {
-    use HasFactory,HasTranslations,InteractsWithMedia;
+    use HasFactory,HasTranslations;
     public $translatable = ['name','description'];
     protected $guarded = [];
     public $timestamps = true;
 
-    public function category()
+    public function medicines()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(Medicine::class);
     }
 }

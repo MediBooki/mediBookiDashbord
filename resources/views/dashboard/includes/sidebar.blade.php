@@ -110,6 +110,9 @@
                         <li class="">
                             <a class="menu-item" href="{{ route('medicines.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.view All')}}</a>
                         </li>
+                        <li class="">
+                            <a class="menu-item" href="{{ route('categories.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.categories')}}</a>
+                        </li>
                     </ul>
                 </li>
                 @endcan

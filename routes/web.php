@@ -3,6 +3,7 @@
 use App\Http\Controllers\AmbulanceController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\BookListController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InsuranceController;
@@ -82,6 +83,8 @@ Route::group([
         /*-------------End--------------------------- */
         /** قسم الصيدلية*/
         Route::resource('medicines' , MedicineController::class)->middleware('can:medicine');
+        Route::resource('categories' , CategoryController::class)->except(['edit','create'])->middleware('can:medicine');
+
         /*-------------End--------------------------- */
         /** قسم الكشوفات*/
         Route::resource('bookLists' , BookListController::class)->except(['edit','show'])->middleware('can:bookLists');

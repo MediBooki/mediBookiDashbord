@@ -30,7 +30,7 @@ class MedicineRequest extends FormRequest
             'description_en' => 'required|max:100',
             'price' => 'required|numeric|min:0',
             'manufactured_by' => 'required|string|max:100',
-            'section_id' => 'required|exists:sections,id',
+            'category_id' => 'required|exists:categories,id',
             'photo' => 'required_without:id|mimes:jpg,jpeg,png',
         ];
     }

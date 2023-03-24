@@ -42,6 +42,7 @@ class CartResource extends JsonResource
 
             'user_cart_items' => $this->medicines->map(function ($item) {
                 return [
+                    'id'=> $item->id,
                     'medicine_name'=>$item->name,
                     'price'=>$item->price,
                     'photo' => $item->getFirstMediaUrl('photo'),

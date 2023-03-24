@@ -118,17 +118,17 @@
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('section.section') }}
                                                             </label>
-                                                            <select name="section_id" class="select2 form-control">
+                                                            <select name="category_id" class="select2 form-control">
                                                                 <optgroup label="{{ trans('section.section') }}">
-                                                                    @if($sections && $sections -> count() > 0)
-                                                                        @foreach($sections as $section)
+                                                                    @if($categories && $categories -> count() > 0)
+                                                                        @foreach($categories as $category)
                                                                             <option
-                                                                                value="{{$section->id }}">{{$section -> name}}</option>
+                                                                                value="{{$category->id }}">{{$category -> name}}</option>
                                                                         @endforeach
                                                                     @endif
                                                                 </optgroup>
                                                             </select>
-                                                            @error('section_id')
+                                                            @error('category_id')
                                                             <span class="text-danger"> {{$message}}</span>
                                                             @enderror
                                                         </div>

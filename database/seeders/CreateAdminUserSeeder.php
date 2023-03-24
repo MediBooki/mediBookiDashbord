@@ -20,7 +20,7 @@ class CreateAdminUserSeeder extends Seeder
             'name' => 'Assem Mohamed', 
             'email' => 'admin@gmail.com',
             'password' => bcrypt('12345678'),
-            'role_name' => "admin",
+            'roles_name' => "admin",
         ]);
     
         $role = Role::create(['name' => 'admin']);

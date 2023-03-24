@@ -12,6 +12,7 @@ return array (
   'ambulance' => 'الأسعاف',
   'ambulance_calls' => 'مكالمات الاسعاف',
   'bookLists' => 'قائمة الحجوزات',
+  'categories' => 'الاقسام',
   'complete_bookLists' => 'كشوفات مكتملة',
   'diagnosis_complete_laboratory' => 'كشوفات التحاليل المكتملة',
   'diagnosis_laboratory' => 'كشوفات التحاليل',

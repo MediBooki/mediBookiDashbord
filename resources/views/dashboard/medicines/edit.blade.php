@@ -120,16 +120,16 @@
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('section.section') }}
                                                             </label>
-                                                            <select name="section_id" class="select2 form-control">
+                                                            <select name="category_id" class="select2 form-control">
                                                                 <optgroup label="{{ trans('section.section') }}">
-                                                                    @if($sections && $sections -> count() > 0)
-                                                                        @foreach($sections as $section)
-                                                                            <option value="{{$section->id }}" class="{{$section->id == $medicine->section_id ? 'selected' : ''}}">{{$section->name}}</option>
+                                                                    @if($categories && $categories -> count() > 0)
+                                                                        @foreach($categories as $category)
+                                                                            <option value="{{$category->id }}" class="{{$category->id == $medicine->category_id ? 'selected' : ''}}">{{$category->name}}</option>
                                                                         @endforeach
                                                                     @endif
                                                                 </optgroup>
                                                             </select>
-                                                            @error('section_id')
+                                                            @error('category_id')
                                                             <span class="text-danger"> {{$message}}</span>
                                                             @enderror
                                                         </div>
