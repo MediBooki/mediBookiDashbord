@@ -178,7 +178,7 @@
                 <div class="col-12 col-xl-8">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"> sd</h4>
+                            <h4 class="card-title"> Admin activites</h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 
@@ -189,25 +189,23 @@
                                 <table class="table table-de mb-0">
                                     <thead>
                                       <tr>
-                                          <th> sd</th>
-                                          <th> sd</th>
-                                          <th> sd</th>
-                                          <th> sd</th>
-                                          <th> sd</th>
+                                          <th> Description</th>
+                                          <th> Name</th>
+                                          <th> Model</th>
+                                          <th> user</th>
                                       </tr>
                                       </thead>
                                       <tbody>
-                                        {{-- @isset($orders)
-                                          @foreach($orders as $order)
+                                        @isset($user_activites)
+                                          @foreach($user_activites as $active)
                                             <tr class="bg-success bg-lighten-5">
-                                                <td>{{ $order->first_name }}</td>
-                                                <td>{{ $order->phone1 }}</td>
-                                                <td>{{ $order->email }}</td>
-                                                <td>{{ $order->status==1 ?  trans('order.paid')  : trans('order.unpaid')}}</td>
-                                                <td>{{ $order->total }}</td>
+                                                <td>{{ $active->description }}</td>
+                                                <td>{{ $active->subject ? $active->subject->name : 'NO Name'}}</td>
+                                                <td>{{ $active->subject_type }}</td>
+                                                <td>{{ $active->causer->name }}</td>
                                             </tr>
                                           @endforeach
-                                        @endisset --}}
+                                        @endisset
                                       </tbody>
                                 </table>
                             </div>

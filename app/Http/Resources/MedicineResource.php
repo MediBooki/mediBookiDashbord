@@ -21,7 +21,7 @@ class MedicineResource extends JsonResource
                 'price'=> $this->price,
                 'manufactured_by'=> $this->manufactured_by,
                 'photo' => $this->getFirstMediaUrl('photo'),
-                'section'=> SectionResource::make($this->whenLoaded('section')),
+                'category'=> CategoryResource::make($this->whenLoaded('category')),
             ];
     }
 }

@@ -19,6 +19,7 @@
         "livewire/livewire": "^2.11",
         "mcamara/laravel-localization": "^1.7",
         "nafezly/payments": "^2.4",
+        "spatie/laravel-activitylog": "^3.17",
         "spatie/laravel-medialibrary": "9.0.0",
         "spatie/laravel-permission": "^5.9",
         "spatie/laravel-translatable": "^4.6"

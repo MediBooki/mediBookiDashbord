@@ -8,6 +8,7 @@ use App\Models\Invoice;
 use App\Models\laboratory;
 use App\Models\Ray;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
 
 class HomeController extends Controller
 {
@@ -15,6 +16,7 @@ class HomeController extends Controller
     {
         // $doctors = Doctor::withCount('summaries')->orderBy('id', 'desc')->limit(10)->get();
 
+        $user_activites = Activity::orderBy('id','DESC')->limit(10)->get();
         $rating = DoctorReview::orderBy('id','DESC')->with(['doctor'])->limit(10)->get();
         $count_invoices1 = Invoice::where('status', 1)->count();
         $count_invoices2 = Invoice::where('status', 2)->count();
@@ -59,6 +61,6 @@ class HomeController extends Controller
            
         ])
         ->options([]);
-        return view('dashboard.index',compact('chartjs','chartjs1','rating'));
+        return view('dashboard.index',compact('chartjs','chartjs1','rating','user_activites'));
     }
 }

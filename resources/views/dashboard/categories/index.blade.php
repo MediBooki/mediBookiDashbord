@@ -40,7 +40,7 @@
                             @include('dashboard.includes.alerts.errors')
                             <div class="card-content collapse show">
                                 <div class="row m-1">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#heading1Addcategories"  >{{ trans('section.Add') }}</a>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#heading1Addcategories"  >{{ trans('category.Add') }}</a>
                                 </div>
                                 <div class="card-body card-dashboard">
                                     <div class="table-responsive">
