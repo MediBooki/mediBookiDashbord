@@ -15,10 +15,10 @@ class PatientAuthController extends Controller
     use ResponseAPI;
     public function login(Request $request)
     {
-        
+
         $admin = Patient::where('email', $request->input("email"))
         ->first();
-        
+
 
         if($admin && Hash::check($request->input('password'), $admin->password))
         {
