@@ -29,7 +29,6 @@ class CategoryRequest extends FormRequest
             'description' => 'required|max:100',
             'description_en' => 'required|max:100',
             'photo' => 'required_without:id|mimes:jpg,jpeg,png',
-
         ];
     }
 }

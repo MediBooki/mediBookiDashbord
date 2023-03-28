@@ -21,8 +21,10 @@ class OrderController extends Controller
             foreach ($cart->medicines as $product) {
                 $total += $product->price * $product->pivot->qty;
             }
+            return $this->sendResponse(new CartResource($cart), 'cart retrieve success');
+
         }
-        return $this->sendResponse(new CartResource($cart), 'cart retrieve success');
+        return $this->sendError('message','Not Found Medicine in Cart');
     }
 
     public function store(Request $request)
