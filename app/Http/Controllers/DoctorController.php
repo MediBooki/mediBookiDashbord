@@ -24,7 +24,6 @@ class DoctorController extends Controller
     }
     public function store(DoctorRequest $request)
     {
-        dd($request);
         return $this->doctor->store($request);
     }
     public function update(DoctorRequest $request)
