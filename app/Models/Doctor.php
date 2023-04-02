@@ -31,6 +31,11 @@ class Doctor extends Authenticatable implements HasMedia
         return $this->belongsToMany(Service::class);
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(DoctorReview::class);
+    }
+
 
     public function scopeFilter($query)
     {

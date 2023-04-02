@@ -15,11 +15,20 @@ class DoctorReviewResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [ 
-            'id'=> $this->id,
-            'comment'=> $this->comment,
-            'rating'=> $this->rating,
-            'doctor'=>new DoctorResource(Doctor::findOrFail($this->doctor_id)),
-        ];
+        if(request()->route()->getName() == "doctors.index"){
+            return [ 
+                'id'=> $this->id,
+                'comment'=> $this->comment,
+                'rating'=> $this->rating,
+            ];
+        } else {
+            return [ 
+                'id'=> $this->id,
+                'comment'=> $this->comment,
+                'rating'=> $this->rating,
+                'doctor'=>new DoctorResource(Doctor::findOrFail($this->doctor_id)),
+            ];
+        }
+       
     }
 }

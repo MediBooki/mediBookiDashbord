@@ -26,7 +26,7 @@ class DoctorRequest extends FormRequest
         return [
             'name' => 'required_without:id|max:100|unique:doctors,name->ar,'.$this->id,
             'name_en' => 'required_without:id|max:100|unique:doctors,name->en,'.$this->id,
-            'phone' => 'required_without:id|integer|min:5',
+            'phone' => 'required_without:id|string',
             'email' => 'required_without:id|email|max:255|unique:doctors,email,'.$this->id,
             'password' => 'required_without:id|string|min:8|max:100',
             'start' => 'required_without:id|date_format:H:i',
