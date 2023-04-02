@@ -50,4 +50,23 @@ class PatientAuthController extends Controller
             return $this->sendError('Please validate error' ,$e->getMessage());
         }
     }
+    public function changePassword(Request $request)
+    {
+        try{
+            $request->validate([
+                'old_password'=>'required|string',
+                'password'=>'required|string|confirmed|min:8',
+            ]);
+            $patient = Patient::findOrFail(auth()->user()->id);
+            if($patient && Hash::check($request->old_password, $patient->password))
+            {
+                $patient->password = Hash::make($request->password);
+                $patient->save();
+                return $this->sendResponse(new PatientResource($patient) ,'patient update password Successfully' );
+            }
+            return $this->sendError('Please validate error' ,"wrong old password");
+        } catch(\Expectation $e) {
+            return $this->sendError('Please validate error' ,$e->getMessage());
+        }
+    }
 }

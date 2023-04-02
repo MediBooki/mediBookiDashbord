@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\DiagnosticResource;
 use App\Http\Resources\InsuranceResource;
 use App\Http\Resources\PatientResource;
+use App\Models\Diagnostic;
 use App\Models\Insurance;
 use App\Models\Patient;
 use App\Traits\ResponseAPI;
@@ -30,5 +32,12 @@ class PatientController extends Controller
         $patient->insurance_status = 0;
         $patient->save();
         return $this->sendResponse(new PatientResource($patient) ,'insurance under review');
+    }
+    public function showDiagnostic()
+    {
+        $diagnostic = Diagnostic::where('patient_id',Auth::guard('patient')->user()->id)->orderBy('id','DESC')->get();
+        return $this->sendResponse(DiagnosticResource::collection($diagnostic), 'diagnostic lists send successfully');
+
+        
     }
 }

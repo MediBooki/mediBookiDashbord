@@ -53,6 +53,11 @@ Route::group(['middleware' => ['changeLanguage']], function (){
 
             Route::apiResource('DoctorReview', DoctorReviewController::class)->only(['index','store']);
 
+            Route::post('change/password', [PatientAuthController::class,'changePassword']);
+
+            Route::get('diagnosis', [PatientController::class,'showDiagnostic']);
+
+
 
         });    
     });
