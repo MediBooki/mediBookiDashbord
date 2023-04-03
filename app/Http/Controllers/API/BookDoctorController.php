@@ -28,4 +28,12 @@ class BookDoctorController extends Controller
         $bookDoctor->save();
         return $this->sendResponse(new BookDoctorResource($bookDoctor) ,'reservation Saved successfully');
     }
+    public function showBookDoctorList(Request $request)
+    {
+        $bookDoctorList = BookDoctor::where([
+            ['doctor_id',$request->doctor_id],
+            ['date',$request->date]
+        ])->orderBy('id','DESC')->get();
+        return $this->sendResponse(BookDoctorResource::collection($bookDoctorList), 'books lists send successfully');
+    }
 }

@@ -37,6 +37,9 @@ Route::group(['middleware' => ['changeLanguage']], function (){
     Route::apiResource('sections' , SectionController::class)->only(['index']);
     Route::apiResource('appointments' , AppointmentController::class)->only(['index']);
     Route::get('/filter/doctors',[DoctorController::class,'filter']);
+
+    Route::get('/check/appointment',[BookDoctorController::class,'showBookDoctorList']);
+
     Route::group(['prefix' => 'patient'], function () {
         Route::post('login', [PatientAuthController::class,'login']);
         Route::post('register', [PatientAuthController::class,'register']);
@@ -56,7 +59,6 @@ Route::group(['middleware' => ['changeLanguage']], function (){
             Route::post('change/password', [PatientAuthController::class,'changePassword']);
 
             Route::get('diagnosis', [PatientController::class,'showDiagnostic']);
-
 
 
         });    
