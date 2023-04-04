@@ -25,6 +25,7 @@ class PatientAuthController extends Controller
             // $admin = Auth::user();
             $success['token'] = $admin->createToken('mohamed')->accessToken;
             $success['name'] = $admin->name;
+            $success['id'] = $admin->id;
             return $this->sendResponse($success ,'Patient login successfully' );
         }
         else{
