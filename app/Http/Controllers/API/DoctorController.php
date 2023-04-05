@@ -24,7 +24,6 @@ class DoctorController extends Controller
    
     public function store(DoctorRequest $request)
     {
-        dd($request);
         try{
             $doctor = new Doctor();
             $doctor->name = ['en' => $request->name_en, 'ar' => $request->name];
@@ -65,8 +64,8 @@ class DoctorController extends Controller
     }
     public function filter(Request $request)
     {
-        $doctors = Doctor::Filter()->paginate(10);
-        return $this->sendResponse(DoctorResource::collection($doctors), 'Doctor lists send successfully');
+        $doctors = Doctor::Filter()->with(['section','appointments','reviews'])->paginate(10);
+        return $this->sendResponse(DoctorResource::collection($doctors), 'Doctor lists send successfully',$doctors->total());
     }
 
 
