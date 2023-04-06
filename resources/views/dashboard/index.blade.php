@@ -18,11 +18,11 @@
                                     </div>
                                     <div class="col-5 pl-2">
                                         <h4> عدد الفواتير</h4>
-                                        
+
                                     </div>
                                     <div class="col-5 text-right">
                                         <h4>{{ \App\Models\Invoice::count() }}</h4>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                                     </div>
                                     <div class="col-5 text-right">
                                         <h4>2</h4>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -69,11 +69,11 @@
                                     </div>
                                     <div class="col-5 pl-2">
                                         <h4> sd</h4>
-                                       
+
                                     </div>
                                     <div class="col-5 text-right">
                                         <h4>22</h4>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
             <div class="row">
                 <div class="col-xl-3 col-lg-6 col-12">
@@ -181,7 +181,7 @@
                             <h4 class="card-title"> Admin activites</h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
-                                
+
                             </div>
                         </div>
                         <div class="card-content">
@@ -202,7 +202,7 @@
                                                 <td>{{ $active->description }}</td>
                                                 <td>{{ $active->subject ? $active->subject->name : 'NO Name'}}</td>
                                                 <td>{{ $active->subject_type }}</td>
-                                                <td>{{ $active->causer->name }}</td>
+                                                <td>{{ $active->causer ? $active->causer->name : 'No Name' }}</td>
                                             </tr>
                                           @endforeach
                                         @endisset
@@ -218,7 +218,7 @@
                             <h4 class="card-title">{{ trans('doctor.Doctor_Reviews') }}</h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
-                                
+
                             </div>
                         </div>
                         <div class="card-content">
@@ -248,8 +248,8 @@
                     </div>
                 </div>
             </div>
-        
-           
+
+
             <div class="row">
               <div class="col-xl-6 col-12">
                 <div class="card">
