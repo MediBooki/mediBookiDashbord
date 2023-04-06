@@ -45,7 +45,7 @@ class Doctor extends Authenticatable implements HasMedia
             })->when(!empty(request()->genders) ,function($subquery){
                 $subquery->whereIn('doctors.gender',request()->genders);
             })->when(!empty(request()->name) ,function($subquery){
-                $subquery->where('name', 'LIKE', "%" . request()->name . "%");
+                $subquery->where('name->'.app()->getLocale(request()->lang),'LIKE', "%" . request()->name . "%");
             })->when(!empty(request()->specialization) ,function($subquery){
                 $subquery->where('specialization', 'LIKE', "%" . request()->specialization . "%");
             })->when(!empty(request()->sections) ,function($subquery){
