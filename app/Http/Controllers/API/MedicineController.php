@@ -20,9 +20,19 @@ class MedicineController extends Controller
     public function show($id)
     {
         $medicine = Medicine::with(['category'])->findOrFail($id);
-        
         return $this->sendResponse(new MedicineResource($medicine), 'Medicines lists send successfully');
     }
 
+    public function relatedMedicine(Request $request)
+    {
+        $limit = $request->limit ? $request->limit : 7;
+        $medicines = Medicine::
+                            where('category_id',$request->category_id)
+                            ->orderBy('id','DESC')
+                            ->with(['category'])
+                            ->take($limit)
+                            ->get();
+        return $this->sendResponse(MedicineResource::collection($medicines), 'Medicines lists send successfully');
+    }
 
 }

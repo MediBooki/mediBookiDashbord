@@ -12,6 +12,7 @@ use App\Http\Controllers\API\BookDoctorController;
 use App\Http\Controllers\API\DoctorReviewController;
 use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\PaymentController;
+use App\Http\Controllers\API\SettingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -36,9 +37,12 @@ Route::group(['middleware' => ['changeLanguage']], function (){
     Route::apiResource('services', ServiceController::class)->only(['index','show']);
     Route::apiResource('sections' , SectionController::class)->only(['index']);
     Route::apiResource('appointments' , AppointmentController::class)->only(['index']);
+    Route::apiResource('settings' , SettingController::class)->only(['index']);
+
     Route::get('/filter/doctors',[DoctorController::class,'filter']);
 
     Route::get('/check/appointment',[BookDoctorController::class,'showBookDoctorList']);
+    Route::get('/related/medicine',[MedicineController::class,'relatedMedicine']);
 
     Route::group(['prefix' => 'patient'], function () {
         Route::post('login', [PatientAuthController::class,'login']);
