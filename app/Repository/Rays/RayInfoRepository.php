@@ -26,16 +26,19 @@ class RayInfoRepository implements RayInfoRepositoryInterface
         $xray->description_user = $request->description_user;
         $xray->user_id = Auth::user()->id;
         $xray->case = 1;
-        if($request->nemo && $request->nemo == 1){
-            $photo = $request->file('photo');
-            $response = Http::attach('file', file_get_contents($photo), 'image.jpeg')->post('http://127.0.0.1:5000');
+        if($request->hasFile('photo') && $request->file('photo')->isValid()){
+            $xray->addMediaFromRequest('photo')->toMediaCollection('photo');
+        }
+        if($request->nemo && $request->nemo == 1)
+        {
+            $response = Http::post('http://127.0.0.1:5000',[
+                'path' => $xray->getFirstMediaUrl('photo'),
+            ]);
             $prediction = $response->json('The prediction is');
             $xray->prediction = $prediction;
         }
         $xray->save();
-        if($request->hasFile('photo') && $request->file('photo')->isValid()){
-            $xray->addMediaFromRequest('photo')->toMediaCollection('photo');
-        }
+
 
       
         return redirect()->back()->with(['success' => 'X-Ray Updated Successfully']);

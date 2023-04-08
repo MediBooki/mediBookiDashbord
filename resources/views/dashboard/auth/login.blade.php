@@ -71,7 +71,7 @@
                                     <div class="form-group row">
                                         <div class="col-md-6 col-12 text-center text-md-left">
                                             <fieldset>
-                                                <input type="checkbox" name="remember_me" id="remember-me"
+                                                <input type="checkbox" name="remember" id="remember-me"
                                                     class="chk-remember">
                                                 <label for="remember-me">remember me</label>
                                             </fieldset>
@@ -115,7 +115,7 @@
                                     <div class="form-group row">
                                         <div class="col-md-6 col-12 text-center text-md-left">
                                             <fieldset>
-                                                <input type="checkbox" name="remember_me" id="remember-me"
+                                                <input type="checkbox" name="remember" id="remember-me"
                                                     class="chk-remember">
                                                 <label for="remember-me">remember me</label>
                                             </fieldset>
