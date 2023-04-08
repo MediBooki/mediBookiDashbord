@@ -6,7 +6,7 @@ use App\Interfaces\Rays\RayInfoRepositoryInterface;
 use App\Models\Ray;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Http;
 
 class RayInfoRepository implements RayInfoRepositoryInterface
 {
@@ -22,15 +22,22 @@ class RayInfoRepository implements RayInfoRepositoryInterface
     }
     public function update($request)
     {
-        
         $xray = Ray::findorFail($request->id);
         $xray->description_user = $request->description_user;
         $xray->user_id = Auth::user()->id;
         $xray->case = 1;
+        if($request->nemo && $request->nemo == 1){
+            $photo = $request->file('photo');
+            $response = Http::attach('file', file_get_contents($photo), 'image.jpeg')->post('http://127.0.0.1:5000');
+            $prediction = $response->json('The prediction is');
+            $xray->prediction = $prediction;
+        }
         $xray->save();
         if($request->hasFile('photo') && $request->file('photo')->isValid()){
             $xray->addMediaFromRequest('photo')->toMediaCollection('photo');
         }
+
+      
         return redirect()->back()->with(['success' => 'X-Ray Updated Successfully']);
     }
 

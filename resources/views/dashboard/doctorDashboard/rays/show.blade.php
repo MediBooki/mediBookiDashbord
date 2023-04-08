@@ -30,13 +30,16 @@
                             itemprop="thumbnail"
                             alt="Image description" />
                     </a>
-                    <div class="card-body px-0 d-none">
-                      <h4 class="card-title">Card title 1</h4>
-                      <p class="card-text">This is a longer card with supporting text below.</p>
+                    <div class="card-body px-0 ">
+                      <h4 class="card-title text-center">
+                        @if($xray->prediction)
+                            حالة الالتهاب الرئوي {{$xray->prediction}}
+                        @else
+                          اشعة المريض
+                        @endif
+                      </h4>
                     </div>
-                    <div class="card-body px-0 text-center">
-                       <a href="#" class="btn btn-primary">فحص الاشعة</a>
-                      </div>
+                   
                   </figure>
                 </div>
               </div>

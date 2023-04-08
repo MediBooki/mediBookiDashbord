@@ -34,6 +34,12 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="checkbox" name="nemo" value="1">
+                                <label for="projectinput1"> الالتهاب الرئوي</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
