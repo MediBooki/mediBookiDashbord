@@ -32,7 +32,7 @@ class RayInfoRepository implements RayInfoRepositoryInterface
         if($request->nemo && $request->nemo == 1)
         {
             $response = Http::post('http://127.0.0.1:5000',[
-                'path' => $xray->getFirstMediaUrl('photo'),
+                'url' => $xray->getFirstMediaUrl('photo'),
             ]);
             $prediction = $response->json('The prediction is');
             $xray->prediction = $prediction;

@@ -28,7 +28,7 @@ class CategoryRequest extends FormRequest
             'name_en' => 'required|max:100|unique:sections,name->en,'.$this->id,
             'description' => 'required|max:100',
             'description_en' => 'required|max:100',
-            'photo' => 'required_without:id|mimes:jpg,jpeg,png',
+            // 'photo' => 'required_without:id|mimes:jpg,jpeg,png',
         ];
     }
 }
