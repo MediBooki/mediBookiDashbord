@@ -39,4 +39,18 @@ class PatientController extends Controller
         $diagnostic = Diagnostic::where('patient_id',Auth::guard('patient')->user()->id)->with(['doctor'])->orderBy('id','DESC')->get();
         return $this->sendResponse(DiagnosticResource::collection($diagnostic), 'diagnostic lists send successfully',$diagnostic->count());
     }
+    public function getPatientInfo()
+    {
+        $patient = Patient::where('id',Auth::guard('patient')->user()->id)->first();
+        return $this->sendResponse(new PatientResource($patient), 'Patient send successfully');
+    }
+    public function updatePatientInfo(Request $request)
+    {
+        $patient = Patient::findOrFail(Auth::guard('patient')->user()->id);
+        $patient->name = $request->name;
+        $patient->phone = $request->phone;
+        $patient->address = $request->address;
+        $patient->save();
+        return $this->sendResponse(new PatientResource($patient) ,'Patient Info Updated Successfully');
+    }
 }

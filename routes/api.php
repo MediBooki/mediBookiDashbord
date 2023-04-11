@@ -65,6 +65,10 @@ Route::group(['middleware' => ['changeLanguage']], function (){
 
             Route::get('diagnosis', [PatientController::class,'showDiagnostic']);
 
+            Route::get('/information',[PatientController::class,'getPatientInfo']);
+
+            Route::post('/update/information',[PatientController::class,'updatePatientInfo']);
+
 
         });    
     });

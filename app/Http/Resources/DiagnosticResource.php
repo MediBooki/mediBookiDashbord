@@ -18,6 +18,7 @@ class DiagnosticResource extends JsonResource
         return [
             'id' => $this->id,
             'review_date'=> $this->review_date,
+            'date'=> $this->date,
             'diagnosis'=> $this->diagnosis,
             'medicine'=> $this->medicine,
             // 'patient'=> PatientResource::make($this->whenLoaded('patient')),

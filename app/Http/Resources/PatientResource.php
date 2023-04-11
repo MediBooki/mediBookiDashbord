@@ -20,11 +20,15 @@ class PatientResource extends JsonResource
             'id'=> $this->id,
             'name'=> $this->name,
             'email'=> $this->email,
-            
+            'phone'=> $this->phone,
+            'gender'=> $this->gender,
+            'blood_group'=> $this->blood_group,
+            'address'=> $this->address,
+            'date_of_birth' => $this->date_of_birth,
             // 'insurance'=> new InsuranceResource(Insurance::findOrFail($this->insurance_id)),
-            // 'insurance_number'=> $this->insurance_number,
-            // 'insurance_date'=> $this->insurance_date,
-            // 'insurance_status'=> $this->insurance_status,
+            'insurance_number'=> $this->insurance_number ? $this->insurance_number : '',
+            'insurance_date'=> $this->insurance_date ? $this->insurance_date : '',
+            'insurance_status'=> $this->insurance_status ? $this->insurance_status : '',
         ];
     }
 }
