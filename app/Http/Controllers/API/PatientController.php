@@ -36,6 +36,6 @@ class PatientController extends Controller
     public function showDiagnostic()
     {
         $diagnostic = Diagnostic::where('patient_id',Auth::guard('patient')->user()->id)->orderBy('id','DESC')->get();
-        return $this->sendResponse(DiagnosticResource::collection($diagnostic), 'diagnostic lists send successfully');
+        return $this->sendResponse(DiagnosticResource::collection($diagnostic), 'diagnostic lists send successfully',$diagnostic->count());
     }
 }
