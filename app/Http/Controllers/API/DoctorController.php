@@ -58,13 +58,13 @@ class DoctorController extends Controller
     }
     public function show($id)
     {
-        $doctor = Doctor::with(['section','appointments'])->findOrFail($id);
+        $doctor = Doctor::where('status',1)->with(['section','appointments'])->findOrFail($id);
         // dd($doctor);
         return $this->sendResponse(new DoctorResource($doctor) ,'Doctor finded successfully');
     }
     public function filter(Request $request)
     {
-        $doctors = Doctor::Filter()->with(['section','appointments','reviews'])->paginate(10);
+        $doctors = Doctor::Filter()->where('status',1)->with(['section','appointments','reviews'])->paginate(10);
         return $this->sendResponse(DoctorResource::collection($doctors), 'Doctor lists send successfully',$doctors->total());
     }
 

@@ -28,6 +28,7 @@ class PatientController extends Controller
         $patient = Patient::findOrFail(Auth::guard('patient')->user()->id);
         $patient->insurance_id = $request->insurance_id;
         $patient->insurance_number =  $request->insurance_number;
+        // expairy date
         $patient->insurance_date =  $request->insurance_date;
         $patient->insurance_status = 0;
         $patient->save();
