@@ -20,8 +20,8 @@ class DiagnosticResource extends JsonResource
             'review_date'=> $this->review_date,
             'diagnosis'=> $this->diagnosis,
             'medicine'=> $this->medicine,
-            'patient'=> PatientResource::make($this->whenLoaded('patient')),
-            'doctor_name'=> $this->getTranslation($this->doctor->name,app()->getLocale($request->lang)),
+            // 'patient'=> PatientResource::make($this->whenLoaded('patient')),
+            'doctor'=> DoctorResource::make($this->whenLoaded('doctor')),
         ];
     }
 }
