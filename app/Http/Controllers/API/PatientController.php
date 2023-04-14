@@ -47,7 +47,6 @@ class PatientController extends Controller
     }
     public function updatePatientInfo(PatientInfoRequest $request)
     {
-        
         $patient = Patient::findOrFail(Auth::guard('patient')->user()->id);
         $patient->name = $request->name;
         $patient->phone = $request->phone;

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class PatientInfoRequest extends FormRequest
 {
@@ -23,9 +24,10 @@ class PatientInfoRequest extends FormRequest
      */
     public function rules()
     {
+        $id =Auth::guard('patient')->user()->id;
         return [
-            'name' => 'required|max:255|unique:patients,name,'.$this->id,
-            'phone' => 'required|numeric|unique:patients,phone,'.$this->id,
+            'name' => 'required|max:255|unique:patients,name,'.$id.'|regex:/^[\pL\s]+$/u',
+            'phone' => 'required|numeric|unique:patients,phone,'.$id,
             'address' => 'required|string',
         ];
     }

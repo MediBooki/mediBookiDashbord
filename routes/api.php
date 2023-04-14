@@ -10,6 +10,7 @@ use App\Http\Controllers\API\ServiceController;
 use App\Http\Controllers\API\WishlistMedicineController;
 use App\Http\Controllers\API\BookDoctorController;
 use App\Http\Controllers\API\DoctorReviewController;
+use App\Http\Controllers\API\InvoiceController;
 use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\PaymentController;
 use App\Http\Controllers\API\SettingController;
@@ -64,6 +65,10 @@ Route::group(['middleware' => ['changeLanguage']], function (){
             Route::post('change/password', [PatientAuthController::class,'changePassword']);
 
             Route::get('diagnosis', [PatientController::class,'showDiagnostic']);
+
+            Route::get('invoices', [InvoiceController::class,'index']);
+
+            Route::get('/orders',[OrderController::class,'getOrder']);
 
             Route::get('/information',[PatientController::class,'getPatientInfo']);
 
