@@ -69,6 +69,7 @@ Route::group(['middleware' => ['changeLanguage']], function (){
             Route::get('invoices', [InvoiceController::class,'index']);
 
             Route::get('/orders',[OrderController::class,'getOrder']);
+            Route::get('/order/detail',[OrderController::class,'getOrderDetail']);
 
             Route::get('/information',[PatientController::class,'getPatientInfo']);
 

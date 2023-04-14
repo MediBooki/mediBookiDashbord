@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CartResource;
+use App\Http\Resources\OrderDetailResource;
 use App\Http\Resources\OrderResource;
 use App\Models\Medicine;
 use App\Models\Order;
@@ -88,9 +89,17 @@ class OrderController extends Controller
         $orders = Order::where([
             ['patient_id', '=', auth()->user()->id]
             ])->orderBy('id','DESC')->get();
-        return $this->sendResponse(OrderResource::collection($orders), 'Invoice lists send successfully');
+        return $this->sendResponse(OrderResource::collection($orders), 'Orders lists send successfully');
     }
 
+    public function getOrderDetail(Request $request)
+    {
+        $orders = Order::where([
+            ['patient_id', '=', auth()->user()->id],
+            ['id',$request->id]
+            ])->with(['medicines'])->orderBy('id','DESC')->get();
+        return $this->sendResponse(OrderDetailResource::collection($orders), 'Orders lists send successfully');
+    }
 
     public function update($id)
     {
