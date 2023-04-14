@@ -16,7 +16,7 @@ class PatientResource extends JsonResource
     public function toArray($request)
     {
         // return parent::toArray($request);
-        return [
+        $result = [
             'id'=> $this->id,
             'name'=> $this->name,
             'email'=> $this->email,
@@ -25,10 +25,18 @@ class PatientResource extends JsonResource
             'blood_group'=> $this->blood_group,
             'address'=> $this->address,
             'date_of_birth' => $this->date_of_birth,
+            'photo' => $this->getFirstMediaUrl('photo'),
             // 'insurance'=> new InsuranceResource(Insurance::findOrFail($this->insurance_id)),
             'insurance_number'=> $this->insurance_number ? $this->insurance_number : '',
             'insurance_date'=> $this->insurance_date ? $this->insurance_date : '',
             'insurance_status'=> $this->insurance_status ? $this->insurance_status : '',
         ];
+        // dd($this->insurance_id);
+        if($this->insurance_id){
+            $result = array_merge($result, [
+                'insurance'=> new InsuranceResource(Insurance::findOrFail($this->insurance_id)),
+            ]);
+        }
+        return $result;
     }
 }

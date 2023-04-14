@@ -17,9 +17,10 @@ class WishlistMedicineController extends Controller
         $medicines= Auth::guard('patient')
             ->user()
             ->wishlist()
+            ->with(['category'])
             ->latest()
-            ->paginate(20);
-        return $this->sendResponse(MedicineResource::collection($medicines), 'Medicines lists send successfully');
+            ->paginate(15);
+        return $this->sendResponse(MedicineResource::collection($medicines), 'Medicines lists send successfully',$medicines->total());
     }
 
     public function store()

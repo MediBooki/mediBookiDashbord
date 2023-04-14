@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PatientInfoRequest;
 use App\Http\Resources\DiagnosticResource;
 use App\Http\Resources\InsuranceResource;
 use App\Http\Resources\PatientResource;
@@ -44,12 +45,17 @@ class PatientController extends Controller
         $patient = Patient::where('id',Auth::guard('patient')->user()->id)->first();
         return $this->sendResponse(new PatientResource($patient), 'Patient send successfully');
     }
-    public function updatePatientInfo(Request $request)
+    public function updatePatientInfo(PatientInfoRequest $request)
     {
+        
         $patient = Patient::findOrFail(Auth::guard('patient')->user()->id);
         $patient->name = $request->name;
         $patient->phone = $request->phone;
         $patient->address = $request->address;
+        if($request->hasFile('photo') && $request->file('photo')->isValid()){
+            $patient->clearMediaCollection('photo');
+            $patient->addMediaFromRequest('photo')->toMediaCollection('photo');
+        }
         $patient->save();
         return $this->sendResponse(new PatientResource($patient) ,'Patient Info Updated Successfully');
     }

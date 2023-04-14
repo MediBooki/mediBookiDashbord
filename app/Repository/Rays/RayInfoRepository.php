@@ -38,9 +38,6 @@ class RayInfoRepository implements RayInfoRepositoryInterface
             $xray->prediction = $prediction;
         }
         $xray->save();
-
-
-      
         return redirect()->back()->with(['success' => 'X-Ray Updated Successfully']);
     }
 

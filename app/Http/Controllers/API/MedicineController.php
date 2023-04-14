@@ -13,7 +13,7 @@ class MedicineController extends Controller
     use ResponseAPI;
     public function index()
     {
-        $medicines = Medicine::orderBy('id','DESC')->with(['category'])->paginate(15);
+        $medicines = Medicine::Filter()->where('status',1)->orderBy('id','DESC')->with(['category'])->paginate(15);
         return $this->sendResponse(MedicineResource::collection($medicines), 'Medicines lists send successfully',$medicines->total());
     }
 
@@ -28,6 +28,7 @@ class MedicineController extends Controller
         $limit = $request->limit ? $request->limit : 7;
         $medicines = Medicine::
                             where('category_id',$request->category_id)
+                            ->where('status',1)
                             ->orderBy('id','DESC')
                             ->with(['category'])
                             ->take($limit)
