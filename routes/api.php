@@ -9,6 +9,7 @@ use App\Http\Controllers\API\SectionController;
 use App\Http\Controllers\API\ServiceController;
 use App\Http\Controllers\API\WishlistMedicineController;
 use App\Http\Controllers\API\BookDoctorController;
+use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\DoctorReviewController;
 use App\Http\Controllers\API\InvoiceController;
 use App\Http\Controllers\API\OrderController;
@@ -34,7 +35,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware' => ['changeLanguage']], function (){
     Route::apiResource('doctors', DoctorController::class)->except(['edit','create']);
     Route::apiResource('medicines', MedicineController::class)->only(['index','show']);
-    Route::apiResource('categories', SectionController::class)->only(['index','show']);
+    Route::apiResource('categories', CategoryController::class)->only(['index','show']);
     Route::apiResource('services', ServiceController::class)->only(['index','show']);
     Route::apiResource('sections' , SectionController::class)->only(['index']);
     Route::apiResource('appointments' , AppointmentController::class)->only(['index']);
