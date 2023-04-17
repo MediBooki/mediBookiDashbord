@@ -25,9 +25,9 @@ class Medicine extends Model implements HasMedia
     {
         return  $query->where( function($query ){
             $query->when(!empty(request()->minPrice) ,function($subquery){
-                $subquery->where('medicines.price','>',request()->minPrice);
+                $subquery->where('medicines.price','>=',request()->minPrice);
             })->when(!empty(request()->maxPrice) ,function($subquery){
-                $subquery->where('medicines.price','<',request()->maxPrice);
+                $subquery->where('medicines.price','<=',request()->maxPrice);
             })->when(!empty(request()->name) ,function($subquery){
                 $subquery->where('name->'.app()->getLocale(request()->lang),'LIKE', "%" . request()->name . "%");
             })->when(!empty(request()->description) ,function($subquery){

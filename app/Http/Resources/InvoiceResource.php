@@ -24,6 +24,8 @@ class InvoiceResource extends JsonResource
             'tax_value'=> $this->tax_value,
             'total_with_tax'=> $this->total_with_tax,
             'type'=> $this->type,
+            'service'=> $this->service->name,
+            'doctor'=> $this->doctor->name,
         ];
     }
 }

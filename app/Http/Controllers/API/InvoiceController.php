@@ -16,7 +16,7 @@ class InvoiceController extends Controller
     {
         $invoices = Invoice::where([
             ['patient_id', '=', auth()->user()->id]
-            ])->orderBy('id','DESC')->get();
+            ])->with(['doctor','service'])->orderBy('id','DESC')->get();
         return $this->sendResponse(InvoiceResource::collection($invoices), 'Invoice lists send successfully');
     }
 }
