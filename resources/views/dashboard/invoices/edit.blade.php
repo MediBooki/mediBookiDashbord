@@ -218,6 +218,7 @@
             var doctor_id = $(this).val();
             if (doctor_id) {
                 $.get('services/doctors/' + doctor_id, function (data) {
+                    $('select[name="service_id"]').html('');
                     $.each(data, function(index, value) {
                         $('select[name="service_id"]').append('<option value="' + value.id + '">' + value.name.ar + '</option>');
                     });

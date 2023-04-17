@@ -53,14 +53,13 @@
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('patient.name') }}</label>
                                                             <select name="patient_id" class="select2 form-control">
-                                                                <optgroup label="{{ trans('main-sidebar.patient') }}">
+                                                                <option value="" >Choose</option>
                                                                     @if($patients && $patients -> count() > 0)
                                                                         @foreach($patients as $patient)
                                                                             <option
                                                                                 value="{{$patient->id }}">{{$patient -> name}}</option>
                                                                         @endforeach
                                                                     @endif
-                                                                </optgroup>
                                                             </select>
                                                             @error("patient_id")
                                                             <span class="text-danger">{{$message}}</span>
@@ -71,14 +70,13 @@
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('main-sidebar.doctors') }}</label>
                                                             <select name="doctor_id" class="select2 form-control" onchange="console.log($(this).val())">
-                                                                <optgroup label="{{ trans('main-sidebar.doctors') }}">
-                                                                    @if($doctors && $doctors -> count() > 0)
-                                                                        @foreach($doctors as $doctor)
-                                                                            <option
-                                                                                value="{{$doctor->id }}">{{$doctor->name}}</option>
-                                                                        @endforeach
-                                                                    @endif
-                                                                </optgroup>
+                                                                <option value="" >Choose</option>
+                                                                @if($doctors && $doctors -> count() > 0)
+                                                                    @foreach($doctors as $doctor)
+                                                                        <option
+                                                                            value="{{$doctor->id }}">{{$doctor->name}}</option>
+                                                                    @endforeach
+                                                                @endif
                                                             </select>
                                                             @error("doctor_id")
                                                             <span class="text-danger">{{$message}}</span>
@@ -89,6 +87,7 @@
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('main-sidebar.services') }}</label>
                                                             <select name="service_id" class="select2 form-control">
+                                                                <option value="" >Choose</option>
                                                                 {{-- <optgroup label="{{ trans('main-sidebar.services') }}">
                                                                     @if($services && $services -> count() > 0)
                                                                         @foreach($services as $service)
@@ -222,6 +221,7 @@
             var doctor_id = $(this).val();
             if (doctor_id) {
                 $.get('services/doctors/' + doctor_id, function (data) {
+                    $('select[name="service_id"]').html('');
                     $.each(data, function(index, value) {
                         $('select[name="service_id"]').append('<option value="' + value.id + '">' + value.name.ar + '</option>');
                     });
