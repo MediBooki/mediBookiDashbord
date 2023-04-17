@@ -87,7 +87,6 @@
                                                         <div class="form-group">
                                                             <label for="projectinput1"> {{ trans('main-sidebar.services') }}</label>
                                                             <select name="service_id" class="select2 form-control">
-                                                                <option value="" >Choose</option>
                                                                 {{-- <optgroup label="{{ trans('main-sidebar.services') }}">
                                                                     @if($services && $services -> count() > 0)
                                                                         @foreach($services as $service)
@@ -221,7 +220,7 @@
             var doctor_id = $(this).val();
             if (doctor_id) {
                 $.get('services/doctors/' + doctor_id, function (data) {
-                    $('select[name="service_id"]').html('');
+                    $('select[name="service_id"]').html('<option value="" >Choose</option>');
                     $.each(data, function(index, value) {
                         $('select[name="service_id"]').append('<option value="' + value.id + '">' + value.name.ar + '</option>');
                     });
