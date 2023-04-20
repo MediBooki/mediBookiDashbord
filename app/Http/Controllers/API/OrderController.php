@@ -26,7 +26,7 @@ class OrderController extends Controller
             return $this->sendResponse(new CartResource($cart), 'cart retrieve success');
 
         }
-        return $this->sendError('message','Not Found Medicine in Cart');
+        return $this->sendResponse('message','Not Found Medicine in Cart');
     }
 
     public function store(Request $request)
