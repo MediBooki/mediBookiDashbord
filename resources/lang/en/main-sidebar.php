@@ -32,6 +32,7 @@ return array (
   'patient' => 'Patients',
   'patient_history' => 'Patient History',
   'payment' => 'Exchange Bonds',
+  'rays' => 'x-ray',
   'receipt' => 'Receipts',
   'reviews' => 'Reviews',
   'roles' => 'roles',
