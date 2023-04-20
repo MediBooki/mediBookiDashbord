@@ -21,6 +21,7 @@ class BookDoctorResource extends JsonResource
             'price'=> $this->price,
             'date'=> $this->date,
             'time'=> $this->time,
+            'patient_id'=>$this->patient_id,
             'status' => $this->status,
             'doctor'=>new DoctorResource(Doctor::findOrFail($this->doctor_id)),
         ];
