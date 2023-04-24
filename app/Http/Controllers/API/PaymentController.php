@@ -15,9 +15,10 @@ class PaymentController extends Controller
     use ResponseAPI;
     public function store()
     {
+        $order = Order::patientCheck()->first();
+        $order->check=1;
+
         if(request()->status == 1) {
-            $order = Order::patientCheck()->first();
-            $order->check=1;
             $order->status =1;
             $order->Payment_Date =Carbon::now();
             $order->save();
@@ -36,6 +37,7 @@ class PaymentController extends Controller
                 'details' => $response,
             ]);
         }
+        $order->save();
         return response()->json([
             'details' => "Order saved successfully",
         ]);

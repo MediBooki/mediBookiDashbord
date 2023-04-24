@@ -87,7 +87,8 @@ class OrderController extends Controller
     public function getOrder()
     {
         $orders = Order::where([
-            ['patient_id', '=', auth()->user()->id]
+            ['patient_id', '=', auth()->user()->id],
+            ['check','=',1]
             ])->orderBy('id','DESC')->get();
         return $this->sendResponse(OrderResource::collection($orders), 'Orders lists send successfully');
     }

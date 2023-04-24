@@ -11,6 +11,7 @@ return array (
   'account' => 'الحسابات',
   'ambulance' => 'الأسعاف',
   'ambulance_calls' => 'مكالمات الاسعاف',
+  'blogs' => 'المقالات',
   'bookLists' => 'قائمة الحجوزات',
   'categories' => 'الاقسام',
   'complete_bookLists' => 'كشوفات مكتملة',

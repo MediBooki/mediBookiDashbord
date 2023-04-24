@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AmbulanceController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\BookListController;
 use App\Http\Controllers\CategoryController;
@@ -57,6 +58,7 @@ Route::group([
         Route::resource('ambulances' , AmbulanceController::class);
         Route::resource('patients' , PatientController::class)->middleware('can:patients');
         Route::resource('terms' , TermController::class)->except(['edit','create'])->middleware('can:terms');
+        Route::resource('blogs' , BlogController::class)->except(['edit','create','show']);
 
         Route::get('/doctor/services', [ServiceController::class,'index'])->name('services.doctors')->middleware('can:services');
 

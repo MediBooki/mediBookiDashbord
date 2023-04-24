@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\AppointmentController;
 use App\Http\Controllers\API\Auth\PatientAuthController;
+use App\Http\Controllers\API\BlogController;
 use App\Http\Controllers\API\DoctorController;
 use App\Http\Controllers\API\MedicineController;
 use App\Http\Controllers\API\PatientController;
@@ -38,6 +39,8 @@ Route::group(['middleware' => ['changeLanguage']], function (){
     Route::apiResource('categories', CategoryController::class)->only(['index','show']);
     Route::apiResource('services', ServiceController::class)->only(['index','show']);
     Route::apiResource('sections' , SectionController::class)->only(['index']);
+    Route::apiResource('blogs' , BlogController::class)->only(['index']);
+
     Route::apiResource('appointments' , AppointmentController::class)->only(['index']);
     Route::apiResource('settings' , SettingController::class)->only(['index']);
     Route::get('/insurances',[PatientController::class,'index']);

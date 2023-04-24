@@ -143,6 +143,14 @@
                 </li>
                 @endcan
                 <li class="nav-item">
+                    <a href=""><i class="la la-cube"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.blogs') }}</span></a>
+                    <ul class="menu-content">
+                        <li class="">
+                            <a class="menu-item" href="{{ route('blogs.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.view All')}}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
                     <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.orders') }}</span></span></a>
                     <ul class="menu-content">
                         <li class="">

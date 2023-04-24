@@ -18,4 +18,5 @@ class CategoryController extends Controller
         $categories = Category::orderBy('id','DESC')->get();
         return $this->sendResponse(CategoryResource::collection($categories), 'Section lists send successfully');
     }
+    
 }

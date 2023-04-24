@@ -11,6 +11,7 @@ return array (
   'account' => 'Accounts',
   'ambulance' => 'Ambulance',
   'ambulance_calls' => 'Ambulance Calls',
+  'blogs' => 'Blogs',
   'bookLists' => 'Book Lists',
   'categories' => 'categories',
   'complete_bookLists' => 'complete book lists',
