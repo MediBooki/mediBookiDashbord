@@ -102,7 +102,7 @@
                 <div class="col-12 col-xl-8">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"> sd</h4>
+                            <h4 class="card-title"> {{ trans('service.top_services') }}</h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
                                 
@@ -113,25 +113,23 @@
                                 <table class="table table-de mb-0">
                                     <thead>
                                       <tr>
-                                          <th> sd</th>
-                                          <th> sd</th>
-                                          <th> sd</th>
-                                          <th> sd</th>
-                                          <th> sd</th>
+                                          <th> ##</th>
+                                          <th>{{ trans('service.name') }}</th>
+                                          <th>{{ trans('service.price') }}</th>
+                                          <th>{{ trans('service.booking_count')}}</th>
                                       </tr>
                                       </thead>
                                       <tbody>
-                                        {{-- @isset($orders)
-                                          @foreach($orders as $order)
+                                        @isset($bestServices)
+                                          @foreach($bestServices as $service)
                                             <tr class="bg-success bg-lighten-5">
-                                                <td>{{ $order->first_name }}</td>
-                                                <td>{{ $order->phone1 }}</td>
-                                                <td>{{ $order->email }}</td>
-                                                <td>{{ $order->status==1 ?  trans('order.paid')  : trans('order.unpaid')}}</td>
-                                                <td>{{ $order->total }}</td>
+                                              <td>{{$loop->iteration}}</td>
+                                              <td>{{$service->name}}</td>
+                                              <td>{{$service->price}}</td>
+                                              <td>{{ $service->booking_count }}</td>
                                             </tr>
                                           @endforeach
-                                        @endisset --}}
+                                        @endisset
                                       </tbody>
                                 </table>
                             </div>
@@ -175,7 +173,7 @@
                 </div>
             </div>
             <!--/ Sell Orders & Buy Order -->
-            <div class="row">
+            {{-- <div class="row">
               <div class="col-xl-6 col-12">
                 <div class="card">
                   <div class="card-header">
@@ -210,7 +208,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

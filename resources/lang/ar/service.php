@@ -2,6 +2,7 @@
 
 return array (
   'Add' => 'اضافة خدمة جديدة',
+  'booking_count' => 'عدد الحجوزات',
   'description' => 'الوصف',
   'insurance' => 'شركات التأمين',
   'name' => 'اسم الخدمة',
@@ -12,4 +13,5 @@ return array (
   'service_name_ar' => 'اسم الخدمة بالغة العربية',
   'service_name_en' => 'اسم الخدمة بالغة الانجليزية',
   'status' => 'الحالة',
+  'top_services' => 'الخدمات الاكثر حجزا',
 );
