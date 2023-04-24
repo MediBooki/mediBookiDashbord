@@ -3,6 +3,7 @@
 use App\Http\Controllers\doctorDashboard\BookListController;
 use App\Http\Controllers\doctorDashboard\DiagnosticController;
 use App\Http\Controllers\doctorDashboard\DoctorReviewController;
+use App\Http\Controllers\doctorDashboard\HomeController;
 use App\Http\Controllers\doctorDashboard\InvoiceController;
 use App\Http\Controllers\doctorDashboard\LaboratoryController;
 use App\Http\Controllers\doctorDashboard\ProfileController;
@@ -26,9 +27,7 @@ Route::group([
 ], function(){
     Route::middleware(['auth:doctor'])->group(function () {
         
-        Route::get('dashboard/doctor', function () {
-            return view('dashboard.doctorDashboard.dashboard');
-        })->name('dashboard.doctor');
+        Route::get('dashboard/doctor', [HomeController::class,'index'])->name('dashboard.doctor');
 
         // الخدمات
         Route::resource('services' , ServiceController::class)->except(['edit','create','show']);

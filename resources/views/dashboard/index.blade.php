@@ -17,7 +17,7 @@
                                         <h1><i class="cc BTC warning font-large-2" title="BTC"></i></h1>
                                     </div>
                                     <div class="col-5 pl-2">
-                                        <h4> عدد الفواتير</h4>
+                                        <h4> {{ trans('main-sidebar.invoice') }}</h4>
 
                                     </div>
                                     <div class="col-5 text-right">
@@ -43,10 +43,10 @@
                                         <h1><i class="cc ETH blue-grey lighten-1 font-large-2" title="ETH"></i></h1>
                                     </div>
                                     <div class="col-5 pl-2">
-                                        <h4>dsds</h4>
+                                        <h4>{{ trans('main-sidebar.orders') }}</h4>
                                     </div>
                                     <div class="col-5 text-right">
-                                        <h4>2</h4>
+                                        <h4>{{ \App\Models\order::where('check',1)->count() }}</h4>
 
                                     </div>
                                 </div>
@@ -68,12 +68,11 @@
                                         <h1><i class="cc XRP info font-large-2" title="XRP"></i></h1>
                                     </div>
                                     <div class="col-5 pl-2">
-                                        <h4> sd</h4>
+                                        <h4> {{ trans('main-sidebar.bookLists') }}</h4>
 
                                     </div>
                                     <div class="col-5 text-right">
-                                        <h4>22</h4>
-
+                                        <h4>{{ \App\Models\BookDoctor::acceptStatus()->count() }}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +94,7 @@
                         <div class="media d-flex">
                           <div class="media-body text-left">
                             <h3 class="info">{{ \App\Models\Service::count() }}</h3>
-                            <h6>عدد الخدمات</h6>
+                            <h6>{{ trans('main-sidebar.services') }}</h6>
                           </div>
                           <div>
                             <i class="icon-basket-loaded info font-large-2 float-right"></i>
@@ -116,7 +115,7 @@
                         <div class="media d-flex">
                           <div class="media-body text-left">
                             <h3 class="warning">{{ \App\Models\Section::count() }}</h3>
-                            <h6>عدد الاقسام</h6>
+                            <h6>{{ trans('main-sidebar.sections') }}</h6>
                           </div>
                           <div>
                             <i class="icon-pie-chart warning font-large-2 float-right"></i>
@@ -137,7 +136,7 @@
                         <div class="media d-flex">
                           <div class="media-body text-left">
                             <h3 class="success">{{ \App\Models\Patient::count() }}</h3>
-                            <h6>عدد المرضي</h6>
+                            <h6>{{ trans('main-sidebar.sections') }}</h6>
                           </div>
                           <div>
                             <i class="icon-user-follow success font-large-2 float-right"></i>
@@ -158,7 +157,7 @@
                         <div class="media d-flex">
                           <div class="media-body text-left">
                             <h3 class="danger">{{ \App\Models\Doctor::count() }}</h3>
-                            <h6>عدد الاطباء</h6>
+                            <h6>{{ trans('main-sidebar.doctors') }}</h6>
                           </div>
                           <div>
                             <i class="icon-heart danger font-large-2 float-right"></i>
