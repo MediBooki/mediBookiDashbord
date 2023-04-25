@@ -68,5 +68,16 @@ class DoctorController extends Controller
         return $this->sendResponse(DoctorResource::collection($doctors), 'Doctor lists send successfully',$doctors->total());
     }
 
+    public function bestDoctor()
+    {
+        $doctors = Doctor::withCount(['reviews as review_rating_avg' => function ($query) {
+            $query->select(DB::raw('coalesce(avg(rating),0)'));
+        }])
+        ->orderByDesc('review_rating_avg')
+        ->take(5)
+        ->get();
+        return $this->sendResponse(DoctorResource::collection($doctors), 'Doctor lists send successfully');
+
+    }
 
 }

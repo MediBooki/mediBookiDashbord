@@ -12,7 +12,7 @@ class DoctorResource extends JsonResource
     {
         //return parent::toArray($request);
         $price = Service::where('doctor_id',$this->id)->select('price')->first();
-        return [
+        $result =  [
             'id'=> $this->id,
             'name'=> $this->getTranslation('name',app()->getLocale($request->lang)),
             'specialization'=> $this->specialization,
@@ -25,5 +25,11 @@ class DoctorResource extends JsonResource
             'appointments'=> AppointmentResource::collection($this->whenLoaded('appointments')),
             'reviews'=> DoctorReviewResource::collection($this->whenLoaded('reviews')),
         ];
+        if($this->review_rating_avg){
+            $result = array_merge($result, [
+                'review_rating_avg'=> $this->review_rating_avg,
+            ]);
+        }
+        return $result;
     }
 }

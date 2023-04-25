@@ -46,6 +46,7 @@ Route::group(['middleware' => ['changeLanguage']], function (){
     Route::get('/insurances',[PatientController::class,'index']);
 
     Route::get('/filter/doctors',[DoctorController::class,'filter']);
+    Route::get('/best/doctors',[DoctorController::class,'bestDoctor']);
 
     Route::get('/check/appointment',[BookDoctorController::class,'showBookDoctorList']);
     Route::get('/related/medicine',[MedicineController::class,'relatedMedicine']);
