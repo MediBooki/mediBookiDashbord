@@ -174,7 +174,7 @@
                             <a class="menu-item" href="{{ route('settings.edit',1) }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.settings') }}</a>
                         </li>
                         <li class="">
-                            <a class="menu-item" href="{{ route('sliders.create') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.sliders') }}</a>
+                            <a class="menu-item" href="{{ route('sliders.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.sliders') }}</a>
                         </li>
                     </ul>
                 </li>

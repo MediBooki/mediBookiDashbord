@@ -99,7 +99,6 @@ Route::group([
 
         Route::resource('settings' , SettingController::class)->only(['edit','update']);
         Route::resource('sliders' , SliderController::class);
-        Route::post('sliders/images', [SliderController::class, 'saveSliderImage'])->name('saveSliderImage');
 
         Route::resource('profile' , ProfileController::class)->only(['edit','update']);
 

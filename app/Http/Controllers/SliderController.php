@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {
+    public function index()
+    {
+        $sliders = Slider::orderBy('id','DESC')->paginate(15);
+        return view('dashboard.setting.sliders.index', compact('sliders'));
+    }
     public function create()
     {
         return view('dashboard.setting.sliders.create');
@@ -14,29 +19,31 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $slider = new Slider();
+        $slider->title = ['en' => $request->title_en, 'ar' => $request->title];
         $slider->save();
-        foreach ($request->input('document', []) as $file) {
-            $slider->addMedia(storage_path('tmp/uploads/' . $file))->toMediaCollection('document');
+        if($request->hasFile('photo') && $request->file('photo')->isValid()){
+            $slider->addMediaFromRequest('photo')->toMediaCollection('photo');
         }
-        return redirect()->route('sliders.create')->with(['success' => 'Slider Added Successfully']);
+        return redirect()->route('sliders.index')->with(['success' => 'Slider Added Successfully']);
     }
-    public function saveSliderImage(Request $request )
+    public function update(Request $request)
     {
-        $path = storage_path('tmp/uploads');
-
-        if (!file_exists($path)) {
-            mkdir($path, 0777, true);
+        $slider = slider::findOrFail($request->id);
+        $slider->title = ['en' => $request->title_en, 'ar' => $request->title];
+        $slider->save();
+        if($request->hasFile('photo') && $request->file('photo')->isValid()){
+            $slider->clearMediaCollection('photo');
+            $slider->addMediaFromRequest('photo')->toMediaCollection('photo');
         }
+        return redirect()->route('sliders.index')->with(['success' => 'Slider Updated Successfully']);
+    }
 
-        $file = $request->file('dzfile');
+    public function destroy(Request $request)
+    {
+        $slider = Slider::findOrFail($request->id);
+        $slider->delete();
+        $slider->clearMediaCollection('photo');
 
-        $name = uniqid() . '_' . trim($file->getClientOriginalName());
-
-        $file->move($path, $name);
-
-        return response()->json([
-            'name'          => $name,
-            'original_name' => $file->getClientOriginalName(),
-        ]);
+        return redirect()->route('sliders.index')->with(['success' => 'Slider Deleted Successfully']);
     }
 }

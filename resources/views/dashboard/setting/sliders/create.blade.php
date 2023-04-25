@@ -44,15 +44,48 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body">
                                         <form class="form"
-                                              action="{{ route('sliders.store') }}"
-                                              method="POST"
-                                              enctype="multipart/form-data">
+                                            action="{{ route('sliders.store') }}"
+                                            method="POST"
+                                            enctype="multipart/form-data">
                                             @csrf
+                                            <div class="form-group">
+                                                <label> {{ trans('slider.slider_upload') }} </label>
+                                                <label id="projectinput7" class="file center-block">
+                                                    <input type="file" accept="image/*" name="photo" onchange="loadFile(event)">
+                                                    <img style="..." width="150px" height="150px" id="output" />
+                                                </label>
+                                                @error('photo')
+                                                <span class="text-danger">{{$message}}</span>
+                                                @enderror
+                                            </div>
                                             <div class="form-body">
                                                 <h4 class="form-section"><i class="ft-home"></i> {{ trans('slider.Add') }} </h4>
-                                                <div class="form-group">
-                                                    <div id="dpz-multiple-files" class="dropzone dropzone-area">
-                                                        <div class="dz-message" >{{ trans('slider.slider_upload') }}</div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> {{ trans('slider.slider_title_ar') }}</label>
+                                                            <input type="text" id="title"
+                                                                class="form-control"
+                                                                placeholder="  "
+                                                                value="{{old('title')}}"
+                                                                name="title">
+                                                            @error("title")
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> {{ trans('slider.slider_title_en') }}</label>
+                                                            <input type="text" id="title"
+                                                                class="form-control"
+                                                                placeholder="  "
+                                                                value="{{old('title_en')}}"
+                                                                name="title_en">
+                                                            @error("title_en")
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -66,7 +99,6 @@
                                                 </button>
                                             </div>
                                         </form>
-
                                     </div>
                                 </div>
                             </div>
@@ -79,57 +111,13 @@
     </div>
     @stop
     @section('script')
-        <script>
-            var uploadedDocumentMap = {}
-           Dropzone.options.dpzMultipleFiles = {
-               paramName: "dzfile", // The name that will be used to transfer the file
-               //autoProcessQueue: false,
-               maxFilesize: 5, // MB
-               clickable: true,
-               addRemoveLinks: true,
-               acceptedFiles: 'image/*',
-               dictFallbackMessage: " المتصفح الخاص بكم لا يدعم خاصيه تعدد الصوره والسحب والافلات ",
-               dictInvalidFileType: "لايمكنك رفع هذا النوع من الملفات ",
-               dictCancelUpload: "الغاء الرفع ",
-               dictCancelUploadConfirmation: " هل انت متاكد من الغاء رفع الملفات ؟ ",
-               dictRemoveFile: "حذف الصوره",
-               dictMaxFilesExceeded: "لايمكنك رفع عدد اكثر من هضا ",
-               headers: {
-                   'X-CSRF-TOKEN':
-                       "{{ csrf_token() }}"
-               }
-               ,
-               url: "{{ route('saveSliderImage') }}", // Set the url
-               success:
-                   function (file, response) {
-                       $('form').append('<input type="hidden" name="document[]" value="' + response.name + '">')
-                       uploadedDocumentMap[file.name] = response.name
-                   }
-               ,
-               removedfile: function (file) {
-                   file.previewElement.remove()
-                   var name = ''
-                   if (typeof file.file_name !== 'undefined') {
-                       name = file.file_name
-                   } else {
-                       name = uploadedDocumentMap[file.name]
-                   }
-                   $('form').find('input[name="document[]"][value="' + name + '"]').remove()
-               }
-               ,
-               // previewsContainer: "#dpz-btn-select-files", // Define the container to display the previews
-               init: function () {
-                       @if(isset($event) && $event->document)
-                   var files =
-                   {!! json_encode($event->document) !!}
-                       for (var i in files) {
-                       var file = files[i]
-                       this.options.addedfile.call(this, file)
-                       file.previewElement.classList.add('dz-complete')
-                       $('form').append('<input type="hidden" name="document[]" value="' + file.file_name + '">')
-                   }
-                   @endif
-               }
-           }
-        </script>
-    @endsection
+    <script>
+        var loadFile = function(event){
+            var output = document.getElementById('output');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.load = function() {
+                URL.revokeObjectURL(output.src)
+            }
+        };
+    </script>
+@endsection
