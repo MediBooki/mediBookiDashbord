@@ -276,6 +276,50 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">{{ trans('doctor.doctor_education_ar') }}
+                                                            </label>
+                                                            <textarea  name="education" id="education" class="form-control">{{old('education')}}</textarea>
+                                                            @error("education")
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">{{ trans('doctor.doctor_education_en') }}
+                                                            </label>
+                                                            <textarea  name="education_en" id="education" class="form-control">{{old('education_en')}}</textarea>
+                                                            @error("education_en")
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">{{ trans('doctor.doctor_experience_ar') }}
+                                                            </label>
+                                                            <textarea  name="experience" id="experience" class="form-control">{{old('experience')}}</textarea>
+                                                            @error("experience")
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">{{ trans('doctor.doctor_experience_en') }}
+                                                            </label>
+                                                            <textarea  name="experience_en" id="experience" class="form-control">{{old('experience_en')}}</textarea>
+                                                            @error("experience_en")
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="form-actions">
                                                 <button type="button" class="btn btn-warning mr-1"

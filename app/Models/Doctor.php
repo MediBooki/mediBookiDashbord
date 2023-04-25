@@ -13,7 +13,7 @@ use Spatie\Translatable\HasTranslations;
 class Doctor extends Authenticatable implements HasMedia
 {
     use HasFactory,HasTranslations,InteractsWithMedia;
-    public $translatable = ['name'];
+    public $translatable = ['name','experience','education'];
     protected $guarded = [];
     public $timestamps = true;
 

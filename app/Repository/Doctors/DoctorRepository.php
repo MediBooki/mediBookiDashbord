@@ -30,6 +30,8 @@ class DoctorRepository implements DoctorRepositoryInterface
             DB::beginTransaction();
             $doctor = new Doctor();
             $doctor->name = ['en' => $request->name_en, 'ar' => $request->name];
+            $doctor->education = ['en' => $request->education_en, 'ar' => $request->education];
+            $doctor->experience = ['en' => $request->experience_en, 'ar' => $request->experience];
             $doctor->phone = $request->phone;
             $doctor->email = $request->email;
             $doctor->password = Hash::make($request->password);
