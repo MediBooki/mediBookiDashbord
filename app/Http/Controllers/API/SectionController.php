@@ -14,6 +14,6 @@ class SectionController extends Controller
     public function index()
     {
         $sections = Section::orderBy('id','DESC')->get();
-        return $this->sendResponse(SectionResource::collection($sections), 'Section lists send successfully');
+        return $this->sendResponse(SectionResource::collection($sections), 'Section lists send successfully',$sections->count());
     }
 }

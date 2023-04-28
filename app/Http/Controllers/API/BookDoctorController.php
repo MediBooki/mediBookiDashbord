@@ -35,5 +35,5 @@ class BookDoctorController extends Controller
             ['date',$request->date]
         ])->orderBy('id','DESC')->get();
         return $this->sendResponse(BookDoctorResource::collection($bookDoctorList), 'books lists send successfully');
-    }
+    } 
 }
