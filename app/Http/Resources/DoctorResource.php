@@ -28,6 +28,7 @@ class DoctorResource extends JsonResource
         if($this->review_rating_avg){
             $result = array_merge($result, [
                 'review_rating_avg'=> $this->review_rating_avg,
+                'invoices_count'=>$this->invoices_count,
             ]);
         }
         return $result;

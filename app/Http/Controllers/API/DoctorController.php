@@ -74,7 +74,9 @@ class DoctorController extends Controller
     {
         $doctors = Doctor::with(['section','reviews'])->withCount(['reviews as review_rating_avg' => function ($query) {
             $query->select(DB::raw('coalesce(avg(rating),0)'));
-        }])
+        },
+        'invoices'
+        ])
         ->orderByDesc('review_rating_avg')
         ->take(5)
         ->get();
