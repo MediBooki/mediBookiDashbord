@@ -14,7 +14,18 @@ class MedicineController extends Controller
     public function index()
     {
         $medicines = Medicine::Filter()->where('status',1)->orderBy('id','DESC')->with(['category'])->paginate(15);
-        return $this->sendResponse(MedicineResource::collection($medicines), 'Medicines lists send successfully',$medicines->total());
+
+        $minMaxPrices = Medicine::where('status',1)->selectRaw('MIN(price) as min_price, MAX(price) as max_price')->get();
+
+        // Access the min price and max price using the aliases set in the query
+       $minPrice = $minMaxPrices[0]->min_price;
+       $maxPrice = $minMaxPrices[0]->max_price;
+        $data = [
+            'count'=>$medicines->total(),
+            'minPrice'=>$minPrice,
+            'maxPrice'=>$maxPrice,
+        ];
+        return $this->sendResponse(MedicineResource::collection($medicines), 'Medicines lists send successfully',$data);
     }
 
     public function show($id)

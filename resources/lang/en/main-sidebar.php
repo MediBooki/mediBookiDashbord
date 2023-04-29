@@ -25,6 +25,8 @@ return array (
   'insurance' => 'Insurance',
   'insurances' => 'Insurances',
   'invoice' => 'Invoices',
+  'invoice_list_complete' => 'Invoice List Complete',
+  'invoice_list_review' => 'Invoice List Review',
   'laboratory' => 'laboratory',
   'logout' => 'logout',
   'main' => 'MediaBooking System',
