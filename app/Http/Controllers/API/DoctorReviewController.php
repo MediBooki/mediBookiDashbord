@@ -18,7 +18,11 @@ class DoctorReviewController extends Controller
         $rating = DoctorReview::where('patient_id', auth()->user()->id)->orderBy('id','DESC')->with(['doctor'])->paginate(10);
         return $this->sendResponse(DoctorReviewResource::collection($rating), 'Doctor Review lists send successfully',$rating->total());
     }
-
+    public function show($id)
+    {
+        $rating = DoctorReview::where('patient_id', auth()->user()->id)->with(['doctor'])->findOrFail($id);
+        return $this->sendResponse(new DoctorReviewResource($rating), 'Doctor Review send successfully');
+    }
   
     public function store(DoctorReviewRequest $request)
     {

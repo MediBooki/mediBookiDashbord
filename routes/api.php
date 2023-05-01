@@ -67,7 +67,7 @@ Route::group(['middleware' => ['changeLanguage']], function (){
             Route::get('/payments/verify/{payment?}',[PaymentController::class,'payment_verify']);
             Route::get('/callback',[PaymentController::class,'callback']);
 
-            Route::apiResource('DoctorReview', DoctorReviewController::class)->only(['index','store']);
+            Route::apiResource('DoctorReview', DoctorReviewController::class)->only(['index','store','show']);
 
             Route::post('change/password', [PatientAuthController::class,'changePassword']);
 
