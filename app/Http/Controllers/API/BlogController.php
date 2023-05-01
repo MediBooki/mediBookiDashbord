@@ -22,5 +22,10 @@ class BlogController extends Controller
         }
         return $this->sendResponse(BlogResource::collection($blogs), 'Blogs lists send successfully');
     }
+    public function show($id)
+    {
+        $blog = Blog::with(['section'])->findOrFail($id);
+        return $this->sendResponse(new BlogResource($blog), 'blog send successfully');
+    }
     
 }
