@@ -21,7 +21,7 @@ class BookDoctorController extends Controller
 
     public function store(Request $request)
     {
-        $bookDoctorList = BookDoctor::patientAuth()->where('date', Carbon::now('Africa/Cairo')->format('Y-m-d'))->get();
+        $bookDoctorList = BookDoctor::patientAuth()->where('date', $request->date)->get();
         if($bookDoctorList->count() == 0){
             $bookDoctor = new BookDoctor();
             $bookDoctor->patient_id = $request->patient_id;
@@ -30,9 +30,9 @@ class BookDoctorController extends Controller
             $bookDoctor->date       = $request->date;
             $bookDoctor->time       = $request->time;
             $bookDoctor->save();
-            return $this->sendResponse(new BookDoctorResource($bookDoctor) ,'reservation Saved successfully');
+            return $this->sendResponse(new BookDoctorResource($bookDoctor) ,'reservation Saved successfully',1);
         }
-        return $this->sendResponse(BookDoctorResource::collection($bookDoctorList) ,'reservation today no finished');
+        return $this->sendResponse(BookDoctorResource::collection($bookDoctorList) ,'reservation date not finished',0);
     }
     public function showBookDoctorList(Request $request)
     {

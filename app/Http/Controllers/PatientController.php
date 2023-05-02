@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PatientRequest;
 use App\Interfaces\Patients\PatientRepositoryInterface;
+use App\Models\Insurance;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
@@ -41,5 +43,14 @@ class PatientController extends Controller
     public function destroy(Request $request)
     {
         return $this->patient->destroy($request);
+    }
+    public function getInsurance($id)
+    {
+        $insurance = Patient::where('id', $id)->select('insurance_id')->first();
+        $comp_insurance = Insurance::where([
+            ['id', $insurance->insurance_id],
+            ['insurance_status',1]
+            ])->first();
+        return $comp_insurance;
     }
 }

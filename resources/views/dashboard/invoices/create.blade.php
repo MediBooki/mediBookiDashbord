@@ -42,6 +42,9 @@
                                 @include('dashboard.includes.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
+                                        <div id="insurance"  data-locale="{{ App::getLocale() }}" class="d-none">
+                                           
+                                        </div>
                                         <form class="form"
                                                 action="{{ route('invoices.store') }}"
                                                 method="POST">
@@ -221,8 +224,9 @@
             if (doctor_id) {
                 $.get('services/doctors/' + doctor_id, function (data) {
                     $('select[name="service_id"]').html('<option value="" >Choose</option>');
+                    let locale = $('#insurance').data('locale');
                     $.each(data, function(index, value) {
-                        $('select[name="service_id"]').append('<option value="' + value.id + '">' + value.name.ar + '</option>');
+                        $('select[name="service_id"]').append('<option value="' + value.id + '">' + value.name[locale] + '</option>');
                     });
                   
                 })
@@ -237,6 +241,22 @@
                     $('input[name="price"]').val(data.price);
                 })
             } else {
+                console.log('AJAX load did not work');
+            }
+        });
+        $('select[name="patient_id"]').on('change', function () {
+            var patient_id = $(this).val();
+            if (patient_id) {
+                var divElement = $('#insurance');
+                divElement.removeClass('d-none');
+                let locale = $('#insurance').data('locale');
+                $.get('patient/insurance/' + patient_id, function (data) {
+                    $('#insurance').append(`<p>Company Insurance Name : <span>${data.name[locale]}</span> </p>
+                                            <p>company rate discount : <span>${Number(data.discount_percentage)+Number(data.company_rate)}</span> </p>`);
+                })
+            } else {
+                var divElement = $('#insurance');
+                divElement.addClass('d-none');
                 console.log('AJAX load did not work');
             }
         });

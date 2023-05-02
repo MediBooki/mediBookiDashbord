@@ -62,6 +62,7 @@ Route::group([
 
         Route::get('/doctor/services', [ServiceController::class,'index'])->name('services.doctors')->middleware('can:services');
 
+        Route::get('/invoices/patient/insurance/{id}', [PatientController::class,'getInsurance']);
 
         /* crud  الفواتير 8*/
         Route::resource('invoices' , InvoiceController::class)->middleware('can:invoices');
