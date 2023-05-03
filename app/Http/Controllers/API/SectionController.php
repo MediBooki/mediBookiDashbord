@@ -13,7 +13,7 @@ class SectionController extends Controller
     use ResponseAPI;
     public function index()
     {
-        $sections = Section::orderBy('id','DESC')->get();
-        return $this->sendResponse(SectionResource::collection($sections), 'Section lists send successfully',$sections->count());
+        $sections = Section::orderBy('id','DESC')->paginate(15);
+        return $this->sendResponse(SectionResource::collection($sections), 'Section lists send successfully',$sections->total());
     }
 }
