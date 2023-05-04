@@ -14,6 +14,7 @@ return array (
   'blogs' => 'Blogs',
   'bookLists' => 'Book Lists',
   'categories' => 'categories',
+  'choose' => 'Choose',
   'complete_bookLists' => 'complete book lists',
   'diagnosis_complete_laboratory' => 'diagnosis complete laboratory',
   'diagnosis_laboratory' => 'diagnosis laboratory',

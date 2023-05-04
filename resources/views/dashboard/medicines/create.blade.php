@@ -116,17 +116,16 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> {{ trans('section.section') }}
+                                                            <label for="projectinput1"> {{ trans('category.category') }}
                                                             </label>
                                                             <select name="category_id" class="select2 form-control">
-                                                                <optgroup label="{{ trans('section.section') }}">
+                                                                    <option value="">{{ trans('main-sidebar.choose') }}</option>
                                                                     @if($categories && $categories -> count() > 0)
                                                                         @foreach($categories as $category)
                                                                             <option
                                                                                 value="{{$category->id }}">{{$category -> name}}</option>
                                                                         @endforeach
                                                                     @endif
-                                                                </optgroup>
                                                             </select>
                                                             @error('category_id')
                                                             <span class="text-danger"> {{$message}}</span>

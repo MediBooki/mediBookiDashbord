@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\BookDoctor;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class BookListController extends Controller
 {
     public function index()
     {
-        $bookLists = BookDoctor::pendingStatus()->paginate(15);
+        $bookLists = BookDoctor::pendingStatus()->orderBy('id','DESC')->paginate(15);
         return view('dashboard.bookList.index', compact('bookLists'));
     }
     public function create()

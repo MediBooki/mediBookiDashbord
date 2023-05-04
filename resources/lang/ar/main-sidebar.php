@@ -14,6 +14,7 @@ return array (
   'blogs' => 'المقالات',
   'bookLists' => 'قائمة الحجوزات',
   'categories' => 'الاقسام',
+  'choose' => 'اختار',
   'complete_bookLists' => 'كشوفات مكتملة',
   'diagnosis_complete_laboratory' => 'كشوفات التحاليل المكتملة',
   'diagnosis_laboratory' => 'كشوفات التحاليل',

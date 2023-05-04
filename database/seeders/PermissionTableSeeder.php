@@ -27,6 +27,9 @@ class PermissionTableSeeder extends Seeder
             'medicine',
             'bookLists',
             'users',
+            'blogs',
+            'sliders',
+            'settings'
     ];
     
     

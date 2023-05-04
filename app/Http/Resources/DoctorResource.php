@@ -20,6 +20,8 @@ class DoctorResource extends JsonResource
             'photo' => $this->getFirstMediaUrl('photo'),
             'start'=> $this->start,
             'end'=> $this->end,
+            'education'=> $this->education,
+            'experience'=> $this->experience,
             'patient_time_minute'=> $this->patient_time_minute,
             'section'=> SectionResource::make($this->whenLoaded('section')),
             'appointments'=> AppointmentResource::collection($this->whenLoaded('appointments')),

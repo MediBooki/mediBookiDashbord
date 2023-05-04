@@ -9,4 +9,5 @@ return array (
   'description' => 'وصف القسم',
   'name' => 'اسم القسم',
   'update' => 'تحديث القسم',
+  'category' => 'القسم التابع',
 );

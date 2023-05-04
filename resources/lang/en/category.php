@@ -8,4 +8,5 @@ return array (
   'category_name_en' => 'Category Name En',
   'description' => 'Category Description',
   'name' => 'Category Name',
+  'category' => 'Category',
 );
