@@ -21,7 +21,12 @@ class BookDoctorController extends Controller
 
     public function store(Request $request)
     {
-        $bookDoctorList = BookDoctor::patientAuth()->where('date', $request->date)->get();
+        $bookDoctorList = BookDoctor::patientAuth()->where([
+
+            ['date', $request->date],
+            ['doctor_id',$request->doctor_id]
+            
+            ])->get();
         if($bookDoctorList->count() == 0){
             $bookDoctor = new BookDoctor();
             $bookDoctor->patient_id = $request->patient_id;
