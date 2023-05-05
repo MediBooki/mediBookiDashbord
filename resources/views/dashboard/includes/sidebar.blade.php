@@ -6,7 +6,7 @@
             </li>
             
             @can('sections')
-                <li class="nav-item">
+                <li class="nav-item {{Route::currentRouteName()=='sections.index'? 'open':''}}">
                     <a href=""><i class="la la-cube"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.sections') }}</span></a>
                     <ul class="menu-content">
                         <li class="">
@@ -16,7 +16,7 @@
                 </li>
             @endcan
             @can('doctors')
-            <li class="nav-item">
+            <li class="nav-item {{Route::currentRouteName()=='doctors.index'? 'open':(Route::currentRouteName()=='doctors.create' ? 'open' : '')}}">
                 <a href=""><i class="la la-bookmark-o"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.doctors') }}</span></a>
                 <ul class="menu-content">
                     <li class="">
@@ -26,7 +26,7 @@
             </li>
             @endcan
                 @can('services')
-                <li class="nav-item">
+                <li class="nav-item {{Route::currentRouteName()=='services.doctors'? 'open':''}}">
                     <a href=""><i class="la la-beer"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.services') }}</span></a>
                     <ul class="menu-content">
                         <li class="">
@@ -45,7 +45,7 @@
                 </li>
                 @endcan
                 @can('patients')
-                <li class="nav-item">
+                <li class="nav-item {{Route::currentRouteName()=='patients.index'? 'open':(Route::currentRouteName()=='patients.create' ? 'open' : '')}}">
                     <a href=""><i class="la la-edit"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.patient') }}</span></a>
                     <ul class="menu-content">
                         <li class="">
@@ -55,7 +55,7 @@
                 </li>
                 @endcan
                 @can('invoices')
-                <li class="nav-item">
+                <li class="nav-item {{Route::currentRouteName()=='invoices.index'? 'open':(Route::currentRouteName()=='invoices.create' ? 'open' : '')}}">
                     <a href=""><i class="la la-tags"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.invoice') }}</span></a>
                     <ul class="menu-content">
                         <li class="">
@@ -65,7 +65,7 @@
                 </li>
                 @endcan
                 @can('accounts')
-                <li class="nav-item">
+                <li class="nav-item {{Route::currentRouteName()=='receipts.index'? 'open':(Route::currentRouteName()=='payments.index' ? 'open' : '')}}">
                     <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.account') }}</span></a>
                     <ul class="menu-content">
                         <li class="">
@@ -78,7 +78,7 @@
                 </li>
                 @endcan
                 @can('x-ray')
-                <li class="nav-item">
+                <li class="nav-item {{Route::currentRouteName()=='rayInfo.index'? 'open':(Route::currentRouteName()=='rayInfo.complete' ? 'open' : '')}}">
                     <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.x-ray') }}</span></a>
                     <ul class="menu-content">
                         <li class="">
@@ -91,7 +91,7 @@
                 </li>
                 @endcan
                 @can('laboratory')
-                <li class="nav-item">
+                <li class="nav-item {{Route::currentRouteName()=='labInfo.index'? 'open':(Route::currentRouteName()=='labInfo.complete' ? 'open' : '')}}">
                     <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.laboratory') }}</span></a>
                     <ul class="menu-content">
                         <li class="">
@@ -104,7 +104,7 @@
                 </li>
                 @endcan
                 @can('medicine')
-                <li class="nav-item">
+                <li class="nav-item {{Route::currentRouteName()=='medicines.index'? 'open':(Route::currentRouteName()=='categories.index' ? 'open' : '')}}">
                     <a href=""><i class="la la-edit"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.medicines') }}</span></a>
                     <ul class="menu-content">
                         <li class="">
@@ -117,7 +117,7 @@
                 </li>
                 @endcan
                 @can('bookLists')
-                <li class="nav-item">
+                <li class="nav-item {{Route::currentRouteName()=='bookLists.index'? 'open':(Route::currentRouteName()=='bookLists.create' ? 'open' : '')}}">
                     <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.bookLists') }}</span></span></a>
                     <ul class="menu-content">
                         <li class="">
@@ -130,7 +130,7 @@
                 </li>
                 @endcan
                 @can('users')
-                <li class="nav-item">
+                <li class="nav-item {{Route::currentRouteName()=='users.index'? 'open':(Route::currentRouteName()=='roles.index' ? 'open' : '')}}">
                     <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.users') }}</span></span></a>
                     <ul class="menu-content">
                         <li class="">
@@ -142,7 +142,7 @@
                     </ul>
                 </li>
                 @endcan
-                <li class="nav-item">
+                <li class="nav-item {{Route::currentRouteName()=='blogs.index'? 'open':''}}">
                     <a href=""><i class="la la-cube"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.blogs') }}</span></a>
                     <ul class="menu-content">
                         <li class="">
@@ -150,8 +150,10 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.orders') }}</span></span></a>
+                <li class="nav-item {{Route::currentRouteName()=='Dash_orders.index'? 'open':''}}">
+                    <a href="">
+                        <i class="la la-anchor"></i>
+                        <span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.orders') }}</span></span></a>
                     <ul class="menu-content">
                         <li class="">
                             <a class="menu-item" href="{{ route('Dash_orders.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.orders') }}</a>
@@ -167,7 +169,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{Route::currentRouteName()=='settings.edit'? 'open':(Route::currentRouteName()=='sliders.index' ? 'open' : '')}}">
                     <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.settings') }}</span></span></a>
                     <ul class="menu-content">
                         <li class="">
