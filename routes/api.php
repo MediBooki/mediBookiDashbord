@@ -45,6 +45,8 @@ Route::group(['middleware' => ['changeLanguage']], function (){
     Route::apiResource('appointments' , AppointmentController::class)->only(['index']);
     Route::apiResource('settings' , SettingController::class)->only(['index']);
     Route::get('/sliders',[SettingController::class,'getSlider']);
+    Route::get('/counts',[SettingController::class,'getCount']);
+
 
     Route::get('/insurances',[PatientController::class,'index']);
 
