@@ -11,6 +11,7 @@ use App\Http\Controllers\API\ServiceController;
 use App\Http\Controllers\API\WishlistMedicineController;
 use App\Http\Controllers\API\BookDoctorController;
 use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\ContactUsController;
 use App\Http\Controllers\API\DoctorReviewController;
 use App\Http\Controllers\API\InvoiceController;
 use App\Http\Controllers\API\OrderController;
@@ -52,6 +53,9 @@ Route::group(['middleware' => ['changeLanguage']], function (){
 
     Route::get('/check/appointment',[BookDoctorController::class,'showBookDoctorList']);
     Route::get('/related/medicine',[MedicineController::class,'relatedMedicine']);
+
+    Route::post('contacts', [ContactUsController::class,'store']);
+
 
     Route::group(['prefix' => 'patient'], function () {
         Route::post('login', [PatientAuthController::class,'login']);
