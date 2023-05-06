@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\SettingResource;
 use App\Http\Resources\SliderResource;
 use App\Models\Doctor;
+use App\Models\Medicine;
 use App\Models\Patient;
 use App\Models\Section;
 use App\Models\Setting;
@@ -32,6 +33,8 @@ class SettingController extends Controller
         $date['patients'] = Patient::count();
         $date['doctors'] = Doctor::where('status',1)->count();
         $date['sections'] = Section::count();
+        $date['medicine'] = Medicine::where('status',1)->count();
+
         return response()->json($date);
     }
 }
