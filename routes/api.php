@@ -39,7 +39,7 @@ Route::group(['middleware' => ['changeLanguage']], function (){
     Route::apiResource('medicines', MedicineController::class)->only(['index','show']);
     Route::apiResource('categories', CategoryController::class)->only(['index','show']);
     Route::apiResource('services', ServiceController::class)->only(['index','show']);
-    Route::apiResource('sections' , SectionController::class)->only(['index']);
+    Route::apiResource('sections' , SectionController::class)->only(['index','show']);
     Route::apiResource('blogs' , BlogController::class)->only(['index','show']);
 
     Route::apiResource('appointments' , AppointmentController::class)->only(['index']);
