@@ -24,6 +24,6 @@ class SectionController extends Controller
     public function getSection()
     {
         $sections = Section::orderBy('id','DESC')->get();
-        return $this->sendResponse(SectionResource::collection($sections), 'Section lists send successfully',$sections->total());
+        return $this->sendResponse(SectionResource::collection($sections), 'Section lists send successfully');
     }
 }
