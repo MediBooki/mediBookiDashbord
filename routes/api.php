@@ -43,6 +43,7 @@ Route::group(['middleware' => ['changeLanguage']], function (){
     Route::apiResource('sections' , SectionController::class)->only(['index','show']);
     Route::apiResource('blogs' , BlogController::class)->only(['index','show']);
     Route::apiResource('tenants' , TenantController::class)->only(['index']);
+    Route::get('/get/section',[SectionController::class,'getSection']);
 
     Route::apiResource('appointments' , AppointmentController::class)->only(['index']);
     Route::apiResource('settings' , SettingController::class)->only(['index']);
