@@ -30,11 +30,14 @@ return new class extends Migration
      */
     public function up()
     {
-        $this->schema->create('oauth_personal_access_clients', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->uuid('client_id');
-            $table->timestamps();
-        });
+        if (!$this->schema->hasTable('oauth_personal_access_clients')) {
+
+            $this->schema->create('oauth_personal_access_clients', function (Blueprint $table) {
+                $table->bigIncrements('id');
+                $table->uuid('client_id');
+                $table->timestamps();
+            });
+        }
     }
 
     /**

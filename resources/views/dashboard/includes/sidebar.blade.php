@@ -142,6 +142,17 @@
                     </ul>
                 </li>
                 @endcan
+                @if (request()->getHost() == "medibookidashbord.test")
+                    <li class="nav-item {{Route::currentRouteName()=='tenants.index'? 'open':''}}">
+                        <a href=""><i class="la la-cube"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.tenants') }}</span></a>
+                        <ul class="menu-content">
+                            <li class="">
+                                <a class="menu-item" href="{{ route('tenants.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.view All')}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+                
                 <li class="nav-item {{Route::currentRouteName()=='blogs.index'? 'open':''}}">
                     <a href=""><i class="la la-cube"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.blogs') }}</span></a>
                     <ul class="menu-content">

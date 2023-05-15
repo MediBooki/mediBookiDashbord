@@ -43,6 +43,8 @@ return array (
   'settings' => 'الاعدادات',
   'show' => 'تفاصيل',
   'sliders' => 'الصور المتحركة',
+  'tenant' => 'الفرع',
+  'tenants' => 'الفروع',
   'update_profile' => 'تحديث الملف الشخصي',
   'users' => 'قائمة المستخدمين',
   'view All' => 'عرض الكل',

@@ -17,6 +17,7 @@ use App\Http\Controllers\API\InvoiceController;
 use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\PaymentController;
 use App\Http\Controllers\API\SettingController;
+use App\Http\Controllers\API\TenantController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,7 @@ Route::group(['middleware' => ['changeLanguage']], function (){
     Route::apiResource('services', ServiceController::class)->only(['index','show']);
     Route::apiResource('sections' , SectionController::class)->only(['index','show']);
     Route::apiResource('blogs' , BlogController::class)->only(['index','show']);
+    Route::apiResource('tenants' , TenantController::class)->only(['index']);
 
     Route::apiResource('appointments' , AppointmentController::class)->only(['index']);
     Route::apiResource('settings' , SettingController::class)->only(['index']);

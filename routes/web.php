@@ -21,6 +21,7 @@ use App\Http\Controllers\SectionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\TenantController;
 use App\Http\Controllers\TermController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -46,6 +47,8 @@ Route::group([
     });
 
     Route::middleware('auth')->group(function () {
+        Route::resource('tenants' , TenantController::class);
+
         Route::get('/dashboard/admin',[HomeController::class,'index'])->name('dashboard');
         
         // الصلاحيات للمستخدمين
