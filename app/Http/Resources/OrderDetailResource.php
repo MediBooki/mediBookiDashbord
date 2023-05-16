@@ -17,6 +17,19 @@ class OrderDetailResource extends JsonResource
         // return parent::toArray($request);
         return [
             'id'=> $this->id,
+            'first_name'=> $this->first_name,
+            'last_name'=> $this->last_name,
+            'email'=> $this->email,
+            'phone1'=> $this->phone1,
+            'address1'=> $this->address1,
+            'address2'=> $this->address2,
+            'state'=> $this->state,
+            'city'=> $this->city,
+            'zip_code'=> $this->zip_code,
+            'total'=> $this->total,
+            'updated_at'=>$this->updated_at,
+            'created_at'=>$this->created_at,
+            'shipping_status'=> $this->shipping_status,
             'user_medicine_items' => $this->medicines->map(function ($item) {
                 return [
                     'id'=> $item->id,

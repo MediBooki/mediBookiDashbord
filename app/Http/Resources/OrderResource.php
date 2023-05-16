@@ -30,6 +30,8 @@ class OrderResource extends JsonResource
             'status'=> $this->status,
             'shipping_status'=> $this->shipping_status,
             'updated_at'=>$this->updated_at,
+            'created_at'=>$this->created_at,
+
         ];
     }
 }
