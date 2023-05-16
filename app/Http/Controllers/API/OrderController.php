@@ -136,4 +136,12 @@ class OrderController extends Controller
         } 
         return $this->sendResponse(new CartResource($cart), 'cart retrieve success');
     }
+    public function deleteAllItemFromCart()
+    {
+        $order = Order::patientCheck()->first();
+        $order->delete();
+        return response()->json([
+            'message'=> 'Items deleted from cart'
+        ],200);
+    }
 }
