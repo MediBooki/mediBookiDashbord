@@ -161,6 +161,14 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item {{Route::currentRouteName()=='terms.index'? 'open':''}}">
+                    <a href=""><i class="la la-cube"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.terms') }}</span></a>
+                    <ul class="menu-content">
+                        <li class="">
+                            <a class="menu-item" href="{{ route('terms.index') }}" data-i18n="nav.dash.ecommerce">{{ trans('main-sidebar.view All')}}</a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item {{Route::currentRouteName()=='Dash_orders.index'? 'open':''}}">
                     <a href="">
                         <i class="la la-anchor"></i>
