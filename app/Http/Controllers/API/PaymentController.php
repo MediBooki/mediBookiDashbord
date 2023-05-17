@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PaymentResource;
 use App\Models\Order;
+use App\Models\Transaction;
 use Carbon\Carbon;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
@@ -61,11 +62,21 @@ class PaymentController extends Controller
          * $order->save();
          */
         if(request()->success == true) {
+
             $order = Order::patientCheck()->first();
             $order->status =1;
             $order->check =1;
             $order->Payment_Date = request()->created_at;
             $order->save();
+            $transaction = new Transaction();
+            $transaction->amount_cents = $request->amount_cents;
+            $transaction->success = $request->success;
+            $transaction->order_number = $request->order;
+            $transaction->order_id = $order->id;
+            $transaction->currency = $request->currency;
+            $transaction->type = $request->source_data;
+            $transaction->sub_type = $request->source_subdata;
+            $transaction->save();
             return response()->json([
                 'success' => $request->success,
                 'order' => $request->order,
