@@ -17,7 +17,7 @@ class TermResource extends JsonResource
         // return parent::toArray($request);
         return [
             'id'=> $this->id,
-            'name'=> $this->getTranslation('name',app()->getLocale($request->lang)),  
+            'title'=> $this->getTranslation('title',app()->getLocale($request->lang)),  
             'description'=> $this->getTranslation('description',app()->getLocale($request->lang)),        
         ];
     }

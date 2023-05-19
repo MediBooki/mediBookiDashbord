@@ -48,7 +48,7 @@
                                             <thead class="">
                                             <tr>
                                                 <th>##</th>
-                                                <th>{{ trans('slider.title') }}</th>
+                                                <th>{{ trans('term.title') }}</th>
                                                 <th>{{ trans('term.description') }}</th>
                                                 <th>{{ trans('main-sidebar.Date')}}</th>
                                                 <th>{{ trans('main-sidebar.Control')}}</th>

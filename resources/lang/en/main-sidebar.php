@@ -45,6 +45,8 @@ return array (
   'settings' => 'settings',
   'show' => 'Details',
   'sliders' => 'Slider Images',
+  'tenants' => 'Tenants',
+  'terms' => 'terms and condition',
   'update' => 'Update Category',
   'update_profile' => 'update profile',
   'users' => 'users',
