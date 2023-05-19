@@ -71,6 +71,13 @@ class OrderController extends Controller
 
             if ($hasMedicine) {
                 $qty = $cart->medicines()->where('medicines.id', $id)->first()->pivot->qty;
+                if($qty > 5){
+                    return response()->json([
+                        'success' => 'false',
+                        'data' => [],
+                        'message' => 'qty of this medicine doesn`t more than 5'
+                    ]);
+                }
                 $i = $qty;
                 $cart->medicines()->updateExistingPivot($pr_id, [
                     'qty'      => ++$i,
