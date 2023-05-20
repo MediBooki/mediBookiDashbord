@@ -11,6 +11,7 @@ return array (
   'invoice_date' => 'تاريخ الفاتورة',
   'last_name' => 'الاسم الاخير',
   'medicine_name' => 'اسم الدواء',
+  'order_delete' => 'هل انت تريد حذف الطلب',
   'phone1' => 'رقم الهاتف الاساسي',
   'phone2' => 'رقم الهاتف اخر',
   'preparation' => 'يتم التجهيز',

@@ -10,6 +10,7 @@ return array (
   'disabled' => 'Disabled',
   'doctor_appointments_ar' => 'Appointments Ar',
   'doctor_appointments_en' => 'Appointments En',
+  'doctor_delete' => 'Do you want to delete the doctor',
   'doctor_education_ar' => 'Doctor Education Ar',
   'doctor_education_en' => 'Doctor Education En',
   'doctor_experience_ar' => 'Doctor experience Ar',

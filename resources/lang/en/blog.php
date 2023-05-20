@@ -2,6 +2,7 @@
 
 return array (
   'Add' => 'Add New Blog',
+  'blog_delete' => 'Do you want to delete the blog',
   'blog_description_ar' => 'Blog Description Ar',
   'blog_description_en' => 'Blog Description En',
   'blog_title_ar' => 'Blog Title Ar',

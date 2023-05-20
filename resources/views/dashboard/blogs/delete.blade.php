@@ -14,7 +14,7 @@
             {{ csrf_field() }}
             <div class="modal-body">
                 <input type="hidden" name="id" class="form-control" value="{{ $blog->id }}" />
-                <h2>هل انت تريد حذف المقالة {{ $blog->title }} </h2>
+                <h2>{{trans('blog.blog_delete')}} {{ $blog->title }} </h2>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn grey btn-outline-primary" data-dismiss="modal">{{ trans('main-sidebar.Back')}}</button>

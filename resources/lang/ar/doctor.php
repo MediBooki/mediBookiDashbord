@@ -11,6 +11,7 @@ return array (
   'disabled' => 'غير مفعل',
   'doctor_appointments_ar' => 'المواعيد بالعربية',
   'doctor_appointments_en' => 'المواعيد بالانجليزية',
+  'doctor_delete' => 'هل انت تريد حذف الطبيب',
   'doctor_education_ar' => 'المؤهل الدراسى بالعربى',
   'doctor_education_en' => 'المؤهل الدراسى بالانجليزية',
   'doctor_experience_ar' => 'الخبرة العملية بالعربي',

@@ -14,7 +14,7 @@
             {{ csrf_field() }}
             <div class="modal-body">
                 <input type="hidden" name="id" class="form-control" value="{{ $invoice->id }}" />
-                <h2>هل انت تريد حذف الفاتورة  {{ $invoice->driver_name }} </h2>
+                <h2>{{trans('invoice.invoice_delete')}}  {{ $invoice->driver_name }} </h2>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn grey btn-outline-primary" data-dismiss="modal">{{ trans('main-sidebar.Back')}}</button>

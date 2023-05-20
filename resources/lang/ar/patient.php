@@ -11,6 +11,7 @@ return array (
   'gender' => 'الجنس',
   'name' => 'اسم المريض',
   'password' => 'كلمة المرور',
+  'patient_delete' => 'هل انت تريد حذف المريض',
   'patient_list' => 'قائمة المرضي',
   'phone' => 'رقم الهاتف',
   'rays' => 'الاشعة',

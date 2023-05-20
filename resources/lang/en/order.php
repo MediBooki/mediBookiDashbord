@@ -11,6 +11,7 @@ return array (
   'invoice_date' => 'Invoice Date',
   'last_name' => 'last name',
   'medicine_name' => 'medicine name',
+  'order_delete' => 'Do you want to delete the order',
   'phone' => 'phone',
   'phone1' => 'Main phone',
   'phone2' => 'Other Phone',

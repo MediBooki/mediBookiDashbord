@@ -1,6 +1,7 @@
 <?php
 
 return array (
+  'blog_delete' => 'هل انت تريد حذف المقالة',
   'blog_description_ar' => 'وصف المقالة بالعربى',
   'blog_description_en' => 'وصف المقالة بالانجليزية',
   'blog_title_ar' => 'عنوان المقالة بالعربي',

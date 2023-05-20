@@ -13,6 +13,7 @@ return array (
   array (
     'name' => 'Patient Name',
   ),
+  'patient_delete' => 'Do you want to delete the patient',
   'patient_list' => 'Patient list',
   'phone' => 'Phone Number',
 );

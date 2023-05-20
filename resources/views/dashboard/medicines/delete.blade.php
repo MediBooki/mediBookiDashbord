@@ -14,7 +14,7 @@
             {{ csrf_field() }}
             <div class="modal-body">
                 <input type="hidden" name="id" class="form-control" value="{{ $medicine->id }}" />
-                <h2>هل انت تريد حذف الدواء {{ $medicine->name }} </h2>
+                <h2>{{trans('medicine.medicine_delete')}} {{ $medicine->name }} </h2>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn grey btn-outline-primary" data-dismiss="modal">{{ trans('main-sidebar.Back')}}</button>
