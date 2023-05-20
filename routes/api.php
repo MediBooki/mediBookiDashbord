@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AppointmentController;
+use App\Http\Controllers\API\Auth\ForgotPasswordController;
 use App\Http\Controllers\API\Auth\PatientAuthController;
 use App\Http\Controllers\API\BlogController;
 use App\Http\Controllers\API\DoctorController;
@@ -62,6 +63,10 @@ Route::group(['middleware' => ['changeLanguage']], function (){
     Route::get('/related/medicine',[MedicineController::class,'relatedMedicine']);
 
     Route::post('contacts', [ContactUsController::class,'store']);
+
+    Route::post('/forget/password',[ForgotPasswordController::class,'submitForgetPasswordForm']);
+
+    Route::post('/reset/password',[ForgotPasswordController::class,'submitResetPasswordForm']);
 
 
     Route::group(['prefix' => 'patient'], function () {

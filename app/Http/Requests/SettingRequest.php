@@ -27,7 +27,7 @@ class SettingRequest extends FormRequest
         return [
             'email'             => 'required|email|unique:settings,email,'.$this->id,
             'linkedin'          => 'nullable|string|regex:'.$regex,
-            'gmail'             => 'nullable|string|regex:'.$regex,
+            'gmail'             => 'nullable|string',
             'twitter'           => 'nullable|string|regex:'.$regex,
             'instagram'         => 'nullable|string|regex:'.$regex,
             'youtube'           => 'nullable|string|regex:'.$regex,
