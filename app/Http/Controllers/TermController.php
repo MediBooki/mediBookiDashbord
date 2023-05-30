@@ -33,8 +33,6 @@ class TermController extends Controller
     {
         $term = Term::findOrFail($request->id);
         $term->delete();
-        $term->clearMediaCollection('photo');
-
         return redirect()->route('terms.index')->with(['success' => 'terms Deleted Successfully']);
     }
 }

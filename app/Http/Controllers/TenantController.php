@@ -32,6 +32,9 @@ class TenantController extends Controller
         $tenants->domain = $request->domain;
         $tenants->database = $request->database;
         $tenants->save();
+        if($request->hasFile('logo') && $request->file('logo')->isValid()){
+            $tenants->addMediaFromRequest('logo')->toMediaCollection('logo');
+        }
         DB::statement("CREATE DATABASE $tenants->database");
         Artisan::call('database:migrate');
             return redirect()->route('tenants.index')->with('success','Tenant created successfully');

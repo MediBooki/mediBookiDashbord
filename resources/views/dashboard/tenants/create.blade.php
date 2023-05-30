@@ -46,6 +46,17 @@
                                                 action="{{ route('tenants.store') }}"
                                                 method="POST">
                                             @csrf
+                                            <div class="row m-1">
+                                                <label> {{ trans('blog.photo') }} </label>
+                                                <label id="projectinput7" class="file center-block">
+                                                    <input type="file" accept="image/*" name="photo" onchange="loadFile(event)">
+                                                    <img class="d-none" width="150px" height="150px" id="output" />
+                                                </label>
+                                                @error('photo')
+                                                <span class="text-danger">{{$message}}</span>
+                                                @enderror
+                                            </div>
+                                            
                                             <div class="form-body">
                                                 <h4 class="form-section"><i class="ft-home"></i> {{ trans('tenant.Add') }} </h4>
                                                 <div class="row">
