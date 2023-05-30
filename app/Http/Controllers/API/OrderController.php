@@ -46,6 +46,8 @@ class OrderController extends Controller
             $cart->city =$request->city;
             $cart->zip_code =$request->zip_code;
             $cart->total =$request->total;
+            $cart->total_after_discount =$request->total_after_discount;
+            $cart->insurance_id =$request->insurance_id;
             $cart->save();
             return $this->sendResponse(new CartResource($cart), 'cart retrieve success');
         } else {

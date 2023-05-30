@@ -25,4 +25,8 @@ class Order extends Model
             ['check', '=', 0]
         ]);
     }
+    public function insurance()
+    {
+        return $this->belongsTo(Insurance::class);
+    }
 }

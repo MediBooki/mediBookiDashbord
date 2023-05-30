@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PaymentResource;
+use App\Models\Insurance;
 use App\Models\Order;
 use App\Models\Transaction;
 use Carbon\Carbon;
@@ -19,6 +20,11 @@ class PaymentController extends Controller
         if(request()->status == 2) {
             $order = Order::patientCheck()->first();
             $order->check=1;
+            if($order->insurance_id){
+                $insurance = Insurance::findOrFail($order->insurance_id);
+                $insurance->due = $order->total -$order->total_after_discount;
+                $insurance->save();
+            }
             $order->save();
         }
 
@@ -67,6 +73,11 @@ class PaymentController extends Controller
             $order->status =1;
             $order->check =1;
             $order->Payment_Date = request()->created_at;
+            if($order->insurance_id){
+                $insurance = Insurance::findOrFail($order->insurance_id);
+                $insurance->due = $order->total -$order->total_after_discount;
+                $insurance->save();
+            }
             $order->save();
             $transaction = new Transaction();
             $transaction->amount_cents = $request->amount_cents;
