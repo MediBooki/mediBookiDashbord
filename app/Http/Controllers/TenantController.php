@@ -26,7 +26,6 @@ class TenantController extends Controller
     }
     public function store(Request $request)
     {
-        
         $tenants = new Tenant();
         $tenants->name = $request->name;
         $tenants->domain = $request->domain;
@@ -37,7 +36,7 @@ class TenantController extends Controller
         }
         DB::statement("CREATE DATABASE $tenants->database");
         Artisan::call('database:migrate');
-            return redirect()->route('tenants.index')->with('success','Tenant created successfully');
+        return redirect()->route('tenants.index')->with('success','Tenant created successfully');
       
     }
     public function update(Request $request)
@@ -45,12 +44,24 @@ class TenantController extends Controller
         $tenants = Tenant::findOrfail($request->id);
         $tenants->name = $request->name;
         $tenants->domain = $request->domain;
-        $tenants->database = $request->database;
+        // if( $request->old_database !== $request->database){
+        //     DB::statement("ALTER DATABASE $request->old_database RENAME TO $request->database");
+        //     $tenants->database = $request->database;
+        // }
         $tenants->save();
-        // DB::statement("CREATE DATABASE $tenants->database");
-        DB::statement("ALTER DATABASE $request->old_database RENAME TO $tenants->database");
-        // Artisan::call('database:migrate');
+        if($request->hasFile('logo') && $request->file('logo')->isValid()){
+            $tenants->clearMediaCollection('logo');
+            $tenants->addMediaFromRequest('logo')->toMediaCollection('logo');
+        }
         return redirect()->route('tenants.index')->with('success','tenant updated successfully');
-
     }
+    public function destroy(Request $request)
+    {
+        $tenant = Tenant::findOrFail($request->id);
+        DB::statement("DROP DATABASE  $tenant->database");
+        $tenant->delete();
+        $tenant->clearMediaCollection('photo');
+        return redirect()->route('tenants.index')->with(['success' => 'tenant Deleted Successfully']);
+    }
+
 }

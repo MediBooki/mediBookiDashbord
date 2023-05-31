@@ -44,12 +44,13 @@
                                     <div class="card-body">
                                         <form class="form"
                                                 action="{{ route('tenants.store') }}"
-                                                method="POST">
+                                                method="POST"
+                                                enctype="multipart/form-data">
                                             @csrf
                                             <div class="row m-1">
-                                                <label> {{ trans('blog.photo') }} </label>
+                                                <label>logo</label>
                                                 <label id="projectinput7" class="file center-block">
-                                                    <input type="file" accept="image/*" name="photo" onchange="loadFile(event)">
+                                                    <input type="file" accept="image/*" name="logo" onchange="loadFile(event)">
                                                     <img class="d-none" width="150px" height="150px" id="output" />
                                                 </label>
                                                 @error('photo')

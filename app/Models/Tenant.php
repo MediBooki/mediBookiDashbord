@@ -11,7 +11,7 @@ use Spatie\Translatable\HasTranslations;
 
 class Tenant extends Model implements HasMedia
 {
-    use HasFactory,HasTranslations, LogsActivity,InteractsWithMedia;
+    use HasFactory, LogsActivity,InteractsWithMedia;
     protected $guarded =[];
 
 }

@@ -50,6 +50,7 @@
                                                 <th>##</th>
                                                 <th>{{ trans('tenant.name') }}</th>
                                                 <th>{{ trans('tenant.domain') }}</th>
+                                                <th>logo</th>
                                                 <th>{{ trans('tenant.database_name')}}</th>
                                                 <th>{{ trans('main-sidebar.Control')}}</th>
                                             </tr>
@@ -61,6 +62,9 @@
                                                         <td>{{$loop->iteration}}</td>
                                                         <td>{{$tenant->name}}</td>
                                                         <td>{{$tenant->domain}}</td>
+                                                        <td>
+                                                            <img style="width: 150px; height: 100px;" src="{{$tenant->getFirstMediaUrl('logo')}}">
+                                                        </td>
                                                         <td>{{$tenant->database}}</td>
                                                         <td>
                                                             <div class="btn-group" role="group"

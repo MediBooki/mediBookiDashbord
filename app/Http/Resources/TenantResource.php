@@ -18,7 +18,7 @@ class TenantResource extends JsonResource
             'id'=> $this->id,
             'name'=> $this->name,
             'domain'=> $this->domain,
-           
+            'logo' => $this->getFirstMediaUrl('logo'),
         ];
     }
 }
