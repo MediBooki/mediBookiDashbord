@@ -60,7 +60,7 @@ class DoctorController extends Controller
     }
     public function show($id)
     {
-        $doctor = Doctor::where('status',1)->with(['section','appointments'])->findOrFail($id);
+        $doctor = Doctor::where('status',1)->with(['section','appointments','reviews'])->findOrFail($id);
         // dd($doctor);
         return $this->sendResponse(new DoctorResource($doctor) ,'Doctor finded successfully');
     }
