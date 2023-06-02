@@ -34,7 +34,7 @@ class PaymentController extends Controller
             //pay function
             $payment = new PaymobPayment();
             $response = $payment->pay(
-                $order->total, 
+                $order->total_after_discount > 0 ? $order->total_after_discount : $order->total , 
                 $user_id = auth()->user()->id, 
                 $user_first_name = $order->first_name, 
                 $user_last_name = $order->last_name, 
