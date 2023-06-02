@@ -14,6 +14,15 @@ class InsuranceRepository implements InsuranceRepositoryInterface
         $insurances = Insurance::orderBy('id','DESC')->paginate(15);
         return view('dashboard.insurances.index', compact('insurances'));
     }
+    public function edit($id)
+    {
+        $insurance = Insurance::findOrFail($id);
+        $insurance->due = 0;
+        $insurance->save();
+        return redirect()->route('insurances.index')->with(['success' => 'Insurance updated Successfully']);
+
+
+    }
     public function store($request)
     {
         $insurance = new Insurance();

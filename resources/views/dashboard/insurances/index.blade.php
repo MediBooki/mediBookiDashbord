@@ -52,6 +52,7 @@
                                                 <th>{{ trans('insurance.insurance_code') }}</th>
                                                 <th>{{ trans('insurance.discount_percentage') }}</th>
                                                 <th>{{ trans('insurance.company_rate')}}</th>
+                                                <th>{{ trans('insurance.due')}}</th>
                                                 <th>{{ trans('insurance.status')}}</th>
                                                 <th>{{ trans('main-sidebar.Control')}}</th>
                                             </tr>
@@ -65,6 +66,8 @@
                                                         <td>{{$insurance->insurance_code}}</td>
                                                         <td>{{$insurance->discount_percentage}}</td>
                                                         <td>{{$insurance->company_rate}}</td>
+                                                        <td>{{$insurance->due}}</td>
+
                                                         <td>
                                                             <span class="badge badge-pill badge-{{$insurance->status == 1 ? 'success':'danger'}}">
                                                                 {{ $insurance->status == 1 ? trans('doctor.enabled') :  trans('doctor.disabled')}}
@@ -74,11 +77,15 @@
                                                             <div class="btn-group" role="group"
                                                                 aria-label="Basic example">
                                                                 <button class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1" data-toggle="modal" data-target="#edit{{ $insurance->id }}">{{ trans('main-sidebar.Update')}}</button>
+                                                                @if($insurance->due > 0)
+                                                                    <button type="button" class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1" data-toggle="modal" data-target="#due{{ $insurance->id }}" >{{ trans('main-sidebar.Due')}}</button>
+                                                                @endif
                                                                 <button type="button" class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1" data-toggle="modal" data-target="#delete{{ $insurance->id }}" >{{ trans('main-sidebar.Delete')}}</button>
                                                             </div>
                                                         </td>
                                                     </tr>
                                                     @include('dashboard.insurances.delete')
+                                                    @include('dashboard.insurances.due')
                                                     @include('dashboard.insurances.edit') 
                                                 @endforeach
                                             @endisset

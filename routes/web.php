@@ -57,7 +57,7 @@ Route::group([
 
         Route::resource('sections' , SectionController::class)->except(['edit','create'])->middleware('can:sections');
         Route::resource('doctors' , DoctorController::class)->middleware('can:doctors');
-        Route::resource('insurances' , InsuranceController::class)->except(['edit','create','show'])->middleware('can:insurances');
+        Route::resource('insurances' , InsuranceController::class)->except(['create','show'])->middleware('can:insurances');
         Route::resource('ambulances' , AmbulanceController::class);
         Route::resource('patients' , PatientController::class)->middleware('can:patients');
         Route::resource('terms' , TermController::class)->except(['edit','create'])->middleware('can:terms');

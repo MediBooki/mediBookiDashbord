@@ -18,6 +18,10 @@ class InsuranceController extends Controller
     {
         return $this->insurance->index();
     }
+    public function edit($id)
+    {
+        return $this->insurance->edit($id);
+    }
     public function store(InsuranceRequest $request)
     {
         return $this->insurance->store($request);
