@@ -19,6 +19,7 @@ class InsuranceResource extends JsonResource
             'insurance_code'=> $this->insurance_code,
             'discount_percentage'=> $this->discount_percentage,
             'company_rate'=> $this->company_rate,
+            'insurance_status'=> $this->insurance_status,
             'name'=> $this->getTranslation('name',app()->getLocale($request->lang)),        
         ];
     }
