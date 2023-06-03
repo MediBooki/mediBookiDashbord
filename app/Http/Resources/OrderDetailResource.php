@@ -27,6 +27,7 @@ class OrderDetailResource extends JsonResource
             'city'=> $this->city,
             'zip_code'=> $this->zip_code,
             'total'=> $this->total,
+            'total_after_discount'=> $this->total_after_discount,
             'updated_at'=>$this->updated_at,
             'created_at'=>$this->created_at,
             'shipping_status'=> $this->shipping_status,
