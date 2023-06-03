@@ -227,7 +227,7 @@
                                                     <th colspan="3" scope="row" class="alert alert-success">
                                                         الاجمالي
                                                     </th>
-                                                    @if ($patient_account)
+                                                    @if (isset($patient_account))
                                                     <td class="alert alert-primary">{{ number_format($debit = $patient_account->where('patient_id', $patient_account->patient_id)->sum('debit'),2) }}</td>
                                                     <td class="alert alert-primary">{{ number_format($credit = $patient_account->where('patient_id', $patient_account->patient_id)->sum('credit'),2) }}</td>
                                                     <td class="alert alert-danger">{{ $debit-$credit }} {{$debit-$credit > 0  ? 'مدين': 'دائن'}}</td>
