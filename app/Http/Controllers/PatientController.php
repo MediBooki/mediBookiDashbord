@@ -53,4 +53,8 @@ class PatientController extends Controller
             ])->first();
         return $comp_insurance;
     }
+    public function exportExcelCSV()
+    {
+        return $this->patient->exportExcelCSV();
+    }
 }

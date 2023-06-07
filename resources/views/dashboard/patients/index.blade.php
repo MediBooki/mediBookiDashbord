@@ -41,6 +41,7 @@
                             <div class="card-content collapse show">
                                 <div class="row m-1">
                                     <a href="{{ route('patients.create') }}" class="btn btn-primary">{{ trans('patient.Add') }}</a>
+                                    <a href="{{ route('patient.excel') }}" class="btn btn-primary">Excel</a>
                                 </div>
                                 <div class="card-body card-dashboard">
                                     <div class="table-responsive">

@@ -2,12 +2,14 @@
 
 namespace App\Repository\Patients;
 
+use App\Exports\PatientsExport;
 use App\Interfaces\Patients\PatientRepositoryInterface;
 use App\Models\Invoice;
 use App\Models\Patient;
 use App\Models\PatientAccount;
 use App\Models\Payment;
 use App\Models\Receipt;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Hash;
 
 class PatientRepository implements PatientRepositoryInterface
@@ -74,5 +76,9 @@ class PatientRepository implements PatientRepositoryInterface
         $section = patient::findOrFail($request->id);
         $section->delete(); 
         return redirect()->route('patients.index')->with(['success' => 'patients Deleted Successfully']);
+    }
+    public function exportExcelCSV() 
+    {
+        return Excel::download(new PatientsExport,'patients.xlsx');
     }
 }

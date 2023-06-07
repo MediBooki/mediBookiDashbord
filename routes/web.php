@@ -60,6 +60,7 @@ Route::group([
         Route::resource('insurances' , InsuranceController::class)->except(['create','show'])->middleware('can:insurances');
         Route::resource('ambulances' , AmbulanceController::class);
         Route::resource('patients' , PatientController::class)->middleware('can:patients');
+        Route::get('export-excel-csv-file', [PatientController::class, 'exportExcelCSV'])->name('patient.excel');
         Route::resource('terms' , TermController::class)->except(['edit','create'])->middleware('can:terms');
         Route::resource('blogs' , BlogController::class)->except(['edit','create','show']);
         Route::resource('terms' , TermController::class)->except(['edit','create','show']);

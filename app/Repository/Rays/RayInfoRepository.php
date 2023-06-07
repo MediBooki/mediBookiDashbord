@@ -31,7 +31,7 @@ class RayInfoRepository implements RayInfoRepositoryInterface
         }
         if($request->nemo && $request->nemo == 1)
         {
-            $response = Http::post('http://127.0.0.1:5000',[
+            $response = Http::post('https://pneumoniadetectionmodel.azurewebsites.net',[
                 'url' => $xray->getFirstMediaUrl('photo'),
             ]);
             $prediction = $response->json('The prediction is');
