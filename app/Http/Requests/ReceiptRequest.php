@@ -26,7 +26,7 @@ class ReceiptRequest extends FormRequest
         return [
             'patient_id' => 'required|exists:patients,id',
             'debit' => 'required|numeric|min:0',
-            'description' => 'required|max:255',
+            'description' => 'required',
         ];
     }
 }

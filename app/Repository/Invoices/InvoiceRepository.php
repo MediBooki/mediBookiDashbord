@@ -124,8 +124,8 @@ class InvoiceRepository implements InvoiceRepositoryInterface
     }
     public function destroy($request)
     {  
-        $invoice = Invoice::findOrFail($request->id);
-        $invoice->delete(); 
-        return redirect()->route('invoices.index')->with(['success' => 'invoice Deleted Successfully']);
+        // $invoice = Invoice::findOrFail($request->id);
+        // $invoice->delete(); 
+        // return redirect()->route('invoices.index')->with(['success' => 'invoice Deleted Successfully']);
     }
 }

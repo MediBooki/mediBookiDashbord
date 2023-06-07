@@ -26,8 +26,8 @@ class SectionRequest extends FormRequest
         return [
             'name' => 'required|max:100|unique:sections,name->ar,'.$this->id,
             'name_en' => 'required|max:100|unique:sections,name->en,'.$this->id,
-            'description' => 'required|max:250',
-            'description_en' => 'required|max:250',
+            'description' => 'required',
+            'description_en' => 'required',
             'photo' => 'required_without:id|mimes:jpg,jpeg,png',
         ];
     }

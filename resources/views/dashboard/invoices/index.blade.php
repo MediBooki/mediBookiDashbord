@@ -86,12 +86,12 @@
                                                                 <div class="dropdown-menu" style="right: -50%;">
                                                                     <a class="dropdown-item" href="{{ route('invoices.edit',$invoice->id) }}"><i class="text-success la la-edit"></i>{{ trans('main-sidebar.Update') }}</a>           
                                                                     <a class="dropdown-item" href="{{ route('invoices.show',$invoice->id) }}" target="_blank"><i class="text-warning la la-print"></i>{{ trans('main-sidebar.Print') }}</a>                                                         
-                                                                    <a class="dropdown-item" data-target="#delete{{ $invoice->id }}"data-toggle="modal" ><i class="text-danger la la-trash"></i>{{ trans('main-sidebar.Delete')}}</a>
+                                                                    {{-- <a class="dropdown-item" data-target="#delete{{ $invoice->id }}"data-toggle="modal" ><i class="text-danger la la-trash"></i>{{ trans('main-sidebar.Delete')}}</a> --}}
                                                                 </div>
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                    @include('dashboard.invoices.delete')
+                                                    {{-- @include('dashboard.invoices.delete') --}}
                                                 @endforeach
                                             @endisset
                                             </tbody>

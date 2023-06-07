@@ -26,8 +26,8 @@ class MedicineRequest extends FormRequest
         return [
             'name' => 'required|max:100|unique:medicines,name->ar,'.$this->id,
             'name_en' => 'required|max:100|unique:medicines,name->en,'.$this->id,
-            'description' => 'required|max:255',
-            'description_en' => 'required|max:100',
+            'description' => 'required',
+            'description_en' => 'required',
             'price' => 'required|numeric|min:0',
             'manufactured_by' => 'required|string|max:100',
             'category_id' => 'required|exists:categories,id',
