@@ -37,4 +37,8 @@ class DoctorController extends Controller
     {
         return $this->doctor->destroy($request);
     }
+    public function exportExcelCSV()
+    {
+        return $this->doctor->exportExcelCSV();
+    }
 }

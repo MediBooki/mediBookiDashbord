@@ -67,4 +67,8 @@ class InvoiceController extends Controller
         $price = Service::where('id', $id)->select('price')->first();
         return $price;
     }
+    public function exportExcelCSV()
+    {
+        return $this->invoice->exportExcelCSV();
+    }
 }

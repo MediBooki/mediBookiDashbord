@@ -41,6 +41,8 @@
                             <div class="card-content collapse show">
                                 <div class="row m-1">
                                     <a href="{{ route('invoices.create') }}" class="btn btn-primary">{{ trans('invoice.Add') }}</a>
+                                    <a href="{{ route('invoice.excel') }}" class="btn btn-success mx-1">Excel</a>
+
                                 </div>
                                 <div class="card-body card-dashboard">
                                     <div class="table-responsive">
@@ -52,7 +54,6 @@
                                                 <th>{{ trans('patient.name') }}</th>
                                                 <th>{{ trans('invoice.invoice_date') }}</th>
                                                 <th>{{ trans('doctor.name') }}</th>
-                                                <th>{{ trans('service.name') }}</th>
                                                 <th>{{ trans('service.price') }}</th>
                                                 <th>{{ trans('invoice.discount_value') }}</th>
                                                 <th>{{ trans('invoice.tax_rate') }}</th>
@@ -71,7 +72,6 @@
                                                         <td>{{$invoice->patient->name }}</td>
                                                         <td>{{$invoice->invoice_date}}</td>
                                                         <td>{{$invoice->doctor->name}}</td>
-                                                        <td>{{$invoice->service->name}}</td>
                                                         <td>{{$invoice->service->price}}</td>
                                                         <td>{{$invoice->discount_value}}</td>
                                                         <td>{{$invoice->tax_rate}}</td>

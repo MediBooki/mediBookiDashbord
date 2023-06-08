@@ -2,6 +2,7 @@
 
 namespace App\Repository\Doctors;
 
+use App\Exports\DoctorsExport;
 use App\Interfaces\Doctors\DoctorRepositoryInterface;
 use App\Models\Appointment;
 use App\Models\Doctor;
@@ -9,6 +10,7 @@ use App\Models\Section;
 use App\Models\Service;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DoctorRepository implements DoctorRepositoryInterface
 {
@@ -85,5 +87,9 @@ class DoctorRepository implements DoctorRepositoryInterface
         }
       
         return redirect()->route('doctors.index')->with(['success' => 'section Deleted Successfully']);
+    }
+    public function exportExcelCSV()
+    {
+        return Excel::download(new DoctorsExport,'doctors.xlsx');
     }
 }

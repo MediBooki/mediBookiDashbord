@@ -2,6 +2,7 @@
 
 namespace App\Repository\Invoices;
 
+use App\Exports\InvoicesExport;
 use App\Interfaces\Invoices\InvoiceRepositoryInterface;
 use App\Models\Doctor;
 use App\Models\FundAccount;
@@ -10,6 +11,7 @@ use App\Models\Patient;
 use App\Models\PatientAccount;
 use App\Models\Service;
 use DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class InvoiceRepository implements InvoiceRepositoryInterface
 {
@@ -127,5 +129,9 @@ class InvoiceRepository implements InvoiceRepositoryInterface
         // $invoice = Invoice::findOrFail($request->id);
         // $invoice->delete(); 
         // return redirect()->route('invoices.index')->with(['success' => 'invoice Deleted Successfully']);
+    }
+    public function exportExcelCSV()
+    {
+        return Excel::download(new InvoicesExport,'invoices.xlsx');
     }
 }

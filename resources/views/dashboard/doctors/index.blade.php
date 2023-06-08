@@ -42,6 +42,7 @@
                                 <div class="row m-1">
                                     <a href="{{ route('doctors.create') }}" class="btn btn-primary">{{ trans('doctor.Add') }}</a>
                                     <button type="button" class="btn btn-danger mx-1" id="btn_delete_all">{{ trans('doctor.delete_select') }}</button>
+                                    <a href="{{ route('doctor.excel') }}" class="btn btn-success mx-1">Excel</a>
                                 </div>
                                 <div class="card-body card-dashboard">
                                     <div class="table-responsive">

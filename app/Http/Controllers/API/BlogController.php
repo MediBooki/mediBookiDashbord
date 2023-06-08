@@ -20,7 +20,7 @@ class BlogController extends Controller
         }else {
             $blogs = $blogs->paginate(15);
         }
-        return $this->sendResponse(BlogResource::collection($blogs), 'Blogs lists send successfully');
+        return $this->sendResponse(BlogResource::collection($blogs), 'Blogs lists send successfully',$blogs->total());
     }
     public function show($id)
     {
