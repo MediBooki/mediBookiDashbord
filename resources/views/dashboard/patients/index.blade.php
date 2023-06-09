@@ -56,6 +56,7 @@
                                                 <th>{{ trans('patient.gender') }}</th>
                                                 <th>{{ trans('patient.blood_group') }}</th>
                                                 <th>{{ trans('patient.address') }}</th>
+                                                <th>{{ trans('patient.insurance_status') }}</th>
                                                 <th>{{ trans('main-sidebar.Control')}}</th>
                                             </tr>
                                             </thead>
@@ -71,13 +72,20 @@
                                                         <td>{{$patient->gender}}</td>
                                                         <td>{{$patient->blood_group}}</td>
                                                         <td>{{\Str::limit($patient->address,60)}}</td>
+                                                        <td>
+                                                            <span class="badge badge-pill badge-{{$patient->insurance_status == 1 ? 'success':'danger'}}">
+                                                                {{ $patient->insurance_status == 1 ? trans('doctor.enabled') :  trans('doctor.disabled')}}
+                                                            </span>
+                                                        </td>
                                                         <td>                                                          
                                                             <div class="btn-group">
                                                                 <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                                                     {{ trans('main-sidebar.Control')}}
                                                                 </button>
                                                                 <div class="dropdown-menu" style="right: -50%;">
-                                                                    <a class="dropdown-item" data-target="#edit{{ $patient->id }}"data-toggle="modal"><i class="text-success la la-edit"></i>{{ trans('main-sidebar.Update') }}</a>                                                                    
+                                                                    @if($patient->insurance)
+                                                                        <a class="dropdown-item" data-target="#edit{{ $patient->id }}"data-toggle="modal"><i class="text-success la la-edit"></i>{{ trans('main-sidebar.Update') }}</a>                                                                    
+                                                                    @endif
                                                                     <a class="dropdown-item" data-target="#delete{{ $patient->id }}"data-toggle="modal" ><i class="text-danger la la-trash"></i>{{ trans('main-sidebar.Delete')}}</a>
                                                                 </div>
                                                             </div>
@@ -85,7 +93,7 @@
                                                     </tr>
                                                     @include('dashboard.patients.edit')
                                                     @include('dashboard.patients.delete')
-                                                @endforeach
+                                                    @endforeach
                                             @endisset
                                             </tbody>
                                         </table>

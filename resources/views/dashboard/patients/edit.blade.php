@@ -14,7 +14,7 @@
                 @csrf
                 <div class="modal-body">
                     <input type="hidden" name="id" value="{{ $patient->id }}">
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="projectinput1"> {{ trans('patient.name') }}</label>
@@ -85,6 +85,42 @@
                                     name="address">
                                 @error("address")
                                 <span class="text-danger">{{$message}}</span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div> --}}
+                    {{-- @if()
+
+                    @endif --}}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>insurance number: <p>{{$patient->insurance_number}}</p></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>insurance date: <p>{{$patient->insurance_date}}</p></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>insurance Company: <p>{{$patient->insurance? $patient->insurance->name : ''}}</p></h2>
+                        </div>
+                     
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="projectinput1"> {{ trans('doctor.status') }}
+                                </label>
+                                <select name="insurance_status" class="select form-control">
+                                    <optgroup label="{{ trans('doctor.update_status') }}">
+                                        <option value="1">{{ trans('doctor.enabled') }}</option>
+                                        <option value="0">{{ trans('doctor.disabled') }}</option>
+                                    </optgroup>
+                                </select>
+                                @error('insurance_status')
+                                <span class="text-danger"> {{$message}}</span>
                                 @enderror
                             </div>
                         </div>

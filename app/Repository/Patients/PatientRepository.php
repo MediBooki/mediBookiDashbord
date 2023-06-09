@@ -63,11 +63,13 @@ class PatientRepository implements PatientRepositoryInterface
     public function update($request)
     {
         $patient = Patient::findOrFail($request->id);
-        $patient->name = $request->name;
-        $patient->date_of_birth =  $request->date_of_birth;
-        $patient->phone =  $request->phone;
-        $patient->blood_group = $request->blood_group;
-        $patient->address = $request->address;
+        // $patient->name = $request->name;
+        // $patient->date_of_birth =  $request->date_of_birth;
+        // $patient->phone =  $request->phone;
+        // $patient->blood_group = $request->blood_group;
+        // $patient->address = $request->address;
+        $patient->insurance_status = $request->insurance_status;
+
         $patient->save();
         return redirect()->route('patients.index')->with(['success' => 'patient Updated Successfully']);
     }
