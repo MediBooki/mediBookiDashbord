@@ -17,9 +17,9 @@
             <form action="{{ route('doctors.update', 'test') }}" method="post" autocomplete="off">
                 {{ method_field('patch') }}
                 @csrf
-                <div class="modal-body">
+                <div class="modal-body">                                                                                                 
                     <input type="hidden" name="id" value="{{ $doctor->id }}">
-                    <div class="row">
+                    <div class="row">                               
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="projectinput1"> {{ trans('doctor.status') }}
