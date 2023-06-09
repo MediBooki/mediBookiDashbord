@@ -21,7 +21,6 @@ class DoctorReviewResource extends JsonResource
                 'id'=> $this->id,
                 'comment'=> $this->comment,
                 'rating'=> $this->rating,
-                'patient'=>new PatientResource(Patient::findOrFail($this->patient_id)),
             ];
         } else {
             return [ 
@@ -31,6 +30,8 @@ class DoctorReviewResource extends JsonResource
                 'created_at'=> $this->created_at->format('Y-m-d'),
                 'updated_at'=> $this->updated_at->format('Y-m-d'),
                 'doctor'=>new DoctorResource(Doctor::findOrFail($this->doctor_id)),
+                'patient'=>new PatientResource(Patient::findOrFail($this->patient_id)),
+
             ];
         }
        
