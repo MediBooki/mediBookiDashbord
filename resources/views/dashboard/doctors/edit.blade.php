@@ -26,8 +26,8 @@
                                 </label>
                                 <select name="status" class="select form-control">
                                     <optgroup label="{{ trans('doctor.update_status') }}">
-                                        <option value="1" @if($doctor->status && $doctor->status == 1) selected @endif>{{ trans('doctor.enabled') }}</option>
-                                        <option value="0" @if($doctor->status && $doctor->status == 0) selected @endif>{{ trans('doctor.disabled') }}</option>
+                                        <option value="1" @if($doctor->status == 1) selected @endif>{{ trans('doctor.enabled') }}</option>
+                                        <option value="0" @if($doctor->status == 0) selected @endif>{{ trans('doctor.disabled') }}</option>
                                     </optgroup>
                                 </select>
                                 @error('status')
