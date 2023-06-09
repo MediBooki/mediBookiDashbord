@@ -32,7 +32,11 @@ class Medicine extends Model implements HasMedia
                 // $subquery->where('name->'.app()->getLocale(request()->lang),'ILIKE', "%" . request()->name . "%");
                 // $subquery->whereRaw('LOWER(name->'.app()->getLocale(request()->lang).') ILIKE ?', ["%" . strtolower(request()->name) . "%"]);
                 // $subquery->whereRaw('LOWER(name->'.app()->getLocale(request()->lang).') LIKE ?', ["%" . strtolower(request()->name) . "%"]);
-                $subquery->whereRaw('LOWER(JSON_EXTRACT(name, "$.' . app()->getLocale(request()->lang) . '")) LIKE ?', ["%" . strtolower(request()->name) . "%"]);
+                if(request()->lang == 'ar') {
+                    $subquery->where('name->'.app()->getLocale(request()->lang),'LIKE', "%" . request()->name . "%");
+                } else {
+                    $subquery->whereRaw('LOWER(JSON_EXTRACT(name, "$.' . app()->getLocale(request()->lang) . '")) LIKE ?', ["%" . strtolower(request()->name) . "%"]);
+                }
             })->when(!empty(request()->description) ,function($subquery){
                 // $subquery->where('description->'.app()->getLocale(request()->lang),'iLIKE', "%" . request()->description . "%");
                 $subquery->whereRaw('LOWER(JSON_EXTRACT(description, "$.' . app()->getLocale(request()->lang) . '")) LIKE ?', ["%" . strtolower(request()->description) . "%"]);
