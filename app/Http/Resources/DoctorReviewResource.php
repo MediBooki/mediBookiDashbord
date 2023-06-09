@@ -3,7 +3,6 @@
 namespace App\Http\Resources;
 
 use App\Models\Doctor;
-use App\Models\Patient;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class DoctorReviewResource extends JsonResource
@@ -29,8 +28,9 @@ class DoctorReviewResource extends JsonResource
                 'rating'=> $this->rating,
                 'created_at'=> $this->created_at->format('Y-m-d'),
                 'updated_at'=> $this->updated_at->format('Y-m-d'),
+                'patient_name'=> $this->patient->name,
+                'patient_image'=> $this->patient->getFirstMediaUrl('photo'),
                 'doctor'=>new DoctorResource(Doctor::findOrFail($this->doctor_id)),
-                'patient'=>new PatientResource(Patient::findOrFail($this->patient_id)),
 
             ];
         }
