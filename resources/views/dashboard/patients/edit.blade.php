@@ -115,8 +115,8 @@
                                 </label>
                                 <select name="insurance_status" class="select form-control">
                                     <optgroup label="{{ trans('doctor.update_status') }}">
-                                        <option value="1" @if($patient->status == 1) selected @endif>{{ trans('doctor.enabled') }}</option>
-                                        <option value="0" @if($patient->status == 0) selected @endif>{{ trans('doctor.disabled') }}</option>
+                                        <option value="1" @if($patient->insurance_status == 1) selected @endif>{{ trans('doctor.enabled') }}</option>
+                                        <option value="0" @if($patient->insurance_status == 0) selected @endif>{{ trans('doctor.disabled') }}</option>
                                     </optgroup>
                                 </select>
                                 @error('insurance_status')

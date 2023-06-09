@@ -29,7 +29,7 @@ class PatientResource extends JsonResource
             // 'insurance'=> new InsuranceResource(Insurance::findOrFail($this->insurance_id)),
             'insurance_number'=> $this->insurance_number ? $this->insurance_number : '',
             'insurance_date'=> $this->insurance_date ? $this->insurance_date : '',
-            'insurance_status'=> $this->insurance_status ? $this->insurance_status : '',
+            'insurance_status'=> $this->insurance_status ? $this->insurance_status : 0,
         ];
         // dd($this->insurance_id);
         if($this->insurance_id){
