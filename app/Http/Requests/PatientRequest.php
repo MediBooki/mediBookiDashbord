@@ -30,7 +30,7 @@ class PatientRequest extends FormRequest
             'date_of_birth' => 'required|date',
             'phone' => 'required|numeric|unique:patients,phone,'.$this->id,
             'gender' => 'required|in:male,female',
-            'blood_group' => 'required',
+            'blood_group' => 'string',
             'address' => 'required|string|min:8|max:255',
         ];
     }
