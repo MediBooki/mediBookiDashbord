@@ -48,8 +48,14 @@ class Doctor extends Authenticatable implements HasMedia
             })->when(!empty(request()->genders) ,function($subquery){
                 $subquery->whereIn('doctors.gender',request()->genders);
             })->when(!empty(request()->name) ,function($subquery){
-                $subquery->whereRaw('LOWER(JSON_EXTRACT(name, "$.' . app()->getLocale(request()->lang) . '")) LIKE ?', ["%" . strtolower(request()->name) . "%"]);
+                if(request()->lang == 'ar') {
+                    $subquery->where('name->'.app()->getLocale(request()->lang),'LIKE', "%" . request()->name . "%");
+                } else {
+                    $subquery->whereRaw('LOWER(JSON_EXTRACT(name, "$.' . app()->getLocale(request()->lang) . '")) LIKE ?', ["%" . strtolower(request()->name) . "%"]);
+                }
             })->when(!empty(request()->specialization) ,function($subquery){
+                $subquery->where('specialization','LIKE', "%" . request()->specialization . "%");
+
                 $subquery->whereRaw('LOWER(JSON_EXTRACT(specialization, "$.' . app()->getLocale(request()->lang) . '")) LIKE ?', ["%" . strtolower(request()->specialization) . "%"]);
             })->when(!empty(request()->sections) ,function($subquery){
                 $subquery->whereIn('doctors.section_id',request()->sections);
