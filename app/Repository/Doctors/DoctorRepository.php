@@ -17,7 +17,9 @@ class DoctorRepository implements DoctorRepositoryInterface
     public function index()
     {
         $doctors = Doctor::orderBy('id','DESC')->paginate(15);
-        return view('dashboard.doctors.index', compact('doctors'));
+        $appointments = Appointment::orderBy('id','DESC')->get();
+
+        return view('dashboard.doctors.index', compact('doctors','appointments'));
     }
     public function create()
     {
@@ -69,6 +71,7 @@ class DoctorRepository implements DoctorRepositoryInterface
         $doctor = Doctor::findOrFail($request->id);
         $doctor->status = $request->status;
         $doctor->save();
+        $doctor->appointments()->sync($request->appointments);
         return redirect()->route('doctors.index')->with(['success' => 'Doctor Updated Successfully']);
     }
     public function destroy($request)
