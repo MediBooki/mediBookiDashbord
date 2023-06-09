@@ -56,7 +56,6 @@ class Doctor extends Authenticatable implements HasMedia
             })->when(!empty(request()->specialization) ,function($subquery){
                 $subquery->where('specialization','LIKE', "%" . request()->specialization . "%");
 
-                $subquery->whereRaw('LOWER(JSON_EXTRACT(specialization, "$.' . app()->getLocale(request()->lang) . '")) LIKE ?', ["%" . strtolower(request()->specialization) . "%"]);
             })->when(!empty(request()->sections) ,function($subquery){
                 $subquery->whereIn('doctors.section_id',request()->sections);
             });
