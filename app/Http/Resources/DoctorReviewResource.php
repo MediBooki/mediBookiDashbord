@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Models\Doctor;
+use App\Models\Patient;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class DoctorReviewResource extends JsonResource
@@ -20,6 +21,7 @@ class DoctorReviewResource extends JsonResource
                 'id'=> $this->id,
                 'comment'=> $this->comment,
                 'rating'=> $this->rating,
+                'patient'=>new PatientResource(Patient::findOrFail($this->patient_id)),
             ];
         } else {
             return [ 
