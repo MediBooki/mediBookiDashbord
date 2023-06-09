@@ -30,9 +30,9 @@ class Medicine extends Model implements HasMedia
             })->when(!empty(request()->maxPrice) ,function($subquery){
                 $subquery->where('medicines.price','<=',request()->maxPrice);
             })->when(!empty(request()->name) ,function($subquery){
-                $subquery->where(DB::raw('name->'.app()->getLocale(request()->lang)),'LIKE', "%" . request()->name . "%");
+                $subquery->where(DB::raw('name->'.app()->getLocale(request()->lang)),'LIKE', "%" . strtolower(request()->name) . "%");
             })->when(!empty(request()->description) ,function($subquery){
-                $subquery->where(DB::raw('description->'.app()->getLocale(request()->lang)),'LIKE', "%" . request()->description . "%");
+                $subquery->where(DB::raw('description->'.app()->getLocale(request()->lang)),'LIKE', "%" . strtolower(request()->description) . "%");
             })->when(!empty(request()->categories) ,function($subquery){
                 $subquery->whereIn('medicines.category_id',request()->categories);
             });
