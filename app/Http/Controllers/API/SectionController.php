@@ -14,7 +14,13 @@ class SectionController extends Controller
     public function index()
     {
         if(request()->search){
-            $sections = Section::where('name->'.app()->getLocale(request()->lang),'LIKE', "%" . request()->search . "%")->orderBy('id','DESC')->paginate(15);
+            if(request()->lang == 'ar'){
+                $sections = Section::where('name->'.app()->getLocale(request()->lang),'LIKE', "%" . request()->search . "%")->orderBy('id','DESC')->paginate(15);
+            }
+            else {
+                $sections = Section::whereRaw('LOWER(JSON_EXTRACT(name, "$.' . app()->getLocale(request()->lang) . '")) LIKE ?', ["%" . strtolower(request()->name) . "%"])->orderBy('id','DESC')->paginate(15);
+
+            }
             return $this->sendResponse(SectionResource::collection($sections), 'Section lists send successfully',$sections->total());
         }
         $sections = Section::orderBy('id','DESC')->paginate(15);
