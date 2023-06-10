@@ -4,7 +4,7 @@
 <div class="app-content content">
     <div class="content-wrapper">
         <div class="content-header row">
-          <p>لوحة تحكم الموظفين</p>
+          <p>{{ trans('main-sidebar.employee') }}</p>
         </div>
         <div class="content-body">
             <div id="crypto-stats-3" class="row">
@@ -136,7 +136,7 @@
                         <div class="media d-flex">
                           <div class="media-body text-left">
                             <h3 class="success">{{ \App\Models\Patient::count() }}</h3>
-                            <h6>{{ trans('main-sidebar.sections') }}</h6>
+                            <h6>{{ trans('main-sidebar.patient') }}</h6>
                           </div>
                           <div>
                             <i class="icon-user-follow success font-large-2 float-right"></i>
@@ -177,10 +177,9 @@
                 <div class="col-12 col-xl-8">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"> Admin activites</h4>
+                            <h4 class="card-title">{{ trans('main-sidebar.Admin_activities') }}</h4>
                             <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                             <div class="heading-elements">
-
                             </div>
                         </div>
                         <div class="card-content">
@@ -188,10 +187,10 @@
                                 <table class="table table-de mb-0">
                                     <thead>
                                       <tr>
-                                          <th> Description</th>
-                                          <th> Name</th>
-                                          <th> Model</th>
-                                          <th> user</th>
+                                          <th> {{ trans('main-sidebar.Description') }}</th>
+                                          <th>{{ trans('main-sidebar.Name') }} </th>
+                                          <th> {{ trans('main-sidebar.Model') }}</th>
+                                          <th>{{ trans('main-sidebar.User') }} </th>
                                       </tr>
                                       </thead>
                                       <tbody>
@@ -253,7 +252,7 @@
               <div class="col-xl-6 col-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4 class="card-title">Invocice Status</h4>
+                    <h4 class="card-title">{{ trans('main-sidebar.Invocice_Status') }}</h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                     {!! $chartjs->render() !!}
                   </div>
@@ -266,7 +265,7 @@
               <div class="col-xl-6 col-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4 class="card-title"> sd</h4>
+                    <h4 class="card-title">{{ trans('main-sidebar.x-ray_status') }}</h4>
                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                     {!! $chartjs1->render() !!}
                     <div class="heading-elements">

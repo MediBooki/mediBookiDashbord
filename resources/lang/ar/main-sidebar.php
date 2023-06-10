@@ -1,13 +1,20 @@
 <?php
 
 return array (
+  'Admin_activities' => 'نشاطات المشرفين',
   'Back' => 'رجوع',
+  'Booked appointments' => 'المواعيد المحجوزة',
   'Control' => 'تحكم',
   'Date' => 'تاريخ الانشاء',
   'Delete' => 'حذف',
+  'Description' => 'الوصف',
+  'Invocice_Status' => 'حالات الفواتير',
+  'Model' => 'نموذج المختص',
+  'Name' => 'الاسم',
   'Print' => 'طباعة',
   'Submit' => 'حفظ',
   'Update' => 'تعديل',
+  'User' => 'المستخدم',
   'account' => 'الحسابات',
   'ambulance' => 'الأسعاف',
   'ambulance_calls' => 'مكالمات الاسعاف',
@@ -20,7 +27,9 @@ return array (
   'diagnosis_laboratory' => 'كشوفات التحاليل',
   'dignosis_complate_x-ray' => 'كشوفات الاشعة المكتملة',
   'dignosis_x-ray' => 'كشوفات الاشعة',
+  'doctor_dashobord' => 'لوحة تحكم الدكتور',
   'doctors' => 'الاطباء',
+  'employee' => 'لوحة تحكم الموظفين',
   'group_service' => 'مجموعة خدمات',
   'index' => 'الرئيسية',
   'insurance' => 'شركات التأمين',
@@ -53,4 +62,5 @@ return array (
   'wait_bookLists' => 'قائمة الانتظار',
   'welcome' => 'مرحبا',
   'x-ray' => 'قسم الاشعة',
+  'x-ray_status' => 'حالات  الاشعة',
 );

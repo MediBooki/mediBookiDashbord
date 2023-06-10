@@ -1,13 +1,20 @@
 <?php
 
 return array (
+  'Admin_activities' => 'Admin activities',
   'Back' => 'Back',
+  'Booked appointments' => 'Booked appointments',
   'Control' => 'Control',
   'Date' => 'Date',
   'Delete' => 'Delete',
+  'Description' => 'Description',
+  'Invocice_Status' => 'Invocice Status',
+  'Model' => 'Model',
+  'Name' => 'Name',
   'Print' => 'Print',
   'Submit' => 'Submit',
   'Update' => 'Update',
+  'User' => 'User',
   'account' => 'Accounts',
   'ambulance' => 'Ambulance',
   'ambulance_calls' => 'Ambulance Calls',
@@ -20,7 +27,9 @@ return array (
   'diagnosis_laboratory' => 'diagnosis laboratory',
   'dignosis_complate_x-ray' => 'diagnosis complete x-ray',
   'dignosis_x-ray' => 'diagnosis x-ray',
+  'doctor_dashobord' => 'Doctor Dashobord',
   'doctors' => 'Doctors',
+  'employee' => 'Employee Dashboard',
   'group_service' => 'Group Service',
   'index' => 'Home',
   'insurance' => 'Insurance',
@@ -54,4 +63,5 @@ return array (
   'wait_bookLists' => 'wait book lists',
   'welcome' => 'welcome',
   'x-ray' => 'x-ray',
+  'x-ray_status' => 'x-ray status',
 );

@@ -4,7 +4,7 @@
 <div class="app-content content">
     <div class="content-wrapper">
         <div class="content-header row">
-          <p>لوحة تحكم الدكتور</p>
+          <p>{{ trans('main-sidebar.doctor_dashobard') }}</p>
         </div>
         <div class="content-body">
             <div class="row">
