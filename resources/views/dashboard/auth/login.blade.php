@@ -31,7 +31,7 @@
                        
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="sectionchoose">حدد طريقة الدخول</label>
+                                <label for="sectionchoose">{{ trans('main-sidebar.login_method') }}</label>
                                 <select class="form-control" id="sectionchoose">
                                     <option selected disabled>تختار من القائمة</option>
                                     <option value="doctor">دخول دكتور </option>

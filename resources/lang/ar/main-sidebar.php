@@ -37,6 +37,7 @@ return array (
   'invoice_list_complete' => 'قائمة الكشوفات المكتملة',
   'invoice_list_review' => 'قائمة الكشوفات تحت المراجعة',
   'laboratory' => 'قسم التحاليل',
+  'login_method' => 'حدد طريقة الدخول',
   'logout' => 'تسجيل خروج',
   'main' => 'ادارة المستضفيات',
   'medicines' => 'الادوية',

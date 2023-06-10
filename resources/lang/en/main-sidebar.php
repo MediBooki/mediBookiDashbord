@@ -38,6 +38,7 @@ return array (
   'invoice_list_complete' => 'Invoice List Complete',
   'invoice_list_review' => 'Invoice List Review',
   'laboratory' => 'laboratory',
+  'login_method' => 'Login Method',
   'logout' => 'logout',
   'main' => 'MediaBooking System',
   'medicines' => 'Medicines',
