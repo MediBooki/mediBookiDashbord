@@ -152,7 +152,7 @@
                         </ul>
                     </li>
                 @endif
-                
+                @can('blogs')
                 <li class="nav-item {{Route::currentRouteName()=='blogs.index'? 'open':''}}">
                     <a href=""><i class="la la-cube"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.blogs') }}</span></a>
                     <ul class="menu-content">
@@ -161,6 +161,8 @@
                         </li>
                     </ul>
                 </li>
+                @endcan
+                @can('terms')
                 <li class="nav-item {{Route::currentRouteName()=='terms.index'? 'open':''}}">
                     <a href=""><i class="la la-cube"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.terms') }}</span></a>
                     <ul class="menu-content">
@@ -169,6 +171,8 @@
                         </li>
                     </ul>
                 </li>
+                @endcan
+                @can('orders')
                 <li class="nav-item {{Route::currentRouteName()=='Dash_orders.index'? 'open':''}}">
                     <a href="">
                         <i class="la la-anchor"></i>
@@ -188,6 +192,8 @@
                         </li>
                     </ul>
                 </li>
+                @endcan
+                @can('settings')
                 <li class="nav-item {{Route::currentRouteName()=='settings.edit'? 'open':(Route::currentRouteName()=='sliders.index' ? 'open' : '')}}">
                     <a href=""><i class="la la-anchor"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.settings') }}</span></span></a>
                     <ul class="menu-content">
@@ -199,6 +205,7 @@
                         </li>
                     </ul>
                 </li>
+                @endcan
         </ul>
     </div>
 </div>

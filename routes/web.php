@@ -102,14 +102,14 @@ Route::group([
         /** قسم الكشوفات*/
         Route::resource('bookLists' , BookListController::class)->except(['edit','show'])->middleware('can:bookLists');
         /*-------------End--------------------------- */
-        Route::resource('Dash_orders' , OrderController::class);
-        Route::get('order_preparation',[OrderController::class, 'order_preparation'])->name('preparation');
-        Route::get('order_undelivered',[OrderController::class, 'order_undelivered'])->name('undelivered');
-        Route::get('order_delivered',[OrderController::class, 'order_delivered'])->name('delivered');
+        Route::resource('Dash_orders' , OrderController::class)->middleware('can:orders');
+        Route::get('order_preparation',[OrderController::class, 'order_preparation'])->name('preparation')->middleware('can:orders');
+        Route::get('order_undelivered',[OrderController::class, 'order_undelivered'])->name('undelivered')->middleware('can:orders');
+        Route::get('order_delivered',[OrderController::class, 'order_delivered'])->name('delivered')->middleware('can:orders');
 
 
-        Route::resource('settings' , SettingController::class)->only(['edit','update']);
-        Route::resource('sliders' , SliderController::class);
+        Route::resource('settings' , SettingController::class)->only(['edit','update'])->middleware('can:settings');
+        Route::resource('sliders' , SliderController::class)->middleware('can:settings');
 
         Route::resource('profile' , ProfileController::class)->only(['edit','update']);
 

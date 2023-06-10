@@ -29,7 +29,9 @@ class PermissionTableSeeder extends Seeder
             'users',
             'blogs',
             'sliders',
-            'settings'
+            'settings',
+            'terms',
+            'orders'
     ];
     
     
