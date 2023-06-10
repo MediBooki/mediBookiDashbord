@@ -9,7 +9,7 @@
                 <li class="nav-item">
                     <a class="navbar-brand" href="#">
                         <img class="brand-logo" alt="modern admin logo"
-                                src="{{asset('assets/admin/images/logo/logo.png')}}">
+                                src="{{asset('assets/admin/images/logo/GP3.png')}}">
                         <h3 class="brand-text">MediBooki</h3>
                     </a>
                 </li>
