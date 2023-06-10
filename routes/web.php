@@ -47,7 +47,7 @@ Route::group([
     });
 
     Route::middleware('auth')->group(function () {
-        Route::resource('tenants' , TenantController::class);
+        Route::resource('tenants' , TenantController::class)->middleware('can:tenants');
 
         Route::get('/dashboard/admin',[HomeController::class,'index'])->name('dashboard');
         

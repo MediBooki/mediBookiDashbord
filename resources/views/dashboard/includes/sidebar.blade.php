@@ -143,6 +143,7 @@
                 </li>
                 @endcan
                 @if (request()->getHost() == "medibookidashbord.test")
+                    @can('tenants')
                     <li class="nav-item {{Route::currentRouteName()=='tenants.index'? 'open':''}}">
                         <a href=""><i class="la la-cube"></i><span class="menu-title" data-i18n="nav.dash.main">{{ trans('main-sidebar.tenants') }}</span></a>
                         <ul class="menu-content">
@@ -151,6 +152,7 @@
                             </li>
                         </ul>
                     </li>
+                    @endcan
                 @endif
                 @can('blogs')
                 <li class="nav-item {{Route::currentRouteName()=='blogs.index'? 'open':''}}">

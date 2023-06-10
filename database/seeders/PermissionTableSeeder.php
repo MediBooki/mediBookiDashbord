@@ -31,7 +31,9 @@ class PermissionTableSeeder extends Seeder
             'sliders',
             'settings',
             'terms',
-            'orders'
+            'orders',
+            'tenants'
+
     ];
     
     

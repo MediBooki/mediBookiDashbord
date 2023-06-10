@@ -46,7 +46,7 @@
                                         <h4>{{ trans('main-sidebar.orders') }}</h4>
                                     </div>
                                     <div class="col-5 text-right">
-                                        <h4>{{ \App\Models\order::where('check',1)->count() }}</h4>
+                                        <h4>{{ \App\Models\Order::where('check',1)->count() }}</h4>
 
                                     </div>
                                 </div>
