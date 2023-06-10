@@ -48,6 +48,7 @@
                                               enctype="multipart/form-data">
                                               {{ method_field('patch') }}
                                             @csrf
+                                            <input type="hidden" name="id" value="{{ $role->id }}">
                                             <div class="form-body">
                                                 <h4 class="form-section"><i class="ft-home"></i> {{ trans('main-sidebar.roles') }}</h4>
                                                 <div class="row">

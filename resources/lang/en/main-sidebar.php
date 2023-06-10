@@ -38,6 +38,7 @@ return array (
   'invoice_list_complete' => 'Invoice List Complete',
   'invoice_list_review' => 'Invoice List Review',
   'laboratory' => 'laboratory',
+  'labs' => 'Labs',
   'login' => 'login',
   'login as a doctor' => 'login as a doctor',
   'login as an employee' => 'login as an employee',
