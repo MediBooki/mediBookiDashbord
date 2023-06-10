@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
-                            <span>login dashboard </span>
+                            <span> {{ trans('main-sidebar.login dashboard') }} </span>
                         </h6>
                     </div>
                     @include('dashboard.includes.alerts.errors')
@@ -33,15 +33,15 @@
                             <div class="form-group">
                                 <label for="sectionchoose">{{ trans('main-sidebar.login_method') }}</label>
                                 <select class="form-control" id="sectionchoose">
-                                    <option selected disabled>تختار من القائمة</option>
-                                    <option value="doctor">دخول دكتور </option>
-                                    <option value="admin">الدخول كأدمن</option>
+                                    <option selected disabled>{{ trans('main-sidebar.choose') }}</option>
+                                    <option value="doctor">{{ trans('main-sidebar.login as a doctor') }}</option>
+                                    <option value="admin">{{ trans('main-sidebar.login as an employee') }}</option>
                                 </select>
                             </div>
                             {{-- Form User --}}
                             <div class="loginform" id="doctor">
                                 <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
-                                    <span>دخول دكتور </span>
+                                    <span>{{ trans('main-sidebar.login as a doctor') }}</span>
                                 </h6>
                                 <form class="form-horizontal form-simple" action="{{ route('login.doctor') }}" method="post"
                                     novalidate>
@@ -73,19 +73,19 @@
                                             <fieldset>
                                                 <input type="checkbox" name="remember" id="remember-me"
                                                     class="chk-remember">
-                                                <label for="remember-me">remember me</label>
+                                                <label for="remember-me">{{ trans('main-sidebar.remember me') }}</label>
                                             </fieldset>
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-info btn-lg btn-block"><i class="ft-unlock"></i>
-                                        login
+                                        {{ trans('main-sidebar.login') }}
                                     </button>
                                 </form>
                             </div>
                              {{-- Form Admin --}}
                              <div class="loginform" id="admin">
                                 <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
-                                    <span>الدخول كأدمن </span>
+                                    <span>{{ trans('main-sidebar.login as a employee') }}</span>
                                 </h6>
                                 <form class="form-horizontal form-simple" action="{{ route('login') }}" method="post"
                                     novalidate>
@@ -117,12 +117,12 @@
                                             <fieldset>
                                                 <input type="checkbox" name="remember" id="remember-me"
                                                     class="chk-remember">
-                                                <label for="remember-me">remember me</label>
+                                                <label for="remember-me">{{ trans('main-sidebar.remember me') }}</label>
                                             </fieldset>
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-info btn-lg btn-block"><i class="ft-unlock"></i>
-                                        login
+                                        {{ trans('main-sidebar.login') }}
                                     </button>
                                 </form>
                             </div>
