@@ -34,8 +34,8 @@ class TenantController extends Controller
         if($request->hasFile('logo') && $request->file('logo')->isValid()){
             $tenants->addMediaFromRequest('logo')->toMediaCollection('logo');
         }
-        DB::statement("CREATE DATABASE $tenants->database");
-        Artisan::call('database:migrate');
+        // DB::statement("CREATE DATABASE $tenants->database");
+        // Artisan::call('database:migrate');
         return redirect()->route('tenants.index')->with('success','Tenant created successfully');
       
     }
@@ -58,7 +58,7 @@ class TenantController extends Controller
     public function destroy(Request $request)
     {
         $tenant = Tenant::findOrFail($request->id);
-        DB::statement("DROP DATABASE  $tenant->database");
+        // DB::statement("DROP DATABASE  $tenant->database");
         $tenant->delete();
         $tenant->clearMediaCollection('photo');
         return redirect()->route('tenants.index')->with(['success' => 'tenant Deleted Successfully']);
