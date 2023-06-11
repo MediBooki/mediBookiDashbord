@@ -15,13 +15,13 @@ class HomeController extends Controller
     public function index()
     {
         $rating = DoctorReview::where('doctor_id',Auth::user()->id)->orderBy('id','DESC')->with(['patient'])->take(10)->get();
-        $bestServices = Service::selectRaw('services.*, COUNT(invoices.id) AS booking_count')
-        ->join('invoices', 'invoices.service_id', '=', 'services.id')
-        ->where('invoices.doctor_id', Auth::user()->id)
-        ->groupBy('services.id', 'services.name','services.description','services.price')
-        ->orderByDesc('booking_count')
-        ->take(5)
-        ->get();
+          $bestServices = Service::selectRaw('services.*, COUNT(invoices.id) AS booking_count')
+            ->join('invoices', 'invoices.service_id', '=', 'services.id')
+            ->where('invoices.doctor_id', Auth::user()->id)
+            ->groupBy('services.id')
+            ->orderByDesc('booking_count')
+            ->take(5)
+            ->get();
         return view('dashboard.doctorDashboard.dashboard',compact('rating','bestServices'));
     }
 }
