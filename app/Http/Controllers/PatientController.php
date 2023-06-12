@@ -46,10 +46,12 @@ class PatientController extends Controller
     }
     public function getInsurance($id)
     {
-        $insurance = Patient::where('id', $id)->select('insurance_id')->first();
+        $insurance = Patient::where([
+            ['id', $id],
+            ['insurance_status',1]
+        ])->select('insurance_id')->first();
         $comp_insurance = Insurance::where([
             ['id', $insurance->insurance_id],
-            ['insurance_status',1]
             ])->first();
         return $comp_insurance;
     }
