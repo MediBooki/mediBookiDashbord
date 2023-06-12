@@ -12,7 +12,7 @@
             <form action="{{ route('services.store') }}" method="post" enctype="multipart/form-data" autocomplete="off">
                 @csrf
                 <div class="modal-body">
-                    <div class="row m-1">
+                    {{-- <div class="row m-1">
                         <label> {{ trans('service.photo') }} </label>
                         <label id="projectinput7" class="file center-block">
                             <input type="file" accept="image/*" name="photo" onchange="loadFile(event)">
@@ -21,7 +21,7 @@
                         @error('photo')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
-                    </div>
+                    </div> --}}
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">

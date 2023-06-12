@@ -51,7 +51,7 @@
                                                 <th>{{ trans('service.name') }}</th>
                                                 <th>{{ trans('service.price') }}</th>
                                                 <th>{{ trans('service.status') }}</th>
-                                                <th>{{ trans('service.photo') }}</th>
+                                                {{-- <th>{{ trans('service.photo') }}</th> --}}
                                                 <th>{{ trans('service.description') }}</th>
 
                                                 <th>{{ trans('main-sidebar.Control')}}</th>
@@ -69,7 +69,7 @@
                                                                 {{ $service->status == 1 ? trans('doctor.enabled') :  trans('doctor.disabled')}}
                                                             </span>
                                                         </td>
-                                                        <td><img style="width: 150px; height: 100px;" src="{{$service->getFirstMediaUrl('photo')}}"></td>
+                                                        {{-- <td><img style="width: 150px; height: 100px;" src="{{$service->getFirstMediaUrl('photo')}}"></td> --}}
                                                         <td>{{\Str::limit($service->description,60)}}</td>
                                                         <td>
                                                             <div class="btn-group">

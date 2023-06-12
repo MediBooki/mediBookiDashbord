@@ -13,7 +13,7 @@
                 {{ method_field('patch') }}
                 @csrf
                 <div class="modal-body">
-                    <div class="row m-1">
+                    {{-- <div class="row m-1">
                         <label> {{ trans('service.photo') }} </label>
                         <label id="projectinput7" class="file center-block">
                             <input type="file" accept="image/*" name="photo" onchange="loadFile(event)">
@@ -22,7 +22,7 @@
                         @error('photo')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
-                    </div>
+                    </div> --}}
                     <div class="row">
                         <input type="hidden" name="id" value="{{ $service->id }}">
                         <div class="col-md-6">
