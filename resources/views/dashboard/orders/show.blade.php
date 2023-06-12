@@ -25,9 +25,12 @@
           <div id="invoice-template" class="card-body" >
             <!-- Invoice Customer Details -->
             <div id="invoice-customer-details" class="row pt-2">
-              <div class="col-sm-12 text-center text-md-left">
-                <p class="text-muted">{{ trans('order.invoice') }}</p>
+              <div class="col-sm-12 text-center">
+                <img src="{{asset('assets/admin/images/logo/GP2.png')}}" alt="LOGO"/>
               </div>
+              {{-- <div class="col-sm-12 text-center text-md-left">
+                <p class="text-muted">{{ trans('order.invoice') }}</p>
+              </div> --}}
               <div class="col-md-6 col-sm-12 text-center text-md-left">
                 <ul class="px-0 list-unstyled">
                   <li class="text-bold-800">{{$order->first_name}} {{ $order->last_name }}</li>
