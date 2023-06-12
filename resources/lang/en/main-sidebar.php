@@ -8,6 +8,7 @@ return array (
   'Date' => 'Date',
   'Delete' => 'Delete',
   'Description' => 'Description',
+  'Due' => 'Due',
   'Invocice_Status' => 'Invocice Status',
   'Model' => 'Model',
   'Name' => 'Name',
