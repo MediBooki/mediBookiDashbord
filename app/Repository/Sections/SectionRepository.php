@@ -3,6 +3,7 @@
 namespace App\Repository\Sections;
 
 use App\Interfaces\Sections\SectionRepositoryInterface;
+use App\Models\Appointment;
 use App\Models\Section;
 use Illuminate\Support\Facades\DB;
 
@@ -20,7 +21,9 @@ class SectionRepository implements SectionRepositoryInterface
     {
         $doctors = Section::findOrFail($id)->doctors;
         $section =  Section::findOrFail($id);
-        return view('dashboard.sections.show', compact('section','doctors'));
+        $appointments = Appointment::orderBy('id','DESC')->get();
+
+        return view('dashboard.sections.show', compact('section','doctors','appointments'));
     }
     public function store($request)
     {
