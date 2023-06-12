@@ -76,7 +76,7 @@
                       <table class="table table-borderless table-sm">
                         <tbody>
                           <tr>
-                            <td>{{$status == 1 ? 'Credit Card' : 'cash'}}</td>
+                            <td>{{$order->status == 1 ? 'Credit Card' : 'cash'}}</td>
                           </tr>
                         </tbody>
                       </table>
