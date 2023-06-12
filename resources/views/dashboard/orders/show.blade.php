@@ -76,8 +76,7 @@
                       <table class="table table-borderless table-sm">
                         <tbody>
                           <tr>
-                            <td>Bank name:</td>
-                            <td class="text-right">ABC Bank, USA</td>
+                            <td>{{$status == 1 ? 'Credit Card' : 'cash'}}</td>
                           </tr>
                         </tbody>
                       </table>
